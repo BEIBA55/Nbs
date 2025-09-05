@@ -1,0 +1,970 @@
+@import './tailwind.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Анимации для библиотеки */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(153, 30, 30, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(153, 30, 30, 0.6);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(153, 30, 30, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Анимация для карточек аккредитаций */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Анимация для новостных карточек */
+@keyframes news-card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.news-card-animate {
+  animation: news-card-appear 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Анимация для карточек при наведении */
+@keyframes card-hover {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.news-card-hover {
+  animation: card-hover 0.3s ease-out;
+}
+
+/* Стили для контента новостей */
+.news-content {
+  line-height: 1.8;
+  color: #374151;
+}
+
+.news-content h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid #fecaca;
+  position: relative;
+}
+
+.news-content h2::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #dc2626, #ea580c);
+}
+
+.news-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 4px solid #dc2626;
+}
+
+.news-content p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #4b5563;
+}
+
+.news-content ul {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.news-content li {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+  color: #4b5563;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.news-content li::before {
+  content: '•';
+  color: #dc2626;
+  font-weight: bold;
+  position: absolute;
+  left: -1rem;
+}
+
+.news-content strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.news-content em {
+  color: #dc2626;
+  font-style: italic;
+}
+
+/* Блоки с акцентом */
+.news-content blockquote {
+  background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
+  border-left: 4px solid #dc2626;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.news-content blockquote p {
+  margin: 0;
+  font-style: italic;
+  color: #374151;
+}
+
+/* Выделенные блоки */
+.news-content .highlight {
+  background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
+  border: 1px solid #fecaca;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1);
+}
+
+/* Списки с иконками */
+.news-content .icon-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.news-content .icon-list li {
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.news-content .icon-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #dc2626;
+  border-radius: 50%;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+/* Оптимизация изображений */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Плавная загрузка изображений */
+.image-loading {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image-loaded {
+  opacity: 1;
+}
+
+/* Skeleton loader для изображений */
+.image-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Автоматическая прокрутка партнеров */
+@keyframes scroll-partners {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.partners-scroll {
+  animation: scroll-partners 60s linear infinite;
+}
+
+.partners-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Градиенты для плавного перехода по краям */
+.partners-container::before,
+.partners-container::after {
+  content: '';
+
+/* Кастомные стили для уведомлений */
+.Toastify__toast {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  min-height: 64px !important;
+  padding: 16px 20px !important;
+}
+
+.Toastify__toast--success {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%) !important;
+  border: 1px solid #bbf7d0 !important;
+  color: #166534 !important;
+}
+
+.Toastify__toast--error {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%) !important;
+  border: 1px solid #fecaca !important;
+  color: #dc2626 !important;
+}
+
+.Toastify__toast--warning {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%) !important;
+  border: 1px solid #fed7aa !important;
+  color: #d97706 !important;
+}
+
+.Toastify__toast--info {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%) !important;
+  border: 1px solid #bfdbfe !important;
+  color: #2563eb !important;
+}
+
+.Toastify__progress-bar {
+  height: 3px !important;
+  border-radius: 0 0 12px 12px !important;
+}
+
+.Toastify__close-button {
+  color: inherit !important;
+  opacity: 0.7 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1 !important;
+}
+
+/* Анимация появления уведомлений */
+@keyframes toast-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.Toastify__toast {
+  animation: toast-slide-in 0.3s ease-out !important;
+}
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.partners-container::before {
+  left: 0;
+  background: linear-gradient(to right, white, transparent);
+}
+
+.partners-container::after {
+  right: 0;
+  background: linear-gradient(to left, white, transparent);
+}
+
+/* Section separator styles */
+.section-separator {
+  position: relative;
+  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+  height: 80px;
+}
+
+.section-separator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(156, 163, 175, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+/* Анимации для страницы Executive MBA */
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-up {
+  animation: slide-in-up 0.6s ease-out forwards;
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.6s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.6s ease-out forwards;
+}
+
+/* Эффект hover для карточек */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Мгновенная прокрутка */
+html {
+  scroll-behavior: instant;
+}
+
+/* Анимация для плавного перехода между страницами */
+@keyframes fade-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-scale-in {
+  animation: fade-scale 0.4s ease-out forwards;
+}
+
+/* Анимация для fade-in */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+/* Анимация для карточек новостей */
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.news-card-animate {
+  animation: slide-in-up 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.news-card-animate:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.news-card-animate:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.news-card-animate:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.news-card-animate:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.news-card-animate:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.news-card-animate:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.news-card-animate:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.news-card-animate:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+/* Плавный переход для карточек */
+.faculty-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Дополнительные анимации для плавности */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ограничение текста для карточек */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Дополнительные эффекты для карточек */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+}
+
+/* Скрытие скроллбара для мобильных фильтров */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Улучшенная поддержка тач-интерфейса */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+/* Мобильные анимации - более плавные */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+  }
+}
+
+/* Мобильные карточки - улучшенная адаптация */
+@media (max-width: 768px) {
+  .mobile-card-spacing {
+    margin-bottom: 1rem;
+  }
+
+  .mobile-text-responsive {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .mobile-padding {
+    padding: 1rem;
+  }
+
+  .mobile-gap {
+    gap: 0.75rem;
+  }
+}
+
+/* Контейнер для мобильных форм */
+.mobile-form-container {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .mobile-form-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-form-container {
+    padding: 2rem;
+  }
+}
+
+/* Мобильные кнопки - улучшенные размеры для тача */
+.mobile-button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-button {
+    min-height: 40px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Адаптивная сетка для карточек */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .responsive-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Мобильная типографика */
+.mobile-heading {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-heading {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Мобильные модальные окна */
+.mobile-modal {
+  margin: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+@media (min-width: 640px) {
+  .mobile-modal {
+    margin: 2rem;
+    max-height: calc(100vh - 4rem);
+  }
+}
+
+/* Улучшенная адаптация изображений */
+.mobile-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* Мобильная навигация по секциям */
+.mobile-section-nav {
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Адаптивные отступы */
+.mobile-spacing {
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-spacing {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-spacing {
+    padding: 2rem;
+  }
+}
+
+/* Фокус для клавиатурной навигации */
+.mobile-focus:focus {
+  outline: 2px solid #991e1e;
+  outline-offset: 2px;
+}
+
+/* Адаптивные видео */
+.mobile-video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.mobile-video-container iframe,
+.mobile-video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Мобильные переходы страниц */
+.mobile-page-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Адаптивные контейнеры */
+.mobile-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-container {
+    padding: 0 2rem;
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mobile-container {
+    max-width: 1536px;
+  }
+}
+
+/* Улучшенные анимации для карточек администрации */
+@keyframes admin-card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.admin-card-animate {
+  animation: admin-card-appear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+/* Улучшенные анимации для карточек преподавателей */
+@keyframes faculty-card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.faculty-card-animate {
+  animation: faculty-card-appear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+/* Простая анимация появления для карточек преподавателей */
+@keyframes faculty-card-simple {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faculty-card-simple {
+  animation: faculty-card-simple 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+/* Анимация для карточек видео выпускников */
+@keyframes graduate-video-card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.graduate-video-card-animate {
+  animation: graduate-video-card-appear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+/* Улучшенные hover эффекты для карточек */
+.card-hover-lift {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Анимация для кнопок навигации */
+@keyframes button-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.nav-button-pulse {
+  animation: button-pulse 0.3s ease-out;
+}
+
+/* Улучшенные переходы для изображений */
+.image-zoom-smooth {
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-zoom-smooth:hover {
+  transform: scale(1.1);
+}
+
+/* Анимация для градиентных оверлеев */
+.gradient-overlay {
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Улучшенные анимации для текста */
+.text-reveal {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Анимация для индикаторов (точек) */
+.indicator-pulse {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.indicator-pulse:hover {
+  transform: scale(1.25);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+/* Простая анимация появления для карточек администрации */
+@keyframes admin-card-simple {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admin-card-simple {
+  animation: admin-card-simple 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+/* Простая анимация для карточек видео выпускников */
+@keyframes graduate-video-card-simple {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.graduate-video-card-simple {
+  animation: graduate-video-card-simple 0.4s ease-out forwards;
+  opacity: 0;
+}
