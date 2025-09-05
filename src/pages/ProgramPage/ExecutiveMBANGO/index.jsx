@@ -116,36 +116,8 @@ const ExecutiveMBANGO = () => {
     }
   ];
 
-  // Адаптивное количество карточек в зависимости от размера экрана
-  const getCardsPerView = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth < 640) return 1; // мобильные
-      if (window.innerWidth < 1024) return 2; // планшеты
-      return 3; // десктоп
-    }
-    return 3; // по умолчанию
-  };
-
-  const [cardsPerView, setCardsPerView] = useState(3);
+  const cardsPerView = 3;
   const totalSlides = Math.ceil(programCards.length / cardsPerView);
-
-  // Обновляем количество карточек при изменении размера экрана
-  React.useEffect(() => {
-    const handleResize = () => {
-      const newCardsPerView = getCardsPerView();
-      setCardsPerView(newCardsPerView);
-      
-      // Сбрасываем индекс при изменении размера экрана
-      const newTotalSlides = Math.ceil(programCards.length / newCardsPerView);
-      if (currentCardIndex >= newTotalSlides) {
-        setCurrentCardIndex(0);
-      }
-    };
-
-    handleResize(); // устанавливаем начальное значение
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [currentCardIndex, programCards.length]);
 
   const nextSlide = () => {
     setCurrentCardIndex((prev) => (prev + 1) % totalSlides);
@@ -411,37 +383,37 @@ const ExecutiveMBANGO = () => {
 
       {/* Hero Section */}
       <div
-        className="relative bg-cover bg-center bg-no-repeat text-white py-16 sm:py-32 lg:py-64 px-4 sm:px-8 min-h-screen flex items-end pb-16 sm:pb-32"
+        className="relative bg-cover bg-center bg-no-repeat text-white py-64 px-8 min-h-screen flex items-end pb-32"
         style={{ backgroundImage: 'url(/images/НпоНко/Hiro.png)' }}
       >
 
         <div className="relative max-w-7xl mx-auto text-center w-full">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">
+          <h1 className="text-6xl lg:text-7xl font-bold mb-8 leading-tight">
             EXECUTIVE МВА ДЛЯ НПО/НКО
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 sm:mb-4 font-medium">
+          <p className="text-xl lg:text-2xl mb-4 font-medium">
             Программа для лидеров социальных изменений
           </p>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 lg:mb-12">
+          <p className="text-xl lg:text-2xl mb-12">
             правление некоммерческими организациями и социальными проектами
           </p>
           
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-6">
-            <div className="bg-[#4C1C6F] text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base lg:text-lg border-2 border-white/20 hover:bg-[#5A2A8A] transition-colors">
+          <div className="flex flex-wrap justify-center gap-6">
+            <div className="bg-[#4C1C6F] text-white px-8 py-3 rounded-full font-semibold text-lg border-2 border-white/20 hover:bg-[#5A2A8A] transition-colors">
               Weekend формат обучения
             </div>
-            <div className="bg-[#4C1C6F] text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base lg:text-lg border-2 border-white/20 hover:bg-[#5A2A8A] transition-colors">
+            <div className="bg-[#4C1C6F] text-white px-8 py-3 rounded-full font-semibold text-lg border-2 border-white/20 hover:bg-[#5A2A8A] transition-colors">
               12 преподавателей
             </div>
-            <div className="bg-[#4C1C6F] text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base lg:text-lg border-2 border-white/20 hover:bg-[#5A2A8A] transition-colors">
+            <div className="bg-[#4C1C6F] text-white px-8 py-3 rounded-full font-semibold text-lg border-2 border-white/20 hover:bg-[#5A2A8A] transition-colors">
               14 месяцев
             </div>
             <div
               onClick={() => setShowPresentationModal(true)}
-              className="bg-[#4C1C6F] text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base lg:text-lg border-2 border-white/20 hover:bg-[#5A2A8A] transition-colors cursor-pointer flex items-center gap-1 sm:gap-2"
+              className="bg-[#4C1C6F] text-white px-8 py-3 rounded-full font-semibold text-lg border-2 border-white/20 hover:bg-[#5A2A8A] transition-colors cursor-pointer flex items-center gap-2"
             >
               <svg 
-                className="w-4 h-4 sm:w-5 sm:h-5" 
+                className="w-5 h-5" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
@@ -453,8 +425,7 @@ const ExecutiveMBANGO = () => {
                   d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
                 />
               </svg>
-              <span className="hidden sm:inline">Скачать презентацию</span>
-              <span className="sm:hidden">Скачать</span>
+              Скачать презентацию
             </div>
           </div>
         </div>
@@ -574,131 +545,95 @@ const ExecutiveMBANGO = () => {
       </section>
 
       {/* Who is this program for Section */}
-      <div className="px-4 sm:px-8">
+      <div className="px-8">
         <div className="max-w-full mx-auto">
-          <div className="bg-[#4C1C6F] rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12">
+          <div className="bg-[#4C1C6F] rounded-3xl p-12">
             <div className="max-w-7xl mx-auto">
               {/* Top button */}
-              <div className="text-center mb-6 sm:mb-8">
-                <button className="bg-white/20 text-white px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium hover:bg-white/30 transition-colors">
+              <div className="text-center mb-8">
+                <button className="bg-white/20 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-white/30 transition-colors">
                   О программе
                 </button>
               </div>
               
               {/* Main heading */}
-              <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-3 sm:mb-4">
+              <div className="text-center mb-16">
+                <h2 className="text-5xl font-bold text-white leading-tight mb-4">
                   Для кого эта программа?
                 </h2>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto px-4">
+                <p className="text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
                   Для системного развития и повышения эффективности управления проектами
                 </p>
               </div>
               
               {/* Cards with navigation */}
               <div className="relative">
-                {/* Desktop navigation arrows */}
+                {/* Left arrow - small and positioned on the side */}
                 <button 
                   onClick={prevSlide}
-                  className="hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-6 w-8 h-8 bg-white rounded-full items-center justify-center hover:bg-gray-100 transition-colors shadow-lg z-10"
+                  className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-6 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg z-10"
                 >
                   <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
                 
+                {/* Right arrow - small and positioned on the side */}
                 <button 
                   onClick={nextSlide}
-                  className="hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-6 w-8 h-8 bg-white rounded-full items-center justify-center hover:bg-gray-100 transition-colors shadow-lg z-10"
+                  className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-6 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg z-10"
                 >
                   <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
                 
-                {/* Mobile: Vertical cards layout */}
-                <div className="md:hidden space-y-4">
-                  {programCards.map((card, index) => (
-                    <div 
-                      key={card.id} 
-                      className="bg-white rounded-xl p-4 w-full relative group hover:shadow-xl transition-all duration-300 animate-fadeIn"
-                      style={{ 
-                        animationDelay: `${index * 100}ms`,
-                        animation: 'fadeIn 0.5s ease-in-out forwards'
-                      }}
-                    >
-                      {/* Image with icon overlay */}
-                      <div className="relative mb-4">
-                        <img 
-                          src={card.image} 
-                          alt={card.title}
-                          className="w-full h-40 object-cover rounded-lg"
-                        />
-                        {/* Icon in top left corner of image */}
-                        <div className="absolute top-2 left-2 w-8 h-8 bg-[#4C1C6F] rounded-full flex items-center justify-center">
-                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={card.icon} />
-                          </svg>
-                        </div>
-                      </div>
-                      
-                      {/* Title and description below image */}
-                      <h3 className="text-lg font-normal text-[#4C1C6F] mb-2">
-                        {card.title}
-                      </h3>
-                      <p className="text-sm text-gray-600 leading-relaxed">
-                        {card.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Desktop: Horizontal cards layout */}
-                <div className="hidden md:flex gap-4 lg:gap-6 justify-center pb-4 px-4 md:ml-6">
+                {/* Cards container */}
+                <div className="flex gap-6 justify-center pb-4 px-4 ml-6">
                   {programCards
                     .slice(currentCardIndex * cardsPerView, (currentCardIndex + 1) * cardsPerView)
                     .map((card, index) => (
                       <div 
                         key={card.id} 
-                        className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 w-full max-w-xs sm:max-w-sm md:w-96 h-auto sm:h-112 flex-shrink-0 relative group hover:shadow-xl transition-all duration-300 animate-fadeIn"
+                        className="bg-white rounded-2xl p-6 w-96 h-112 flex-shrink-0 relative group hover:shadow-xl transition-all duration-300 animate-fadeIn"
                         style={{ 
                           animationDelay: `${index * 100}ms`,
                           animation: 'fadeIn 0.5s ease-in-out forwards'
                         }}
                       >
-                        {/* Image with icon overlay */}
-                        <div className="relative mb-3 sm:mb-4">
+                    {/* Image with icon overlay */}
+                    <div className="relative mb-4">
                           <img 
                             src={card.image} 
                             alt={card.title}
-                            className="w-full h-32 sm:h-40 lg:h-48 object-cover rounded-lg sm:rounded-xl"
+                            className="w-full h-48 object-cover rounded-xl"
                           />
-                          {/* Icon in top left corner of image */}
-                          <div className="absolute top-1 sm:top-2 left-1 sm:left-2 w-8 h-8 sm:w-10 sm:h-10 bg-[#4C1C6F] rounded-full flex items-center justify-center">
-                            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      {/* Icon in top left corner of image */}
+                      <div className="absolute top-2 left-2 w-10 h-10 bg-[#4C1C6F] rounded-full flex items-center justify-center">
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={card.icon} />
-                            </svg>
-                          </div>
-                        </div>
-                        
-                        {/* Title and description below image */}
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-normal text-[#4C1C6F] mb-2 sm:mb-3">
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {/* Title and description below image */}
+                    <h3 className="text-2xl font-normal text-[#4C1C6F] mb-3">
                           {card.title}
-                        </h3>
-                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
                           {card.description}
                         </p>
                       </div>
                     ))}
-                </div>
+                    </div>
                     
-                {/* Desktop pagination dots */}
-                <div className="hidden md:flex justify-center mt-6 sm:mt-8 space-x-2">
+                {/* Pagination dots */}
+                <div className="flex justify-center mt-8 space-x-2">
                   {Array.from({ length: totalSlides }).map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToSlide(index)}
-                      className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${
+                      className={`w-3 h-3 rounded-full transition-colors ${
                         index === currentCardIndex 
                           ? 'bg-white' 
                           : 'bg-white/50 hover:bg-white/75'
