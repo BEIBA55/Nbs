@@ -29,6 +29,7 @@ import ExecutiveSessions from './pages/ProgramPage/ExecutiveSessions';
 import Trainings from './pages/ProgramPage/Trainings';
 import ExecutiveMBANGO from './pages/ProgramPage/ExecutiveMBANGO';
 import CorporateClients from './pages/ProgramPage/CorporateClients';
+import AdminPanel from './pages/AdminPanel';
 
 const AppRoutes = () => {
   return (
@@ -59,6 +60,7 @@ const AppRoutes = () => {
         <Route path="/library" element={<Library />} />
         <Route path="/search" element={<SearchResults />} />
         <Route path="/corporate-clients" element={<CorporateClients />} />
+        <Route path="/admin" element={<AdminPanel />} />
       </Routes>
     </Router>
   );

@@ -548,3 +548,202 @@ export const partnershipAPI = {
     ];
   }
 };
+
+import { createCSVContent, downloadCSV, formatFormDataForCSV, generateFormDataStats } from '../utils/csvUtils';
+
+// API для работы с данными форм (CSV экспорт)
+export const formDataAPI = {
+  // Сохранение данных формы презентации
+  savePresentationFormData: async (formData, programType = 'executive-mba-ngo') => {
+    // Имитация задержки API
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // В реальном проекте здесь был бы POST запрос к серверу
+    // const response = await fetch('https://api.extraspace.kz/forms/presentation-data', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   credentials: 'include',
+    //   body: JSON.stringify({
+    //     ...formData,
+    //     programType,
+    //     timestamp: new Date().toISOString(),
+    //     userAgent: navigator.userAgent,
+    //     referrer: document.referrer
+    //   })
+    // });
+    
+    // Сохраняем в localStorage для демонстрации (в реальном проекте данные будут на сервере)
+    const existingData = JSON.parse(localStorage.getItem('presentationFormData') || '[]');
+    const newEntry = {
+      id: `FORM-${Date.now()}`,
+      ...formData,
+      programType,
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      referrer: document.referrer
+    };
+    
+    existingData.push(newEntry);
+    localStorage.setItem('presentationFormData', JSON.stringify(existingData));
+    
+    return {
+      success: true,
+      message: 'Данные формы успешно сохранены!',
+      formId: newEntry.id,
+      data: newEntry
+    };
+  },
+
+  // Получение всех данных форм (для админ-панели)
+  getAllFormData: async (page = 1, limit = 50) => {
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    // В реальном проекте здесь был бы GET запрос с аутентификацией
+    // const response = await fetch(`https://api.extraspace.kz/admin/forms-data?page=${page}&limit=${limit}`, {
+    //   method: 'GET',
+    //   credentials: 'include'
+    // });
+    
+    // Получаем данные из localStorage для демонстрации
+    const allData = JSON.parse(localStorage.getItem('presentationFormData') || '[]');
+    
+    const startIndex = (page - 1) * limit;
+    const endIndex = startIndex + limit;
+    const paginatedData = allData.slice(startIndex, endIndex);
+    
+    return {
+      success: true,
+      data: paginatedData,
+      total: allData.length,
+      page,
+      limit,
+      totalPages: Math.ceil(allData.length / limit)
+    };
+  },
+
+  // Экспорт данных в CSV формат
+  exportToCSV: async (filters = {}) => {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // В реальном проекте здесь был бы GET запрос с аутентификацией
+    // const response = await fetch('https://api.extraspace.kz/admin/forms-data/export-csv', {
+    //   method: 'GET',
+    //   credentials: 'include'
+    // });
+    
+    // Получаем данные из localStorage для демонстрации
+    const allData = JSON.parse(localStorage.getItem('presentationFormData') || '[]');
+    
+    // Фильтрация данных
+    let filteredData = allData;
+    if (filters.programType) {
+      filteredData = filteredData.filter(item => item.programType === filters.programType);
+    }
+    if (filters.dateFrom) {
+      filteredData = filteredData.filter(item => new Date(item.timestamp) >= new Date(filters.dateFrom));
+    }
+    if (filters.dateTo) {
+      filteredData = filteredData.filter(item => new Date(item.timestamp) <= new Date(filters.dateTo));
+    }
+    
+    // Форматируем данные для CSV
+    const formattedData = formatFormDataForCSV(filteredData);
+    
+    // Создаем CSV контент с помощью утилиты
+    const csvContent = createCSVContent(formattedData, Object.keys(formattedData[0] || {}), {
+      includeHeaders: true,
+      dateFormat: 'ru-RU'
+    });
+    
+    return {
+      success: true,
+      csvContent,
+      filename: `presentation-forms-${new Date().toISOString().split('T')[0]}.csv`,
+      recordCount: filteredData.length
+    };
+  },
+
+  // Получение статистики по данным форм
+  getFormDataStats: async () => {
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    const allData = JSON.parse(localStorage.getItem('presentationFormData') || '[]');
+    const stats = generateFormDataStats(allData);
+    
+    return {
+      success: true,
+      stats
+    };
+  },
+
+  // Аутентификация для админ-панели
+  authenticateAdmin: async (credentials) => {
+    await new Promise(resolve => setTimeout(resolve, 800));
+    
+    // В реальном проекте здесь была бы проверка на сервере
+    // const response = await fetch('https://api.extraspace.kz/admin/auth', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   credentials: 'include',
+    //   body: JSON.stringify(credentials)
+    // });
+    
+    // Простая проверка для демонстрации
+    if (credentials.username === 'admin' && credentials.password === 'admin123') {
+      const token = `admin-token-${Date.now()}`;
+      localStorage.setItem('adminToken', token);
+      
+      return {
+        success: true,
+        message: 'Успешная аутентификация',
+        token,
+        user: {
+          id: 1,
+          username: 'admin',
+          role: 'admin'
+        }
+      };
+    }
+    
+    return {
+      success: false,
+      message: 'Неверные учетные данные'
+    };
+  },
+
+  // Проверка аутентификации
+  checkAuth: async () => {
+    await new Promise(resolve => setTimeout(resolve, 200));
+    
+    const token = localStorage.getItem('adminToken');
+    if (token) {
+      return {
+        success: true,
+        authenticated: true,
+        user: {
+          id: 1,
+          username: 'admin',
+          role: 'admin'
+        }
+      };
+    }
+    
+    return {
+      success: false,
+      authenticated: false
+    };
+  },
+
+  // Выход из системы
+  logout: async () => {
+    localStorage.removeItem('adminToken');
+    return {
+      success: true,
+      message: 'Успешный выход из системы'
+    };
+  }
+};

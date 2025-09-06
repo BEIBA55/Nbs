@@ -1614,6 +1614,306 @@
       }
     }
   },
+  "executiveMbaNgoPage": {
+    "hero": {
+      "title": "EXECUTIVE MBA FOR NGO/NPO",
+      "subtitle": "Program for leaders of social change",
+      "description": "Management of non-profit organizations and social projects",
+      "weekendFormat": "Weekend study format",
+      "teachers": "12 instructors",
+      "duration": "14 months",
+      "downloadPresentation": "Download presentation",
+      "downloadShort": "Download"
+    },
+    "aboutProgram": {
+      "title": "Executive MBA for",
+      "titleHighlight": "NGO/NPO Leaders",
+      "contactButton": "Contact us",
+      "description1": "Specialized Executive MBA program for leaders of non-profit organizations and social enterprises, preparing them to create sustainable social change and effectively manage NGOs/NPOs.",
+      "description2": "Program participants will study strategic management, financial planning, project management, fundraising and leadership in the social sphere, combining business approach with social mission."
+    },
+    "features": {
+      "stats": {
+        "daysPerMonth": {
+          "number": "3-4",
+          "label": "days per month",
+          "description": "Study 3-4 days per month in modular format without leaving work"
+        },
+        "groupSize": {
+          "number": "20",
+          "label": "people",
+          "description": "Only 20 people in a group from different regions of the country"
+        },
+        "experts": {
+          "number": "12",
+          "label": "experts",
+          "description": "Practicing instructors and internationally recognized diploma"
+        }
+      }
+    },
+    "whoIsThisProgramFor": {
+      "topButton": "About program",
+      "title": "Who is this program for?",
+      "subtitle": "For systematic development and improving project management efficiency",
+      "cards": {
+        "ngoSpecialists": {
+          "title": "NGO/NPO Specialists",
+          "description": "To gain practical knowledge necessary for scaling initiatives and strengthening management competencies"
+        },
+        "corporateManagers": {
+          "title": "Corporate Sector Managers",
+          "description": "To implement corporate social responsibility strategy and develop partnership initiatives"
+        },
+        "socialEntrepreneurs": {
+          "title": "Social Entrepreneurs",
+          "description": "For successful growth, scaling and sustainable management of business projects with social impact"
+        },
+        "charityExperts": {
+          "title": "Charity Sector Experts",
+          "description": "To optimize resource attraction processes and improve fundraising activity efficiency"
+        },
+        "governmentRepresentatives": {
+          "title": "Government Sector Representatives",
+          "description": "For better understanding of NGOs/NPOs and social entrepreneurship for productive partnership"
+        }
+      }
+    },
+    "experts": {
+      "topTag": "Experts",
+      "title": "Our Instructors",
+      "subtitle1": "— are experts,",
+      "subtitle2": "practitioners, coaches",
+      "subtitle3": "and successful",
+      "subtitle4": "businessmen",
+      "moreButton": "More",
+      "faculty": {
+        "anastasiaLozhkina": {
+          "name": "Anastasia Lozhkina",
+          "title": "Founder of Fundraisers Club",
+          "category": "Fundraising",
+          "specialization": "Fundraising",
+          "description": "Director: Autonomous non-profit organization \"Institute for Fundraising Development\". Lecturer: Plekhanov Russian University of Economics. Visiting lecturer at Harvard University, Lomonosov Moscow State University, Russian State University for the Humanities. Creator and author: Telegram channel Fundraising Lifehacks, courses for higher education on business and NGO interaction issues. Organizer: Regular online conference Fundraising of the New Era."
+        },
+        "evgeniaBelotelova": {
+          "name": "Evgenia Belotelova",
+          "title": "Managing Partner of PHILIN PHILGOOD Group of Companies, Ex-CEO of BF \"FRIENDS\"",
+          "category": "Fundraising",
+          "specialization": "Fundraising",
+          "description": "Expert with over 25 years of experience in the non-profit sector, solving social problems through fundraising development. Director of ANO \"Institute for Fundraising Development\", lecturer at Plekhanov Russian University of Economics, visiting lecturer at Harvard University, Moscow State University, Russian State University for the Humanities, creator and author of Telegram channel \"Fundraising Lifehacks\". Author of courses for higher education on business and NGO interaction, organizer of online conference \"Fundraising of the New Era\"."
+        },
+        "tatianaZadirako": {
+          "name": "Tatiana Zadirako",
+          "title": "General Director of BF \"Social Navigator\", PhD",
+          "category": "Social Projects",
+          "specialization": "Social Projects",
+          "description": "Expert with over 25 years of experience in the non-profit sector, solving social problems through fundraising development. Director of ANO \"Institute for Fundraising Development\", lecturer at Plekhanov Russian University of Economics, visiting lecturer at Harvard University, Moscow State University, Russian State University for the Humanities, creator and author of Telegram channel \"Fundraising Lifehacks\". Author of courses for higher education on business and NGO interaction, organizer of online conference \"Fundraising of the New Era\"."
+        },
+        "toleutaevaZevira": {
+          "name": "Toleutaeva Zevira",
+          "title": "Business trainer, consultant",
+          "category": "Finance",
+          "specialization": "Finance",
+          "description": "Teaching programs for international certifications CIMA and ACCA, development and conduct of corporate trainings on management accounting, budgeting and financial analysis. Consulting companies on implementation of management accounting and budgeting systems. Experience in international audit companies and consulting."
+        },
+        "zhanyaKurmanova": {
+          "name": "Zhanya Kurmanova",
+          "title": "Director of educational projects DOS community",
+          "category": "Public Communications",
+          "specialization": "Public Communications",
+          "description": "Entrepreneur and director of educational projects Dos Community. Graduate of HEC Paris Business School, has over 20 years of experience in managing companies in retail, HoReCa, manufacturing and educational initiatives. Specializes in leadership development and public communications."
+        },
+        "olegAlferov": {
+          "name": "Oleg Alferov",
+          "title": "Business trainer, business development consultant",
+          "category": "Project Management",
+          "specialization": "Project Management",
+          "description": "Conducting trainings and educational programs: development of new products and solutions, project management, change management, improving efficiency of managers and employees, leadership, team building, design thinking, development strategy and business model optimization."
+        },
+        "aleksandraZamyakina": {
+          "name": "Aleksandra Zamyakina",
+          "title": "Cofounder of project in ESG and sustainable development",
+          "category": "ESG for NGOs",
+          "specialization": "ESG for NGOs",
+          "description": "Expert in ESG and sustainable development with experience in creating educational and consulting programs for Central Asia. Develops corporate programs to raise employee awareness on ESG issues and retrain environmental specialists. Ambassador of climate game \"UN Summit: 1.5 degree scenario\" from Climate Interactive (MIT) for Central Asia. Consults companies on ESG implementation in management and reporting development."
+        },
+        "marinaNovotochina": {
+          "name": "Marina Novotochina",
+          "title": "Business coach and trainer, DBA",
+          "category": "Public Communications",
+          "specialization": "Public Communications",
+          "description": "Business coach and trainer, since 2001 engaged in consulting in human resource management and organizational development, teaches within MBA program. Runs own enterprise \"CEO Consult\", accumulating significant experience in management consulting and organization development in Kazakhstan market."
+        }
+      }
+    },
+    "curriculum": {
+      "topTag": "Curriculum",
+      "title": "Curriculum",
+      "tabs": {
+        "mandatory": {
+          "full": "Mandatory Disciplines",
+          "short": "Mandatory"
+        },
+        "elective": {
+          "full": "Elective Disciplines",
+          "short": "Elective"
+        },
+        "specializations": "Specializations"
+      },
+      "disciplines": {
+        "mandatory": [
+          { "title": "Strategic Management" },
+          { "title": "Business Research" },
+          { "title": "Strategic Human Capital Management" },
+          { "title": "Project Management" },
+          { "title": "Value Creation Strategy in Marketing" },
+          { "title": "Artificial Intelligence in Business" },
+          { "title": "Financial, Management Reporting and Analysis" }
+        ],
+        "elective": [
+          { "title": "Transformational Leadership" },
+          { "title": "Public Communications for Leaders" },
+          { "title": "Creativity and Design Thinking in Management" },
+          { "title": "Emotional Intelligence" },
+          { "title": "Reputation Management and Ethical Challenges" },
+          { "title": "Negotiation Strategy and Deal Making in Market Transformation" },
+          { "title": "Systems Thinking and Problem Solving" }
+        ],
+        "specializations": [
+          { "title": "NGO Management Fundamentals" },
+          { "title": "Fundraising, Lobbying and Advocacy" },
+          { "title": "ESG for NGOs: Integration of Environmental, Social and Governance Principles" }
+        ]
+      }
+    },
+    "studentReviews": {
+      "topButton": "Reviews",
+      "title": "Student Reviews",
+      "additionalVideo": "Additional Video",
+      "openButton": "Open",
+      "students": [
+        { "name": "Karimova Perizat" },
+        { "name": "Nadezhda Vadodaria" },
+        { "name": "Amreeva Elena" },
+        { "name": "Karmanova Elmira" },
+        { "name": "Sailaubekova Pakizat" },
+        { "name": "Kaldaiakova Botagoz" },
+        { "name": "Begaidarov Timur" }
+      ]
+    },
+    "programAdvantages": {
+      "title": "Program Advantages",
+      "navigation": {
+        "previous": "← Previous",
+        "next": "Next →"
+      },
+      "specialBadge": "INNOVATIONS START HERE",
+      "advantages": [
+        [
+          {
+            "title": "Next-level Knowledge",
+            "description": "The course covers everything necessary for systematic development and scaling of social projects: from fundraising to emotional intelligence"
+          },
+          {
+            "title": "Support for Your Projects",
+            "description": "Working on real cases using program resources, expert assistance from instructors and invited specialists"
+          },
+          {
+            "title": "International Status",
+            "description": "Upon completion of studies, graduates receive an internationally recognized academic diploma"
+          }
+        ],
+        [
+          {
+            "title": "Strong Community",
+            "description": "Networking with market experts, experience sharing and new partnerships"
+          },
+          {
+            "title": "Partners Among Leaders",
+            "description": "Students and instructors are leading specialists and practitioners of social entrepreneurship in Kazakhstan and abroad"
+          },
+          {
+            "title": "Market Recognition",
+            "description": "Graduates become among the first holders of specialized EMBA, form industry standards and share experience with the market"
+          }
+        ]
+      ]
+    },
+    "usefulLinks": {
+      "topButton": "Useful",
+      "title": "Useful Links",
+      "moreButton": "More",
+      "links": [
+        {
+          "title": "DOS Community",
+          "description": "Non-profit Foundation<br />of intellectual volunteering.<br />Helping to help.",
+          "url": "https://dos.community/",
+          "image": "/images/нпо/OS.jpeg"
+        },
+        {
+          "title": "Fundraising",
+          "description": "Open meeting of EMBA program dedicated to practical experience of students in fundraising.",
+          "url": "https://youtu.be/dtpBvaGnL8Q",
+          "image": "/images/нпо/Fanr.jpg"
+        },
+        {
+          "title": "Download Brochures",
+          "description": "Get detailed information about the program in a convenient format.",
+          "image": "/images/нпо/Brosh.jpg"
+        }
+      ]
+    },
+    "partners": {
+      "title": "Companies that Supported Us"
+    },
+    "modals": {
+      "contact": {
+        "title": "Contact Us",
+        "subtitle": "EXECUTIVE MBA FOR NGOs/NPOs",
+        "address": {
+          "label": "Address",
+          "street": "Almaty, Zhandosov St., 55/10",
+          "country": "Republic of Kazakhstan, 050035"
+        },
+        "phone": {
+          "label": "Phone",
+          "number": "+ 7 776 708 3636"
+        },
+        "email": {
+          "label": "Email",
+          "address": "gsb@narxoz.kz"
+        },
+        "workingHours": {
+          "label": "Working Hours",
+          "schedule": "Mon-Fri: 9:00 - 18:00"
+        },
+        "buttons": {
+          "close": "Close",
+          "downloadPresentation": "Download Presentation"
+        }
+      },
+      "presentation": {
+        "title": "Download Presentation",
+        "subtitle": "EXECUTIVE MBA FOR NGOs/NPOs",
+        "description": "Fill out the form to get the program presentation",
+        "form": {
+          "name": "Your Name",
+          "email": "Email",
+          "phone": "Phone",
+          "company": "Company"
+        },
+        "buttons": {
+          "cancel": "Cancel",
+          "download": "Download"
+        },
+        "privacy": "By clicking the button, you agree to the privacy policy",
+        "success": {
+          "title": "Presentation Ready for Download!",
+          "message": "Thank you for your interest in the EXECUTIVE MBA FOR NGOs/NPOs program",
+          "note": "The file will start downloading automatically"
+        }
+      }
+    }
+  },
   "faculty": {
     "title": "Faculty",
     "subtitle": "Our experts and instructors",
