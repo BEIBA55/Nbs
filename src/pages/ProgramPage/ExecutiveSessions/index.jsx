@@ -9,6 +9,7 @@ import PresentationModal from '../../../components/ui/PresentationModal';
 import { useToast } from '../../../hooks/useToast';
 import { useFormValidation } from '../../../hooks/useFormValidation';
 import { useTranslatedNews } from '../../../data/translatedNewsData';
+import { formDataAPI, PROGRAM_TYPES } from '../../../services/api';
 
 const ExecutiveSessions = () => {
   const { t } = useTranslation();
@@ -22,6 +23,13 @@ const ExecutiveSessions = () => {
     phone: '',
     company: '',
   });
+  const [contactFormData, setContactFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    privacyConsent: false
+  });
   const [showPresentationModal, setShowPresentationModal] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
@@ -30,6 +38,48 @@ const ExecutiveSessions = () => {
       ...prev,
       [field]: value,
     }));
+  };
+
+  const handleContactInputChange = (field, value) => {
+    setContactFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Проверяем, что все поля заполнены
+    if (!contactFormData.firstName || !contactFormData.lastName || !contactFormData.email || !contactFormData.phone) {
+      alert('Пожалуйста, заполните все обязательные поля');
+      return;
+    }
+    
+    if (!contactFormData.privacyConsent) {
+      alert('Пожалуйста, согласитесь на обработку персональных данных');
+      return;
+    }
+
+    try {
+      const result = await formDataAPI.saveContactApplication(contactFormData, PROGRAM_TYPES.EXECUTIVE_SESSIONS);
+      
+      if (result.success) {
+        alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+        setContactFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          privacyConsent: false
+        });
+      } else {
+        alert('Ошибка при отправке заявки. Попробуйте еще раз.');
+      }
+    } catch (error) {
+      console.error('Ошибка при отправке контактной заявки:', error);
+      alert('Ошибка при отправке заявки. Попробуйте еще раз.');
+    }
   };
 
   const handleSubmit = () => {
@@ -392,7 +442,7 @@ const ExecutiveSessions = () => {
 
           <div className="max-w-2xl mx-auto">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleContactSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -400,9 +450,10 @@ const ExecutiveSessions = () => {
                     </label>
                     <input
                       type="text"
+                      name="firstName"
+                      value={contactFormData.firstName}
+                      onChange={(e) => handleContactInputChange('firstName', e.target.value)}
                       required
-                      value={formData.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
                       placeholder={t('executiveSessions.forms.namePlaceholder')}
                     />
@@ -413,9 +464,10 @@ const ExecutiveSessions = () => {
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      value={contactFormData.email}
+                      onChange={(e) => handleContactInputChange('email', e.target.value)}
                       required
-                      value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
                       placeholder={t('executiveSessions.forms.emailPlaceholder')}
                     />
@@ -429,24 +481,26 @@ const ExecutiveSessions = () => {
                     </label>
                     <input
                       type="tel"
+                      name="phone"
+                      value={contactFormData.phone}
+                      onChange={(e) => handleContactInputChange('phone', e.target.value)}
                       required
-                      value={formData.phone}
-                      onChange={(e) => handleInputChange('phone', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
                       placeholder={t('executiveSessions.forms.phonePlaceholder')}
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t('executiveSessions.forms.company')} *
+                      Фамилия *
                     </label>
                     <input
                       type="text"
+                      name="lastName"
+                      value={contactFormData.lastName}
+                      onChange={(e) => handleContactInputChange('lastName', e.target.value)}
                       required
-                      value={formData.company}
-                      onChange={(e) => handleInputChange('company', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
-                      placeholder={t('executiveSessions.forms.companyPlaceholder')}
+                      placeholder="Введите вашу фамилию"
                     />
                   </div>
                 </div>
@@ -454,6 +508,9 @@ const ExecutiveSessions = () => {
                 <div className="flex items-center">
                   <input
                     type="checkbox"
+                    name="privacyConsent"
+                    checked={contactFormData.privacyConsent}
+                    onChange={(e) => handleContactInputChange('privacyConsent', e.target.checked)}
                     required
                     className="w-4 h-4 text-[#991E1E] border-gray-300 rounded focus:ring-[#991E1E]"
                   />
@@ -463,8 +520,7 @@ const ExecutiveSessions = () => {
                 </div>
 
                 <button
-                  type="button"
-                  onClick={handleSubmit}
+                  type="submit"
                   className="w-full bg-[#991E1E] text-white py-4 px-6 rounded-xl font-medium hover:bg-[#7A1818] transition-colors text-lg"
                 >
                   {t('executiveSessions.forms.submitApplication')}
@@ -519,6 +575,7 @@ const ExecutiveSessions = () => {
         onClose={() => setShowPresentationModal(false)}
         onDownload={handleDownloadPresentation}
         programName={t('executiveSessions.modalProgramName')}
+        programType={PROGRAM_TYPES.EXECUTIVE_SESSIONS}
       />
     </div>
   );

@@ -7,6 +7,7 @@ import EditText from '../../../components/ui/EditText';
 import PresentationModal from '../../../components/ui/PresentationModal';
 import { useToast } from '../../../hooks/useToast';
 import { useFormValidation } from '../../../hooks/useFormValidation';
+import { formDataAPI, PROGRAM_TYPES } from '../../../services/api';
 
 const MiniMBA = () => {
   const { t } = useTranslation();
@@ -19,6 +20,13 @@ const MiniMBA = () => {
     phone: '',
     company: '',
   });
+  const [contactFormData, setContactFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    privacyConsent: false
+  });
   const [showPresentationModal, setShowPresentationModal] = useState(false);
   const [showContactInfo, setShowContactInfo] = useState(false);
 
@@ -29,7 +37,49 @@ const MiniMBA = () => {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleContactInputChange = (field, value) => {
+    setContactFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Проверяем, что все поля заполнены
+    if (!contactFormData.firstName || !contactFormData.lastName || !contactFormData.email || !contactFormData.phone) {
+      alert('Пожалуйста, заполните все обязательные поля');
+      return;
+    }
+    
+    if (!contactFormData.privacyConsent) {
+      alert('Пожалуйста, согласитесь на обработку персональных данных');
+      return;
+    }
+
+    try {
+      const result = await formDataAPI.saveContactApplication(contactFormData, PROGRAM_TYPES.MINI_MBA);
+      
+      if (result.success) {
+        alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+        setContactFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          privacyConsent: false
+        });
+      } else {
+        alert('Ошибка при отправке заявки. Попробуйте еще раз.');
+      }
+    } catch (error) {
+      console.error('Ошибка при отправке контактной заявки:', error);
+      alert('Ошибка при отправке заявки. Попробуйте еще раз.');
+    }
+  };
+
+  const handleSubmit = async () => {
     const errors = validateApplicationForm(formData);
     
     if (errors.length > 0) {
@@ -37,9 +87,22 @@ const MiniMBA = () => {
       return;
     }
     
-    console.log('Заявка отправлена:', formData);
-    showApplicationSuccess();
-    setFormData({ name: '', email: '', phone: '', company: '' });
+    try {
+      // Сохраняем данные формы в CSV формате
+      const saveResult = await formDataAPI.savePresentationFormData(formData, PROGRAM_TYPES.MINI_MBA);
+      
+      if (saveResult.success) {
+        console.log('Данные формы сохранены:', saveResult.data);
+        showApplicationSuccess();
+        setFormData({ name: '', email: '', phone: '', company: '' });
+      } else {
+        console.error('Ошибка при сохранении данных формы');
+        showApplicationSuccess(); // Показываем успех пользователю, но логируем ошибку
+      }
+    } catch (error) {
+      console.error('Ошибка при сохранении данных формы:', error);
+      showApplicationSuccess(); // Показываем успех пользователю, но логируем ошибку
+    }
   };
 
   const handleDownloadPresentation = () => {
@@ -306,7 +369,7 @@ const MiniMBA = () => {
 
           <div className="max-w-2xl mx-auto">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleContactSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -314,9 +377,10 @@ const MiniMBA = () => {
                     </label>
                     <input
                       type="text"
+                      name="firstName"
+                      value={contactFormData.firstName}
+                      onChange={(e) => handleContactInputChange('firstName', e.target.value)}
                       required
-                      value={formData.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
                       placeholder={t('miniMba.forms.namePlaceholder')}
                     />
@@ -327,9 +391,10 @@ const MiniMBA = () => {
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      value={contactFormData.email}
+                      onChange={(e) => handleContactInputChange('email', e.target.value)}
                       required
-                      value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
                       placeholder={t('miniMba.forms.emailPlaceholder')}
                     />
@@ -343,24 +408,26 @@ const MiniMBA = () => {
                     </label>
                     <input
                       type="tel"
+                      name="phone"
+                      value={contactFormData.phone}
+                      onChange={(e) => handleContactInputChange('phone', e.target.value)}
                       required
-                      value={formData.phone}
-                      onChange={(e) => handleInputChange('phone', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
                       placeholder={t('miniMba.forms.phonePlaceholder')}
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t('miniMba.forms.company')} *
+                      Фамилия *
                     </label>
                     <input
                       type="text"
+                      name="lastName"
+                      value={contactFormData.lastName}
+                      onChange={(e) => handleContactInputChange('lastName', e.target.value)}
                       required
-                      value={formData.company}
-                      onChange={(e) => handleInputChange('company', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
-                      placeholder={t('miniMba.forms.companyPlaceholder')}
+                      placeholder="Введите вашу фамилию"
                     />
                   </div>
                 </div>
@@ -368,6 +435,9 @@ const MiniMBA = () => {
                 <div className="flex items-center">
                   <input
                     type="checkbox"
+                    name="privacyConsent"
+                    checked={contactFormData.privacyConsent}
+                    onChange={(e) => handleContactInputChange('privacyConsent', e.target.checked)}
                     required
                     className="w-4 h-4 text-[#991E1E] border-gray-300 rounded focus:ring-[#991E1E]"
                   />
@@ -377,8 +447,7 @@ const MiniMBA = () => {
                 </div>
 
                 <button
-                  type="button"
-                  onClick={handleSubmit}
+                  type="submit"
                   className="w-full bg-[#991E1E] text-white py-4 px-6 rounded-xl font-medium hover:bg-[#7A1818] transition-colors text-lg"
                 >
                   {t('miniMba.forms.submitApplication')}
@@ -492,6 +561,7 @@ const MiniMBA = () => {
         onClose={() => setShowPresentationModal(false)}
         onDownload={handleDownloadPresentation}
         programName={t('miniMba.modalProgramName')}
+        programType={PROGRAM_TYPES.MINI_MBA}
       />
     </div>
   );

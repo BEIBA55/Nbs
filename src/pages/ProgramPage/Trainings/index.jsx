@@ -4,12 +4,62 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../../components/common/Header';
 import Footer from '../../../components/common/Footer';
 import PresentationModal from '../../../components/ui/PresentationModal';
+import { formDataAPI, PROGRAM_TYPES } from '../../../services/api';
 
 const Trainings = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [showPresentationModal, setShowPresentationModal] = useState(false);
   const [showContactInfo, setShowContactInfo] = useState(false);
+  const [contactFormData, setContactFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    privacyConsent: false
+  });
+
+  const handleContactInputChange = (field, value) => {
+    setContactFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Проверяем, что все поля заполнены
+    if (!contactFormData.firstName || !contactFormData.lastName || !contactFormData.email || !contactFormData.phone) {
+      alert('Пожалуйста, заполните все обязательные поля');
+      return;
+    }
+    
+    if (!contactFormData.privacyConsent) {
+      alert('Пожалуйста, согласитесь на обработку персональных данных');
+      return;
+    }
+
+    try {
+      const result = await formDataAPI.saveContactApplication(contactFormData, PROGRAM_TYPES.TRAININGS);
+      
+      if (result.success) {
+        alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+        setContactFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          privacyConsent: false
+        });
+      } else {
+        alert('Ошибка при отправке заявки. Попробуйте еще раз.');
+      }
+    } catch (error) {
+      console.error('Ошибка при отправке контактной заявки:', error);
+      alert('Ошибка при отправке заявки. Попробуйте еще раз.');
+    }
+  };
 
   const handleDownloadPresentation = () => {
     // Создаем ссылку для скачивания презентации тренингов
@@ -262,7 +312,7 @@ const Trainings = () => {
 
           <div className="max-w-2xl mx-auto">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleContactSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -270,6 +320,9 @@ const Trainings = () => {
                     </label>
                     <input
                       type="text"
+                      name="firstName"
+                      value={contactFormData.firstName}
+                      onChange={(e) => handleContactInputChange('firstName', e.target.value)}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
                       placeholder={t('trainings.applicationFormSection.form.namePlaceholder')}
@@ -281,6 +334,9 @@ const Trainings = () => {
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      value={contactFormData.email}
+                      onChange={(e) => handleContactInputChange('email', e.target.value)}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
                       placeholder={t('trainings.applicationFormSection.form.emailPlaceholder')}
@@ -295,6 +351,9 @@ const Trainings = () => {
                     </label>
                     <input
                       type="tel"
+                      name="phone"
+                      value={contactFormData.phone}
+                      onChange={(e) => handleContactInputChange('phone', e.target.value)}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
                       placeholder={t('trainings.applicationFormSection.form.phonePlaceholder')}
@@ -302,13 +361,16 @@ const Trainings = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t('trainings.applicationFormSection.form.company')} *
+                      Фамилия *
                     </label>
                     <input
                       type="text"
+                      name="lastName"
+                      value={contactFormData.lastName}
+                      onChange={(e) => handleContactInputChange('lastName', e.target.value)}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
-                      placeholder={t('trainings.applicationFormSection.form.companyPlaceholder')}
+                      placeholder="Введите вашу фамилию"
                     />
                   </div>
                 </div>
@@ -316,6 +378,9 @@ const Trainings = () => {
                 <div className="flex items-center">
                   <input
                     type="checkbox"
+                    name="privacyConsent"
+                    checked={contactFormData.privacyConsent}
+                    onChange={(e) => handleContactInputChange('privacyConsent', e.target.checked)}
                     required
                     className="w-4 h-4 text-[#991E1E] border-gray-300 rounded focus:ring-[#991E1E]"
                   />
@@ -325,7 +390,7 @@ const Trainings = () => {
                 </div>
 
                 <button
-                  type="button"
+                  type="submit"
                   className="w-full bg-[#991E1E] text-white py-4 px-6 rounded-xl font-medium hover:bg-[#7A1818] transition-colors text-lg"
                 >
                   {t('trainings.applicationFormSection.form.submitButton')}
@@ -439,6 +504,7 @@ const Trainings = () => {
         onClose={() => setShowPresentationModal(false)}
         onDownload={handleDownloadPresentation}
         programName={t('trainings.modalProgramName')}
+        programType={PROGRAM_TYPES.TRAININGS}
       />
     </div>
   );

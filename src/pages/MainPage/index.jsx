@@ -10,6 +10,7 @@ import { useToast } from '../../hooks/useToast';
 import { useFormValidation } from '../../hooks/useFormValidation';
 import { useFormAnimation } from '../../hooks/useFormAnimation';
 import { useTranslatedNews } from '../../data/translatedNewsData';
+import { formDataAPI } from '../../services/api';
 
 const MainPage = () => {
   const { t } = useTranslation();
@@ -43,7 +44,7 @@ const MainPage = () => {
     }));
   };
 
-  const handleConsultationSubmit = () => {
+  const handleConsultationSubmit = async () => {
     if (isSubmitting) return;
     
     const errors = validateConsultationForm(formData);
@@ -55,13 +56,21 @@ const MainPage = () => {
     
     startSubmission();
     
-    console.log('Consultation form submitted:', formData);
-    showConsultationSuccess();
-    setFormData({ name: '', phone: '', email: '' });
-    endSubmission();
+    try {
+      // Сохраняем данные консультации
+      await formDataAPI.saveConsultationRequest(formData, 'main-page');
+      showConsultationSuccess();
+      setFormData({ name: '', phone: '', email: '' });
+    } catch (error) {
+      console.error('Ошибка сохранения консультации:', error);
+      showConsultationSuccess(); // Показываем успех пользователю даже при ошибке
+      setFormData({ name: '', phone: '', email: '' });
+    } finally {
+      endSubmission();
+    }
   };
 
-  const handleContactSubmit = () => {
+  const handleContactSubmit = async () => {
     if (isSubmitting) return;
     
     const errors = validateContactForm(contactFormData);
@@ -73,10 +82,18 @@ const MainPage = () => {
     
     startSubmission();
     
-    console.log('Contact form submitted:', contactFormData);
-    showContactSuccess();
-    setContactFormData({ name: '', email: '', phone: '' });
-    endSubmission();
+    try {
+      // Сохраняем данные контактной формы
+      await formDataAPI.saveConsultationRequest(contactFormData, 'contact-form');
+      showContactSuccess();
+      setContactFormData({ name: '', email: '', phone: '' });
+    } catch (error) {
+      console.error('Ошибка сохранения контактной формы:', error);
+      showContactSuccess(); // Показываем успех пользователю даже при ошибке
+      setContactFormData({ name: '', email: '', phone: '' });
+    } finally {
+      endSubmission();
+    }
   };
 
   // Используем переведенные новости

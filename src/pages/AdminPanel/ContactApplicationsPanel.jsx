@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/ui/Button';
 import EditText from '../../components/ui/EditText';
 import { formDataAPI, PROGRAM_TYPES, PROGRAM_NAMES } from '../../services/api';
 import { downloadCSV } from '../../utils/csvUtils';
 import '../../styles/adminTable.css';
 
-const ApplicationsPanel = () => {
-  const { t } = useTranslation();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [loginData, setLoginData] = useState({ username: '', password: '' });
-  const [loginError, setLoginError] = useState('');
+const ContactApplicationsPanel = () => {
+  const navigate = useNavigate();
   
-  // Данные форм
-  const [formData, setFormData] = useState([]);
+  // Данные контактных заявок
+  const [contactData, setContactData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalRecords, setTotalRecords] = useState(0);
@@ -28,21 +24,21 @@ const ApplicationsPanel = () => {
   });
   const [isExporting, setIsExporting] = useState(false);
   
-  // Состояние для удаления
-  const [selectedItems, setSelectedItems] = useState([]);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [deleteTarget, setDeleteTarget] = useState(null);
-  
   // Фильтры для таблицы
   const [tableFilters, setTableFilters] = useState({
     programType: 'all',
     searchTerm: ''
   });
+  
+  // Состояние для удаления
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deleteTarget, setDeleteTarget] = useState(null);
 
-  // Проверка аутентификации при загрузке
+  // Загружаем данные при монтировании компонента
   useEffect(() => {
-    checkAuthentication();
+    loadContactData();
   }, []);
 
   // Добавляем обработчик скролла колесиком мыши
@@ -64,54 +60,15 @@ const ApplicationsPanel = () => {
     };
   }, []);
 
-  const checkAuthentication = async () => {
-    try {
-      const result = await formDataAPI.checkAuth();
-      setIsAuthenticated(result.authenticated);
-      if (result.authenticated) {
-        loadFormData();
-      }
-    } catch (error) {
-      console.error('Ошибка проверки аутентификации:', error);
-    }
+  const handleLogout = () => {
+    // Просто перенаправляем на главную панель без сброса аутентификации
+    navigate('/manager');
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setLoginError('');
-
-    try {
-      const result = await formDataAPI.authenticateAdmin(loginData);
-      
-      if (result.success) {
-        setIsAuthenticated(true);
-        loadFormData();
-      } else {
-        setLoginError(result.message);
-      }
-    } catch (error) {
-      setLoginError('Произошла ошибка при входе в систему');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleLogout = async () => {
-    try {
-      await formDataAPI.logout();
-      setIsAuthenticated(false);
-      setFormData([]);
-      setCurrentPage(1);
-    } catch (error) {
-      console.error('Ошибка при выходе:', error);
-    }
-  };
-
-  const loadFormData = async (page = 1) => {
+  const loadContactData = async (page = 1) => {
     setIsLoadingData(true);
     try {
-      const result = await formDataAPI.getAllFormData(page, 20);
+      const result = await formDataAPI.getAllContactData(page, 20);
       
       if (result.success) {
         // Применяем фильтры к данным
@@ -126,14 +83,14 @@ const ApplicationsPanel = () => {
         if (tableFilters.searchTerm) {
           const searchLower = tableFilters.searchTerm.toLowerCase();
           filteredData = filteredData.filter(item => 
-            (item.name && item.name.toLowerCase().includes(searchLower)) ||
+            (item.firstName && item.firstName.toLowerCase().includes(searchLower)) ||
+            (item.lastName && item.lastName.toLowerCase().includes(searchLower)) ||
             (item.email && item.email.toLowerCase().includes(searchLower)) ||
-            (item.phone && item.phone.toLowerCase().includes(searchLower)) ||
-            (item.company && item.company.toLowerCase().includes(searchLower))
+            (item.phone && item.phone.toLowerCase().includes(searchLower))
           );
         }
         
-        setFormData(filteredData);
+        setContactData(filteredData);
         setCurrentPage(result.page);
         setTotalPages(result.totalPages);
         setTotalRecords(filteredData.length);
@@ -147,14 +104,14 @@ const ApplicationsPanel = () => {
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
-      loadFormData(newPage);
+      loadContactData(newPage);
     }
   };
 
   const handleExportCSV = async () => {
     setIsExporting(true);
     try {
-      const result = await formDataAPI.exportToCSV(exportFilters);
+      const result = await formDataAPI.exportContactDataToCSV(exportFilters);
       
       if (result.success) {
         // Используем утилиту для скачивания CSV
@@ -191,17 +148,17 @@ const ApplicationsPanel = () => {
     try {
       if (Array.isArray(deleteTarget)) {
         // Массовое удаление
-        const result = await formDataAPI.deleteMultipleFormData(deleteTarget);
+        const result = await formDataAPI.deleteMultipleContactData(deleteTarget);
         if (result.success) {
           setSelectedItems([]);
-          loadFormData(currentPage);
+          loadContactData(currentPage);
           alert(result.message);
         }
       } else {
         // Удаление одной записи
-        const result = await formDataAPI.deleteFormData(deleteTarget);
+        const result = await formDataAPI.deleteContactData(deleteTarget);
         if (result.success) {
-          loadFormData(currentPage);
+          loadContactData(currentPage);
           alert(result.message);
         }
       }
@@ -224,10 +181,10 @@ const ApplicationsPanel = () => {
   };
 
   const handleSelectAll = () => {
-    if (selectedItems.length === formData.length) {
+    if (selectedItems.length === contactData.length) {
       setSelectedItems([]);
     } else {
-      setSelectedItems(formData.map(item => item.id));
+      setSelectedItems(contactData.map(item => item.id));
     }
   };
 
@@ -255,57 +212,8 @@ const ApplicationsPanel = () => {
 
   // Применяем фильтры при их изменении
   useEffect(() => {
-    loadFormData(1);
+    loadContactData(1);
   }, [tableFilters]);
-
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-[#4C1C6F] mb-2">
-              Менеджер-панель
-            </h1>
-            <p className="text-gray-600">
-              Войдите в систему для доступа к данным форм
-            </p>
-          </div>
-
-          {loginError && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-red-700 text-sm">{loginError}</p>
-            </div>
-          )}
-
-          <form onSubmit={handleLogin} className="space-y-4">
-            <EditText
-              placeholder="Имя пользователя"
-              value={loginData.username}
-              onChange={(value) => setLoginData(prev => ({ ...prev, username: value }))}
-              className="h-12"
-              required
-            />
-            <EditText
-              placeholder="Пароль"
-              type="password"
-              value={loginData.password}
-              onChange={(value) => setLoginData(prev => ({ ...prev, password: value }))}
-              className="h-12"
-              required
-            />
-            
-            <Button
-              type="submit"
-              className="w-full !bg-[#4C1C6F] !text-white h-12"
-              disabled={isLoading}
-            >
-              {isLoading ? 'Вход...' : 'Войти'}
-            </Button>
-          </form>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -313,50 +221,61 @@ const ApplicationsPanel = () => {
         {/* Заголовок */}
         <div className="flex justify-between items-center mb-8">
           <div>
+            <div className="flex items-center space-x-4 mb-2">
+              <button
+                onClick={() => navigate('/manager')}
+                className="text-[#4C1C6F] hover:text-purple-700 flex items-center space-x-2"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                <span>Назад к панели</span>
+              </button>
+            </div>
             <h1 className="text-3xl font-bold text-[#4C1C6F] mb-2">
-              Менеджер-панель - Данные форм
+              Управление контактными заявками
             </h1>
             <p className="text-gray-600">
-              Управление данными форм презентаций
+              Просмотр, фильтрация, экспорт и удаление контактных заявок на программы
             </p>
           </div>
           <Button
             onClick={handleLogout}
-            className="!bg-red-600 !text-white hover:!bg-red-700"
+            className="!bg-gray-500 !text-white hover:!bg-gray-600"
           >
-            Выйти
+            К выбору разделов
           </Button>
         </div>
 
-         {/* Статистика */}
-         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-           <div className="bg-white rounded-lg shadow p-6">
-             <h3 className="text-lg font-semibold text-gray-900 mb-2">Всего записей</h3>
-             <p className="text-3xl font-bold text-[#4C1C6F]">{totalRecords}</p>
-             {(tableFilters.programType !== 'all' || tableFilters.searchTerm) && (
-               <p className="text-sm text-gray-500 mt-1">отфильтровано</p>
-             )}
-           </div>
-           <div className="bg-white rounded-lg shadow p-6">
-             <h3 className="text-lg font-semibold text-gray-900 mb-2">Текущая страница</h3>
-             <p className="text-3xl font-bold text-[#4C1C6F]">{currentPage} / {totalPages}</p>
-           </div>
-           <div className="bg-white rounded-lg shadow p-6">
-             <h3 className="text-lg font-semibold text-gray-900 mb-2">Программы</h3>
-             <p className="text-lg font-medium text-[#4C1C6F]">
-               {Object.keys(PROGRAM_NAMES).length} типов программ
-             </p>
-           </div>
-           <div className="bg-white rounded-lg shadow p-6">
-             <h3 className="text-lg font-semibold text-gray-900 mb-2">Активные фильтры</h3>
-             <p className="text-lg font-medium text-[#4C1C6F]">
-               {tableFilters.programType !== 'all' ? 'Программа' : ''}
-               {tableFilters.programType !== 'all' && tableFilters.searchTerm ? ', ' : ''}
-               {tableFilters.searchTerm ? 'Поиск' : ''}
-               {tableFilters.programType === 'all' && !tableFilters.searchTerm ? 'Нет' : ''}
-             </p>
-           </div>
-         </div>
+        {/* Статистика */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white rounded-lg shadow p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Всего заявок</h3>
+            <p className="text-3xl font-bold text-[#4C1C6F]">{totalRecords}</p>
+            {(tableFilters.programType !== 'all' || tableFilters.searchTerm) && (
+              <p className="text-sm text-gray-500 mt-1">отфильтровано</p>
+            )}
+          </div>
+          <div className="bg-white rounded-lg shadow p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Текущая страница</h3>
+            <p className="text-3xl font-bold text-[#4C1C6F]">{currentPage} / {totalPages}</p>
+          </div>
+          <div className="bg-white rounded-lg shadow p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Программы</h3>
+            <p className="text-lg font-medium text-[#4C1C6F]">
+              {Object.keys(PROGRAM_NAMES).length} типов программ
+            </p>
+          </div>
+          <div className="bg-white rounded-lg shadow p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Активные фильтры</h3>
+            <p className="text-lg font-medium text-[#4C1C6F]">
+              {tableFilters.programType !== 'all' ? 'Программа' : ''}
+              {tableFilters.programType !== 'all' && tableFilters.searchTerm ? ', ' : ''}
+              {tableFilters.searchTerm ? 'Поиск' : ''}
+              {tableFilters.programType === 'all' && !tableFilters.searchTerm ? 'Нет' : ''}
+            </p>
+          </div>
+        </div>
 
         {/* Фильтры для экспорта */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
@@ -411,115 +330,115 @@ const ApplicationsPanel = () => {
           </div>
         </div>
 
-         {/* Фильтры для таблицы */}
-         <div className="bg-white rounded-lg shadow p-6 mb-6">
-           <div className="flex justify-between items-center mb-4">
-             <h3 className="text-lg font-semibold text-gray-900">Фильтры и поиск</h3>
-             {(tableFilters.programType !== 'all' || tableFilters.searchTerm) && (
-               <div className="flex items-center space-x-2">
-                 <span className="text-sm text-gray-600">Активные фильтры:</span>
-                 {tableFilters.programType !== 'all' && (
-                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4C1C6F] text-white">
-                     {PROGRAM_NAMES[tableFilters.programType]}
-                   </span>
-                 )}
-                 {tableFilters.searchTerm && (
-                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                     Поиск: "{tableFilters.searchTerm}"
-                   </span>
-                 )}
-               </div>
-             )}
-           </div>
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-             <div>
-               <label className="block text-sm font-medium text-gray-700 mb-2">
-                 Программа
-               </label>
-               <select
-                 value={tableFilters.programType}
-                 onChange={(e) => handleFilterChange('programType', e.target.value)}
-                 className="w-full h-10 px-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4C1C6F] focus:border-transparent"
-               >
-                 <option value="all">Все программы</option>
-                 {Object.entries(PROGRAM_NAMES).map(([key, name]) => (
-                   <option key={key} value={key}>{name}</option>
-                 ))}
-               </select>
-             </div>
-             <div>
-               <label className="block text-sm font-medium text-gray-700 mb-2">
-                 Поиск
-               </label>
-               <EditText
-                 placeholder="Поиск по имени, email, телефону, компании..."
-                 value={tableFilters.searchTerm}
-                 onChange={handleSearchChange}
-                 className="h-10"
-               />
-             </div>
-             <div>
-               <label className="block text-sm font-medium text-gray-700 mb-2">
-                 Действия
-               </label>
-               <Button
-                 onClick={resetFilters}
-                 className="w-full !bg-gray-500 !text-white hover:!bg-gray-600 h-10"
-               >
-                 Сбросить фильтры
-               </Button>
-             </div>
-           </div>
-         </div>
+        {/* Фильтры для таблицы */}
+        <div className="bg-white rounded-lg shadow p-6 mb-6">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-lg font-semibold text-gray-900">Фильтры и поиск</h3>
+            {(tableFilters.programType !== 'all' || tableFilters.searchTerm) && (
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-gray-600">Активные фильтры:</span>
+                {tableFilters.programType !== 'all' && (
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4C1C6F] text-white">
+                    {PROGRAM_NAMES[tableFilters.programType]}
+                  </span>
+                )}
+                {tableFilters.searchTerm && (
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    Поиск: "{tableFilters.searchTerm}"
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Программа
+              </label>
+              <select
+                value={tableFilters.programType}
+                onChange={(e) => handleFilterChange('programType', e.target.value)}
+                className="w-full h-10 px-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4C1C6F] focus:border-transparent"
+              >
+                <option value="all">Все программы</option>
+                {Object.entries(PROGRAM_NAMES).map(([key, name]) => (
+                  <option key={key} value={key}>{name}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Поиск
+              </label>
+              <EditText
+                placeholder="Поиск по имени, фамилии, email, телефону..."
+                value={tableFilters.searchTerm}
+                onChange={handleSearchChange}
+                className="h-10"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Действия
+              </label>
+              <Button
+                onClick={resetFilters}
+                className="w-full !bg-gray-500 !text-white hover:!bg-gray-600 h-10"
+              >
+                Сбросить фильтры
+              </Button>
+            </div>
+          </div>
+        </div>
 
-         {/* Таблица данных */}
-         <div className="bg-white rounded-lg shadow overflow-hidden">
-           <div className="px-6 py-4 border-b border-gray-200">
-             <div className="flex justify-between items-center">
-               <h3 className="text-lg font-semibold text-gray-900">
-                 Данные форм
-                 {(tableFilters.programType !== 'all' || tableFilters.searchTerm) && (
-                   <span className="ml-2 text-sm font-normal text-gray-500">
-                     (отфильтровано: {formData.length} записей)
-                   </span>
-                 )}
-               </h3>
-               {selectedItems.length > 0 && (
-                 <div className="flex items-center space-x-3">
-                   <span className="text-sm text-gray-600">
-                     Выбрано: {selectedItems.length}
-                   </span>
-                   <Button
-                     onClick={handleDeleteMultiple}
-                     disabled={isDeleting}
-                     className="!bg-red-600 !text-white hover:!bg-red-700 text-sm px-4 py-2"
-                   >
-                     {isDeleting ? 'Удаление...' : 'Удалить выбранные'}
-                   </Button>
-                 </div>
-               )}
-             </div>
-           </div>
+        {/* Таблица данных */}
+        <div className="bg-white rounded-lg shadow overflow-hidden">
+          <div className="px-6 py-4 border-b border-gray-200">
+            <div className="flex justify-between items-center">
+              <h3 className="text-lg font-semibold text-gray-900">
+                Контактные заявки
+                {(tableFilters.programType !== 'all' || tableFilters.searchTerm) && (
+                  <span className="ml-2 text-sm font-normal text-gray-500">
+                    (отфильтровано: {contactData.length} записей)
+                  </span>
+                )}
+              </h3>
+              {selectedItems.length > 0 && (
+                <div className="flex items-center space-x-3">
+                  <span className="text-sm text-gray-600">
+                    Выбрано: {selectedItems.length}
+                  </span>
+                  <Button
+                    onClick={handleDeleteMultiple}
+                    disabled={isDeleting}
+                    className="!bg-red-600 !text-white hover:!bg-red-700 text-sm px-4 py-2"
+                  >
+                    {isDeleting ? 'Удаление...' : 'Удалить выбранные'}
+                  </Button>
+                </div>
+              )}
+            </div>
+          </div>
           
           {isLoadingData ? (
             <div className="p-8 text-center">
               <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#4C1C6F]"></div>
               <p className="mt-2 text-gray-600">Загрузка данных...</p>
             </div>
-          ) : formData.length === 0 ? (
+          ) : contactData.length === 0 ? (
             <div className="p-8 text-center">
               <p className="text-gray-600">Нет данных для отображения</p>
             </div>
           ) : (
             <>
-               <div className="admin-table-container">
-                 <table className="min-w-full divide-y divide-gray-200">
-                   <thead className="admin-table-header">
+              <div className="admin-table-container">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="admin-table-header">
                     <tr>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         <input
                           type="checkbox"
-                          checked={selectedItems.length === formData.length && formData.length > 0}
+                          checked={selectedItems.length === contactData.length && contactData.length > 0}
                           onChange={handleSelectAll}
                           className="rounded border-gray-300 text-[#4C1C6F] focus:ring-[#4C1C6F]"
                         />
@@ -531,13 +450,13 @@ const ApplicationsPanel = () => {
                         Имя
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Фамилия
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Email
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Телефон
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Компания
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Программа
@@ -551,8 +470,8 @@ const ApplicationsPanel = () => {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                     {formData.map((item) => (
-                       <tr key={item.id} className="admin-table-row hover:bg-gray-50">
+                    {contactData.map((item) => (
+                      <tr key={item.id} className="admin-table-row hover:bg-gray-50">
                         <td className="px-6 py-4 whitespace-nowrap">
                           <input
                             type="checkbox"
@@ -565,16 +484,16 @@ const ApplicationsPanel = () => {
                           {item.id}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          {item.name || '-'}
+                          {item.firstName || '-'}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                          {item.lastName || '-'}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                           {item.email || '-'}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                           {item.phone || '-'}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          {item.company || '-'}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                           {PROGRAM_NAMES[item.programType] || item.programType || '-'}
@@ -680,4 +599,4 @@ const ApplicationsPanel = () => {
   );
 };
 
-export default ApplicationsPanel;
+export default ContactApplicationsPanel;

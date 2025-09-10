@@ -551,6 +551,34 @@ export const partnershipAPI = {
 
 import { createCSVContent, downloadCSV, formatFormDataForCSV, generateFormDataStats } from '../utils/csvUtils';
 
+// Константы для типов программ
+export const PROGRAM_TYPES = {
+  MBA: 'mba',
+  EXECUTIVE_MBA: 'executive-mba',
+  EXECUTIVE_MBA_CIO: 'executive-mba-cio',
+  EXECUTIVE_MBA_NGO: 'executive-mba-ngo',
+  DBA: 'dba',
+  MINI_MBA: 'mini-mba',
+  EXECUTIVE_EDUCATION: 'executive-education',
+  EXECUTIVE_SESSIONS: 'executive-sessions',
+  TRAININGS: 'trainings',
+  CORPORATE_CLIENTS: 'corporate-clients'
+};
+
+// Названия программ для отображения
+export const PROGRAM_NAMES = {
+  [PROGRAM_TYPES.MBA]: 'MBA',
+  [PROGRAM_TYPES.EXECUTIVE_MBA]: 'Executive MBA',
+  [PROGRAM_TYPES.EXECUTIVE_MBA_CIO]: 'Executive MBA для CIO',
+  [PROGRAM_TYPES.EXECUTIVE_MBA_NGO]: 'Executive MBA для NGO/NPO',
+  [PROGRAM_TYPES.DBA]: 'DBA',
+  [PROGRAM_TYPES.MINI_MBA]: 'Mini MBA',
+  [PROGRAM_TYPES.EXECUTIVE_EDUCATION]: 'Executive Education',
+  [PROGRAM_TYPES.EXECUTIVE_SESSIONS]: 'Executive Sessions',
+  [PROGRAM_TYPES.TRAININGS]: 'Тренинги',
+  [PROGRAM_TYPES.CORPORATE_CLIENTS]: 'Корпоративные клиенты'
+};
+
 // API для работы с данными форм (CSV экспорт)
 export const formDataAPI = {
   // Сохранение данных формы презентации
@@ -609,9 +637,12 @@ export const formDataAPI = {
     // Получаем данные из localStorage для демонстрации
     const allData = JSON.parse(localStorage.getItem('presentationFormData') || '[]');
     
+    // Сортируем по дате (новые сверху)
+    const sortedData = allData.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    
     const startIndex = (page - 1) * limit;
     const endIndex = startIndex + limit;
-    const paginatedData = allData.slice(startIndex, endIndex);
+    const paginatedData = sortedData.slice(startIndex, endIndex);
     
     return {
       success: true,
@@ -638,7 +669,7 @@ export const formDataAPI = {
     
     // Фильтрация данных
     let filteredData = allData;
-    if (filters.programType) {
+    if (filters.programType && filters.programType !== 'all') {
       filteredData = filteredData.filter(item => item.programType === filters.programType);
     }
     if (filters.dateFrom) {
@@ -675,6 +706,198 @@ export const formDataAPI = {
     return {
       success: true,
       stats
+    };
+  },
+
+  // Получение списка всех программ
+  getProgramTypes: () => {
+    return {
+      success: true,
+      programTypes: PROGRAM_TYPES,
+      programNames: PROGRAM_NAMES
+    };
+  },
+
+  // Удаление записи по ID
+  deleteFormData: async (formId) => {
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    // В реальном проекте здесь был бы DELETE запрос с аутентификацией
+    // const response = await fetch(`https://api.extraspace.kz/admin/forms-data/${formId}`, {
+    //   method: 'DELETE',
+    //   credentials: 'include'
+    // });
+    
+    // Получаем данные из localStorage для демонстрации
+    const allData = JSON.parse(localStorage.getItem('presentationFormData') || '[]');
+    const filteredData = allData.filter(item => item.id !== formId);
+    
+    localStorage.setItem('presentationFormData', JSON.stringify(filteredData));
+    
+    return {
+      success: true,
+      message: 'Запись успешно удалена',
+      deletedId: formId
+    };
+  },
+
+  // Массовое удаление записей
+  deleteMultipleFormData: async (formIds) => {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // Получаем данные из localStorage для демонстрации
+    const allData = JSON.parse(localStorage.getItem('presentationFormData') || '[]');
+    const filteredData = allData.filter(item => !formIds.includes(item.id));
+    
+    localStorage.setItem('presentationFormData', JSON.stringify(filteredData));
+    
+    return {
+      success: true,
+      message: `Удалено записей: ${formIds.length}`,
+      deletedIds: formIds
+    };
+  },
+
+  // === КОНТАКТНЫЕ ЗАЯВКИ ===
+
+  // Сохранение контактной заявки
+  saveContactApplication: async (contactData, programType) => {
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    // В реальном проекте здесь был бы POST запрос
+    // const response = await fetch('https://api.extraspace.kz/contact-applications', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   credentials: 'include',
+    //   body: JSON.stringify({
+    //     ...contactData,
+    //     programType,
+    //     timestamp: new Date().toISOString()
+    //   })
+    // });
+    
+    const newContactApplication = {
+      id: `CONTACT-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      ...contactData,
+      programType,
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      referrer: document.referrer
+    };
+    
+    // Получаем существующие данные
+    const existingData = JSON.parse(localStorage.getItem('contactApplicationsData') || '[]');
+    existingData.push(newContactApplication);
+    
+    // Сохраняем в localStorage для демонстрации
+    localStorage.setItem('contactApplicationsData', JSON.stringify(existingData));
+    
+    return {
+      success: true,
+      data: newContactApplication,
+      message: 'Контактная заявка успешно отправлена'
+    };
+  },
+
+  // Получение всех контактных заявок с пагинацией
+  getAllContactData: async (page = 1, limit = 20) => {
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    // В реальном проекте здесь был бы GET запрос с аутентификацией
+    // const response = await fetch(`https://api.extraspace.kz/admin/contact-applications?page=${page}&limit=${limit}`, {
+    //   method: 'GET',
+    //   credentials: 'include'
+    // });
+    
+    // Получаем данные из localStorage для демонстрации
+    const allData = JSON.parse(localStorage.getItem('contactApplicationsData') || '[]');
+    
+    // Сортируем по дате (новые сверху)
+    const sortedData = allData.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    
+    const startIndex = (page - 1) * limit;
+    const endIndex = startIndex + limit;
+    const paginatedData = sortedData.slice(startIndex, endIndex);
+    
+    return {
+      success: true,
+      data: paginatedData,
+      total: allData.length,
+      page: page,
+      totalPages: Math.ceil(allData.length / limit)
+    };
+  },
+
+  // Экспорт контактных заявок в CSV
+  exportContactDataToCSV: async (filters = {}) => {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // Получаем данные из localStorage для демонстрации
+    let allData = JSON.parse(localStorage.getItem('contactApplicationsData') || '[]');
+    
+    // Применяем фильтры
+    if (filters.programType && filters.programType !== 'all') {
+      allData = allData.filter(item => item.programType === filters.programType);
+    }
+    
+    if (filters.dateFrom) {
+      allData = allData.filter(item => new Date(item.timestamp) >= new Date(filters.dateFrom));
+    }
+    
+    if (filters.dateTo) {
+      allData = allData.filter(item => new Date(item.timestamp) <= new Date(filters.dateTo));
+    }
+    
+    // Сортируем по дате (новые сверху)
+    allData.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    
+    // Создаем CSV контент
+    const csvContent = createCSVContent(allData, 'contactApplications');
+    
+    const timestamp = new Date().toISOString().split('T')[0];
+    const filename = `contact-applications-${timestamp}.csv`;
+    
+    return {
+      success: true,
+      csvContent,
+      filename,
+      recordCount: allData.length
+    };
+  },
+
+  // Удаление контактной заявки по ID
+  deleteContactData: async (contactId) => {
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    // Получаем данные из localStorage для демонстрации
+    const allData = JSON.parse(localStorage.getItem('contactApplicationsData') || '[]');
+    const filteredData = allData.filter(item => item.id !== contactId);
+    
+    localStorage.setItem('contactApplicationsData', JSON.stringify(filteredData));
+    
+    return {
+      success: true,
+      message: 'Контактная заявка успешно удалена',
+      deletedId: contactId
+    };
+  },
+
+  // Массовое удаление контактных заявок
+  deleteMultipleContactData: async (contactIds) => {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // Получаем данные из localStorage для демонстрации
+    const allData = JSON.parse(localStorage.getItem('contactApplicationsData') || '[]');
+    const filteredData = allData.filter(item => !contactIds.includes(item.id));
+    
+    localStorage.setItem('contactApplicationsData', JSON.stringify(filteredData));
+    
+    return {
+      success: true,
+      message: `Удалено контактных заявок: ${contactIds.length}`,
+      deletedIds: contactIds
     };
   },
 
@@ -744,6 +967,149 @@ export const formDataAPI = {
     return {
       success: true,
       message: 'Успешный выход из системы'
+    };
+  },
+
+  // === КОНСУЛЬТАЦИИ ===
+
+  // Сохранение заявки на консультацию
+  saveConsultationRequest: async (consultationData, source = 'homepage') => {
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    // В реальном проекте здесь был бы POST запрос
+    // const response = await fetch('https://api.extraspace.kz/consultations', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   credentials: 'include',
+    //   body: JSON.stringify({
+    //     ...consultationData,
+    //     source,
+    //     timestamp: new Date().toISOString()
+    //   })
+    // });
+    
+    const newConsultation = {
+      id: `CONSULT-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      ...consultationData,
+      source, // homepage, main-page, contact-form
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      referrer: document.referrer
+    };
+    
+    // Получаем существующие данные
+    const existingData = JSON.parse(localStorage.getItem('consultationRequestsData') || '[]');
+    existingData.push(newConsultation);
+    
+    // Сохраняем в localStorage для демонстрации
+    localStorage.setItem('consultationRequestsData', JSON.stringify(existingData));
+    
+    return {
+      success: true,
+      data: newConsultation,
+      message: 'Заявка на консультацию успешно отправлена'
+    };
+  },
+
+  // Получение всех заявок на консультации с пагинацией
+  getAllConsultationData: async (page = 1, limit = 20) => {
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    // В реальном проекте здесь был бы GET запрос с аутентификацией
+    // const response = await fetch(`https://api.extraspace.kz/admin/consultations?page=${page}&limit=${limit}`, {
+    //   method: 'GET',
+    //   credentials: 'include'
+    // });
+    
+    // Получаем данные из localStorage для демонстрации
+    const allData = JSON.parse(localStorage.getItem('consultationRequestsData') || '[]');
+    
+    // Сортируем по дате (новые сверху)
+    const sortedData = allData.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    
+    const startIndex = (page - 1) * limit;
+    const endIndex = startIndex + limit;
+    const paginatedData = sortedData.slice(startIndex, endIndex);
+    
+    return {
+      success: true,
+      data: paginatedData,
+      total: allData.length,
+      page: page,
+      totalPages: Math.ceil(allData.length / limit)
+    };
+  },
+
+  // Экспорт заявок на консультации в CSV
+  exportConsultationDataToCSV: async (filters = {}) => {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // Получаем данные из localStorage для демонстрации
+    let allData = JSON.parse(localStorage.getItem('consultationRequestsData') || '[]');
+    
+    // Применяем фильтры
+    if (filters.source && filters.source !== 'all') {
+      allData = allData.filter(item => item.source === filters.source);
+    }
+    
+    if (filters.dateFrom) {
+      allData = allData.filter(item => new Date(item.timestamp) >= new Date(filters.dateFrom));
+    }
+    
+    if (filters.dateTo) {
+      allData = allData.filter(item => new Date(item.timestamp) <= new Date(filters.dateTo));
+    }
+    
+    // Сортируем по дате (новые сверху)
+    allData.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    
+    // Создаем CSV контент
+    const csvContent = createCSVContent(allData, 'consultationRequests');
+    
+    const timestamp = new Date().toISOString().split('T')[0];
+    const filename = `consultation-requests-${timestamp}.csv`;
+    
+    return {
+      success: true,
+      csvContent,
+      filename,
+      recordCount: allData.length
+    };
+  },
+
+  // Удаление заявки на консультацию по ID
+  deleteConsultationData: async (consultationId) => {
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    // Получаем данные из localStorage для демонстрации
+    const allData = JSON.parse(localStorage.getItem('consultationRequestsData') || '[]');
+    const filteredData = allData.filter(item => item.id !== consultationId);
+    
+    localStorage.setItem('consultationRequestsData', JSON.stringify(filteredData));
+    
+    return {
+      success: true,
+      message: 'Заявка на консультацию успешно удалена',
+      deletedId: consultationId
+    };
+  },
+
+  // Массовое удаление заявок на консультации
+  deleteMultipleConsultationData: async (consultationIds) => {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // Получаем данные из localStorage для демонстрации
+    const allData = JSON.parse(localStorage.getItem('consultationRequestsData') || '[]');
+    const filteredData = allData.filter(item => !consultationIds.includes(item.id));
+    
+    localStorage.setItem('consultationRequestsData', JSON.stringify(filteredData));
+    
+    return {
+      success: true,
+      message: `Удалено заявок на консультации: ${consultationIds.length}`,
+      deletedIds: consultationIds
     };
   }
 };

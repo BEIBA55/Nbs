@@ -3914,5 +3914,381 @@
       },
       "contactTitle": "Or contact us directly"
     }
+  },
+  "dbaPage": {
+    "hero": {
+      "title": "DBA PROGRAM",
+      "subtitle": "(DOCTOR OF BUSINESS ADMINISTRATION)",
+      "downloadPresentation": "Download Presentation",
+      "downloadDescription": "IN THE CATALOG YOU WILL FIND ALL THE NECESSARY INFORMATION ABOUT THE DBA PROGRAM"
+    },
+    "testimonial": {
+      "welcome": {
+        "line1": "Welcome",
+        "line2": "to the",
+        "line3": "DBA program!"
+      },
+      "contactButton": "Contact us",
+      "testimonials": [
+        {
+          "text": "The DBA 'Modern School Management' program from Narxoz Business School is a powerful tool for professional development of school/lyceum directors. The program provides an opportunity to improve management and leadership competencies, develop a comprehensive approach to managing an educational institution from strategic planning to innovation implementation, which will ensure successful school leadership capable of adapting to changes and improving the quality of education. I am convinced that the program will help you reveal yourself as a reflective leader with efficiency and the ability to ensure high-quality management in the context of education system transformation and growing societal needs.",
+          "author": "Marina Obraztsova",
+          "position": "Director of Business School, Narxoz University"
+        }
+      ],
+      "contactModal": {
+        "title": "Contact us",
+        "phone": "Phone",
+        "email": "Email",
+        "address": "Address",
+        "phoneNumber": "+7 (776) 708 3636",
+        "emailAddress": "info@narxoz.kz",
+        "fullAddress": "Almaty, Zhandosov St., 55/10",
+        "closeButton": "Close"
+      }
+    },
+    "purpose": {
+      "title": "Program for those who strive:",
+      "cards": [
+        {
+          "title": "Adapt school to new conditions"
+        },
+        {
+          "title": "Implement innovations and modernize the educational process"
+        },
+        {
+          "title": "Anticipate trends in education"
+        },
+        {
+          "title": "Improve the quality of educational services"
+        }
+      ]
+    },
+    "whyNow": {
+      "tag": "DBA",
+      "title": "Why now?",
+      "cards": [
+        {
+          "title": "Rapid development of IT and digital technologies forces us to respond to modern challenges"
+        },
+        {
+          "title": "There is a need to adapt to new standards and challenges"
+        },
+        {
+          "title": "Strategic planning, HR, finance, and innovation are being implemented in every advanced school as a comprehensive approach"
+        },
+        {
+          "title": "Less theory and more practice. Allows focusing on cases, real projects, and dissertation work"
+        }
+      ]
+    },
+    "keyModules": {
+      "tag": "Study Program",
+      "title": {
+        "part1": "Key",
+        "part2": "Study Modules"
+      },
+      "modules": [
+        {
+          "number": "01",
+          "title": "Creating Competitive Strategy in Turbulent Conditions"
+        },
+        {
+          "number": "02",
+          "title": "Digital Technologies and Artificial Intelligence (AI) in Business"
+        },
+        {
+          "number": "03",
+          "title": "Research Methodology and Methods"
+        },
+        {
+          "number": "04",
+          "title": "Business Analytics for Management Decision Making"
+        },
+        {
+          "number": "05",
+          "title": "Strategic HR for Top Managers"
+        },
+        {
+          "number": "06",
+          "title": "Challenges and Resilient Leadership"
+        },
+        {
+          "number": "07",
+          "title": "Team Interaction and Productivity Management"
+        }
+      ]
+    },
+    "bonusSessions": {
+      "tag": "Study Program",
+      "title": {
+        "part1": "Additional",
+        "part2": "(Bonus) Sessions"
+      },
+      "sessions": [
+        {
+          "number": "01",
+          "title": "Business Diagnostics and Fundamental Assessment"
+        },
+        {
+          "number": "02",
+          "title": "From Idea to Action: Architecture of Effective Strategy"
+        },
+        {
+          "number": "03",
+          "title": "How Analytics Helps Business: From Data Collection to Strategic Insights"
+        },
+        {
+          "number": "04",
+          "title": "Business Models of the Future: Technology Foresight"
+        },
+        {
+          "number": "05",
+          "title": "Technology as Strategy: From Digitalization to Competitive Advantage"
+        },
+        {
+          "number": "06",
+          "title": "Financial Thinking for Non-Financial Professionals"
+        }
+      ]
+    },
+    "fieldModules": {
+      "title": {
+        "part1": "Possible",
+        "part2": "Field Modules"
+      },
+      "universities": [
+        {
+          "id": 1,
+          "title": "Penn State University (USA)",
+          "description": "One of the largest research universities in the USA, known for its academic programs, innovations, and global alumni community",
+          "image": "/images/DBA/pennstate.jpg",
+          "website": "https://www.psu.edu",
+          "websiteText": "University Website"
+        },
+        {
+          "id": 2,
+          "title": "La Rochelle University (France)",
+          "description": "A modern French university distinguished by innovative research and international educational programs",
+          "image": "/images/DBA/larochel.jpg",
+          "website": "https://www.univ-larochelle.fr",
+          "websiteText": "University Website"
+        },
+        {
+          "id": 3,
+          "title": "Solbridge International School of Business (Korea)",
+          "description": "International business school in South Korea, known for its English-language MBA programs and global student community",
+          "image": "/images/DBA/ZTE.jpg",
+          "website": "https://www.solbridge.ac.kr",
+          "websiteText": "University Website"
+        },
+        {
+          "id": 4,
+          "title": "University of Malaya (Malaysia)",
+          "description": "The oldest and leading university in Malaysia, recognized for its research and international educational programs",
+          "image": "/images/DBA/malaysia.jpg",
+          "website": "https://www.um.edu.my",
+          "websiteText": "University Website"
+        },
+        {
+          "id": 5,
+          "title": "University of Tsukuba (Japan)",
+          "description": "One of Japan's leading national universities, known for its research, innovation, and international programs",
+          "image": "/images/DBA/tsukuba.jpg",
+          "website": "https://www.tsukuba.ac.jp",
+          "websiteText": "University Website"
+        }
+      ]
+    },
+    "moreThanLearning": {
+      "tag": "Program Benefits",
+      "title": {
+        "part1": "More than",
+        "part2": "just learning"
+      },
+      "cards": [
+        {
+          "id": 1,
+          "title": "Academic and Business Leaders",
+          "description": "First-class professors, researchers, and experienced business trainers",
+          "image": "/images/DBA/Block1.jpg",
+          "icon": "star"
+        },
+        {
+          "id": 2,
+          "title": "Access to Global Knowledge",
+          "description": "Free access to republican and international scientific databases, university scientific library resources",
+          "image": "/images/DBA/Block2.jpg",
+          "icon": "graduation"
+        },
+        {
+          "id": 3,
+          "title": "Individual Scientific Support",
+          "description": "Effective scientific supervision (two scientific consultants)",
+          "image": "/images/DBA/Block3.jpg",
+          "icon": "headset"
+        },
+        {
+          "id": 4,
+          "title": "Study Without Leaving Work",
+          "description": "Convenient learning format (without leaving work)",
+          "image": "/images/DBA/Block4.jpg",
+          "icon": "lightbulb"
+        },
+        {
+          "id": 5,
+          "title": "Practice Instead of Theory",
+          "description": "Interactive learning approach (group discussions, business simulations)",
+          "image": "/images/DBA/Block5.jpg",
+          "icon": "gear"
+        },
+        {
+          "id": 6,
+          "title": "World-Class Education",
+          "description": "Leading positions of Narxoz University in international QS ranking, ATAMEKEN ranking",
+          "image": "/images/DBA/Block1.jpg",
+          "icon": "graduation"
+        }
+      ]
+    },
+    "faculty": {
+      "tag": "Experts",
+      "title": "Our Faculty",
+      "subtitle": {
+        "line1": "— are experts,",
+        "line2": "practitioners, coaches",
+        "line3": "and successful",
+        "line4": "businessmen"
+      },
+      "members": [
+        {
+          "id": 1,
+          "name": "Alexander Chmel",
+          "title": "PHD",
+          "image": "/images/DBA/Эксперты/александр чмель.jpg",
+          "specialization": "Business Strategy",
+          "description": "Expert in strategic management and business analytics with many years of experience in international companies."
+        },
+        {
+          "id": 2,
+          "name": "Farhad Manteyev",
+          "title": "PHD",
+          "image": "/images/DBA/Эксперты/Фархад Мантеев.png",
+          "specialization": "Finance",
+          "description": "Specialist in corporate finance and investment analysis, consultant to leading Kazakhstani companies."
+        },
+        {
+          "id": 3,
+          "name": "Marat Atnashev",
+          "title": "PHD",
+          "image": "/images/DBA/Эксперты/Марат.png",
+          "specialization": "Marketing",
+          "description": "Expert in digital marketing and branding, author of numerous publications in marketing research."
+        },
+        {
+          "id": 4,
+          "name": "Elzhas Aubakirov",
+          "title": "PHD",
+          "image": "/images/DBA/Эксперты/Елжас.png",
+          "specialization": "Project Management",
+          "description": "Certified PMP, expert in project management and operational management."
+        },
+        {
+          "id": 5,
+          "name": "Marina Novotochina",
+          "title": "DBA",
+          "image": "/images/DBA/Эксперты/Новоточина-Марина.jpg",
+          "specialization": "HR Management",
+          "description": "Specialist in human resource management and organizational development."
+        },
+        {
+          "id": 6,
+          "name": "Irina Bezmenova",
+          "title": "PhD",
+          "image": "/images/DBA/Эксперты/Ирина Безменова2.jpg",
+          "specialization": "Innovation",
+          "description": "Expert in innovation management and technological business development."
+        },
+        {
+          "id": 7,
+          "name": "Sanat Kozhakhmet",
+          "title": "PhD",
+          "image": "/images/DBA/Эксперты/Санат Кожахмет.png",
+          "specialization": "Leadership",
+          "description": "Consultant in leadership development and change management in organizations."
+        },
+        {
+          "id": 8,
+          "name": "Nikolay Verkhovsky",
+          "title": "Dr. Admin. Sci., Professor",
+          "image": "/images/DBA/Эксперты/Николай Верховский.png",
+          "specialization": "Strategic Planning",
+          "description": "Professor, Doctor of Administrative Sciences, expert in strategic planning and corporate governance."
+        },
+        {
+          "id": 9,
+          "name": "Maxim Kiselev",
+          "title": "PhD",
+          "image": "/images/DBA/Эксперты/Максим кисилнв.png",
+          "specialization": "Economics",
+          "description": "Expert in economic analysis and financial modeling, consultant on investment strategies."
+        },
+        {
+          "id": 10,
+          "name": "Anar Mukhtarova",
+          "title": "PhD",
+          "image": "/images/DBA/Эксперты/александр чмель.jpg",
+          "specialization": "Risk Management",
+          "description": "Specialist in risk management and corporate security, expert in crisis management."
+        },
+        {
+          "id": 11,
+          "name": "Maxim Imass",
+          "title": "PhD",
+          "image": "/images/DBA/Эксперты/Максим Имасс.png",
+          "specialization": "Digital Transformation",
+          "description": "Expert in digital business transformation and implementation of modern technologies in corporate processes."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Apply for DBA Program",
+      "subtitle": "Leave an application and we will contact you for consultation on the Doctor of Business Administration program",
+      "form": {
+        "firstName": {
+          "label": "First Name *",
+          "placeholder": "Enter your first name"
+        },
+        "lastName": {
+          "label": "Last Name *",
+          "placeholder": "Enter your last name"
+        },
+        "email": {
+          "label": "Email *",
+          "placeholder": "example@email.com"
+        },
+        "phone": {
+          "label": "Phone *",
+          "placeholder": "+7 (___) ___-__-__"
+        },
+        "agreement": "I agree to the processing of personal data and receiving information about the program *",
+        "submitButton": "Submit Application"
+      },
+      "contactInfo": {
+        "title": "Or contact us",
+        "phone": {
+          "label": "Phone",
+          "value": "+7 (776) 708 3636"
+        },
+        "email": {
+          "label": "Email",
+          "value": "info@narxoz.kz"
+        },
+        "address": {
+          "label": "Address",
+          "value": "Almaty, Zhandosov St., 55/10"
+        }
+      }
+    }
   }
 }

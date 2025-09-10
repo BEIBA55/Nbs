@@ -29,7 +29,11 @@ import ExecutiveSessions from './pages/ProgramPage/ExecutiveSessions';
 import Trainings from './pages/ProgramPage/Trainings';
 import ExecutiveMBANGO from './pages/ProgramPage/ExecutiveMBANGO';
 import CorporateClients from './pages/ProgramPage/CorporateClients';
-import AdminPanel from './pages/AdminPanel';
+import AdminDashboard from './pages/AdminPanel/Dashboard';
+import ApplicationsPanel from './pages/AdminPanel/ApplicationsPanel';
+import ProgramsPanel from './pages/AdminPanel/ProgramsPanel';
+import ContactApplicationsPanel from './pages/AdminPanel/ContactApplicationsPanel';
+import ConsultationPanel from './pages/AdminPanel/ConsultationPanel';
 
 const AppRoutes = () => {
   return (
@@ -60,7 +64,11 @@ const AppRoutes = () => {
         <Route path="/library" element={<Library />} />
         <Route path="/search" element={<SearchResults />} />
         <Route path="/corporate-clients" element={<CorporateClients />} />
-        <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/manager" element={<AdminDashboard />} />
+        <Route path="/manager/applications" element={<ApplicationsPanel />} />
+        <Route path="/manager/programs" element={<ProgramsPanel />} />
+        <Route path="/manager/contact-applications" element={<ContactApplicationsPanel />} />
+        <Route path="/manager/consultations" element={<ConsultationPanel />} />
       </Routes>
     </Router>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/ui/Button';
 import EditText from '../../components/ui/EditText';
 import { formDataAPI, PROGRAM_TYPES, PROGRAM_NAMES } from '../../services/api';
@@ -8,10 +9,7 @@ import '../../styles/adminTable.css';
 
 const ApplicationsPanel = () => {
   const { t } = useTranslation();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [loginData, setLoginData] = useState({ username: '', password: '' });
-  const [loginError, setLoginError] = useState('');
+  const navigate = useNavigate();
   
   // Данные форм
   const [formData, setFormData] = useState([]);
@@ -40,9 +38,9 @@ const ApplicationsPanel = () => {
     searchTerm: ''
   });
 
-  // Проверка аутентификации при загрузке
+  // Загружаем данные при монтировании компонента
   useEffect(() => {
-    checkAuthentication();
+    loadFormData();
   }, []);
 
   // Добавляем обработчик скролла колесиком мыши
@@ -64,48 +62,9 @@ const ApplicationsPanel = () => {
     };
   }, []);
 
-  const checkAuthentication = async () => {
-    try {
-      const result = await formDataAPI.checkAuth();
-      setIsAuthenticated(result.authenticated);
-      if (result.authenticated) {
-        loadFormData();
-      }
-    } catch (error) {
-      console.error('Ошибка проверки аутентификации:', error);
-    }
-  };
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setLoginError('');
-
-    try {
-      const result = await formDataAPI.authenticateAdmin(loginData);
-      
-      if (result.success) {
-        setIsAuthenticated(true);
-        loadFormData();
-      } else {
-        setLoginError(result.message);
-      }
-    } catch (error) {
-      setLoginError('Произошла ошибка при входе в систему');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleLogout = async () => {
-    try {
-      await formDataAPI.logout();
-      setIsAuthenticated(false);
-      setFormData([]);
-      setCurrentPage(1);
-    } catch (error) {
-      console.error('Ошибка при выходе:', error);
-    }
+  const handleLogout = () => {
+    // Просто перенаправляем на главную панель без сброса аутентификации
+    navigate('/manager');
   };
 
   const loadFormData = async (page = 1) => {
@@ -258,54 +217,6 @@ const ApplicationsPanel = () => {
     loadFormData(1);
   }, [tableFilters]);
 
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-[#4C1C6F] mb-2">
-              Менеджер-панель
-            </h1>
-            <p className="text-gray-600">
-              Войдите в систему для доступа к данным форм
-            </p>
-          </div>
-
-          {loginError && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-red-700 text-sm">{loginError}</p>
-            </div>
-          )}
-
-          <form onSubmit={handleLogin} className="space-y-4">
-            <EditText
-              placeholder="Имя пользователя"
-              value={loginData.username}
-              onChange={(value) => setLoginData(prev => ({ ...prev, username: value }))}
-              className="h-12"
-              required
-            />
-            <EditText
-              placeholder="Пароль"
-              type="password"
-              value={loginData.password}
-              onChange={(value) => setLoginData(prev => ({ ...prev, password: value }))}
-              className="h-12"
-              required
-            />
-            
-            <Button
-              type="submit"
-              className="w-full !bg-[#4C1C6F] !text-white h-12"
-              disabled={isLoading}
-            >
-              {isLoading ? 'Вход...' : 'Войти'}
-            </Button>
-          </form>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -313,18 +224,29 @@ const ApplicationsPanel = () => {
         {/* Заголовок */}
         <div className="flex justify-between items-center mb-8">
           <div>
+            <div className="flex items-center space-x-4 mb-2">
+              <button
+                onClick={() => navigate('/manager')}
+                className="text-[#4C1C6F] hover:text-purple-700 flex items-center space-x-2"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                <span>Назад к панели</span>
+              </button>
+            </div>
             <h1 className="text-3xl font-bold text-[#4C1C6F] mb-2">
-              Менеджер-панель - Данные форм
+              Управление заявками
             </h1>
             <p className="text-gray-600">
-              Управление данными форм презентаций
+              Просмотр, фильтрация, экспорт и удаление заявок на программы
             </p>
           </div>
           <Button
             onClick={handleLogout}
-            className="!bg-red-600 !text-white hover:!bg-red-700"
+            className="!bg-gray-500 !text-white hover:!bg-gray-600"
           >
-            Выйти
+            К выбору разделов
           </Button>
         </div>
 

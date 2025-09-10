@@ -4,8 +4,9 @@ import Button from './Button';
 import EditText from './EditText';
 import { useToast } from '../../hooks/useToast';
 import { useFormValidation } from '../../hooks/useFormValidation';
+import { formDataAPI } from '../../services/api';
 
-const PresentationModal = ({ isOpen, onClose, onDownload, programName }) => {
+const PresentationModal = ({ isOpen, onClose, onDownload, programName, programType }) => {
   const { t } = useTranslation();
   const { showDownloadSuccess } = useToast();
   const { validateApplicationForm, showValidationErrors } = useFormValidation();
@@ -30,7 +31,7 @@ const PresentationModal = ({ isOpen, onClose, onDownload, programName }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     const errors = validateApplicationForm(formData);
@@ -40,27 +41,38 @@ const PresentationModal = ({ isOpen, onClose, onDownload, programName }) => {
       return;
     }
 
-    // Здесь можно добавить отправку данных на сервер
-    console.log('Данные формы:', formData);
-    
-    // Показываем уведомление об успехе
-    showDownloadSuccess();
-    setShowSuccess(true);
-    
-    // Через 3 секунды закрываем модальное окно и скачиваем файл
-    setTimeout(() => {
-      onDownload();
-      onClose();
-      setShowSuccess(false);
-      // Очищаем форму и ошибки
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-      });
-      setError('');
-    }, 3000);
+    try {
+      // Сохраняем данные формы в CSV формате
+      const saveResult = await formDataAPI.savePresentationFormData(formData, programType);
+      
+      if (saveResult.success) {
+        console.log('Данные формы сохранены:', saveResult.data);
+        
+        // Показываем уведомление об успехе
+        showDownloadSuccess();
+        setShowSuccess(true);
+        
+        // Через 3 секунды закрываем модальное окно и скачиваем файл
+        setTimeout(() => {
+          onDownload();
+          onClose();
+          setShowSuccess(false);
+          // Очищаем форму и ошибки
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            company: '',
+          });
+          setError('');
+        }, 3000);
+      } else {
+        setError('Ошибка при сохранении данных. Попробуйте еще раз.');
+      }
+    } catch (error) {
+      console.error('Ошибка при сохранении данных формы:', error);
+      setError('Произошла ошибка. Попробуйте еще раз.');
+    }
   };
 
   if (!isOpen) return null;

@@ -1,0 +1,82 @@
+/* Стили для таблицы в админ-панели */
+.admin-table-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 500px;
+  scrollbar-width: thin;
+  scrollbar-color: #4C1C6F #f3f4f6;
+  /* Улучшенный скролл для всех браузеров */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Стили для WebKit браузеров (Chrome, Safari, Edge) */
+.admin-table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.admin-table-container::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+.admin-table-container::-webkit-scrollbar-thumb {
+  background: #4C1C6F;
+  border-radius: 4px;
+}
+
+.admin-table-container::-webkit-scrollbar-thumb:hover {
+  background: #3a1556;
+}
+
+/* Плавный скролл */
+.admin-table-container {
+  scroll-behavior: smooth;
+}
+
+/* Стили для заголовка таблицы */
+.admin-table-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #f9fafb;
+}
+
+/* Анимация при наведении на строки */
+.admin-table-row {
+  transition: background-color 0.2s ease;
+}
+
+.admin-table-row:hover {
+  background-color: #f9fafb;
+}
+
+/* Дополнительные стили для улучшения скролла */
+.admin-table-container {
+  /* Плавный скролл */
+  scroll-behavior: smooth;
+  /* Улучшенная производительность */
+  will-change: scroll-position;
+  /* Предотвращение размытия при скролле */
+  transform: translateZ(0);
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+  .admin-table-container {
+    max-height: 400px;
+  }
+  
+  .admin-table-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* Стили для больших экранов */
+@media (min-width: 1200px) {
+  .admin-table-container {
+    max-height: 600px;
+  }
+}

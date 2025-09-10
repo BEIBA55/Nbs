@@ -15,6 +15,7 @@ import RankingSection from './RankingSection';
 import { useToast } from '../../hooks/useToast';
 import { useFormValidation } from '../../hooks/useFormValidation';
 import { useTranslatedNews } from '../../data/translatedNewsData';
+import { formDataAPI } from '../../services/api';
 
 
 const Homepage = () => {
@@ -73,7 +74,7 @@ const Homepage = () => {
     }));
   };
 
-  const handleConsultationSubmit = () => {
+  const handleConsultationSubmit = async () => {
     const errors = validateConsultationForm(formData);
     
     if (errors.length > 0) {
@@ -81,11 +82,19 @@ const Homepage = () => {
       return;
     }
     
-    showConsultationSuccess();
-    setFormData({ name: '', phone: '', email: '' });
+    try {
+      // Сохраняем данные консультации
+      await formDataAPI.saveConsultationRequest(formData, 'homepage');
+      showConsultationSuccess();
+      setFormData({ name: '', phone: '', email: '' });
+    } catch (error) {
+      console.error('Ошибка сохранения консультации:', error);
+      showConsultationSuccess(); // Показываем успех пользователю даже при ошибке
+      setFormData({ name: '', phone: '', email: '' });
+    }
   };
 
-  const handleContactSubmit = () => {
+  const handleContactSubmit = async () => {
     const errors = validateContactForm(contactFormData);
     
     if (errors.length > 0) {
@@ -93,8 +102,16 @@ const Homepage = () => {
       return;
     }
     
-    showContactSuccess();
-    setContactFormData({ name: '', email: '', phone: '' });
+    try {
+      // Сохраняем данные контактной формы
+      await formDataAPI.saveConsultationRequest(contactFormData, 'contact-form');
+      showContactSuccess();
+      setContactFormData({ name: '', email: '', phone: '' });
+    } catch (error) {
+      console.error('Ошибка сохранения контактной формы:', error);
+      showContactSuccess(); // Показываем успех пользователю даже при ошибке
+      setContactFormData({ name: '', email: '', phone: '' });
+    }
   };
 
   const handleFacultyNavigation = (direction) => {

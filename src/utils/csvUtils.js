@@ -3,11 +3,11 @@
 /**
  * Создает CSV контент из массива объектов
  * @param {Array} data - массив объектов для конвертации
- * @param {Array} headers - заголовки колонок
+ * @param {string|Array} dataType - тип данных ('presentationForms' или 'contactApplications') или заголовки колонок
  * @param {Object} options - опции форматирования
  * @returns {string} CSV контент
  */
-export const createCSVContent = (data, headers = [], options = {}) => {
+export const createCSVContent = (data, dataType = [], options = {}) => {
   const {
     delimiter = ',',
     includeHeaders = true,
@@ -18,8 +18,21 @@ export const createCSVContent = (data, headers = [], options = {}) => {
     return '';
   }
 
-  // Если заголовки не переданы, используем ключи первого объекта
-  const csvHeaders = headers.length > 0 ? headers : Object.keys(data[0]);
+  // Определяем заголовки в зависимости от типа данных
+  let csvHeaders;
+  if (Array.isArray(dataType)) {
+    // Если передан массив заголовков
+    csvHeaders = dataType;
+  } else if (dataType === 'contactApplications') {
+    // Заголовки для контактных заявок
+    csvHeaders = ['ID', 'Имя', 'Фамилия', 'Email', 'Телефон', 'Программа', 'Дата подачи', 'IP адрес', 'Источник'];
+  } else if (dataType === 'consultationRequests') {
+    // Заголовки для заявок на консультации
+    csvHeaders = ['ID', 'Имя', 'Email', 'Телефон', 'Источник страницы', 'Дата подачи', 'IP адрес', 'Источник'];
+  } else {
+    // Заголовки для форм презентаций (по умолчанию)
+    csvHeaders = ['ID', 'Имя', 'Email', 'Телефон', 'Компания', 'Программа', 'Дата подачи', 'IP адрес', 'Источник'];
+  }
   
   // Функция для экранирования значений
   const escapeValue = (value) => {
@@ -48,7 +61,49 @@ export const createCSVContent = (data, headers = [], options = {}) => {
   // Добавляем данные
   data.forEach(item => {
     const row = csvHeaders.map(header => {
-      let value = item[header];
+      let value;
+      
+      // Маппинг полей в зависимости от типа данных
+      if (dataType === 'contactApplications') {
+        switch (header) {
+          case 'ID': value = item.id; break;
+          case 'Имя': value = item.firstName; break;
+          case 'Фамилия': value = item.lastName; break;
+          case 'Email': value = item.email; break;
+          case 'Телефон': value = item.phone; break;
+          case 'Программа': value = item.programType; break;
+          case 'Дата подачи': value = item.timestamp; break;
+          case 'IP адрес': value = item.userAgent; break;
+          case 'Источник': value = item.referrer; break;
+          default: value = item[header];
+        }
+      } else if (dataType === 'consultationRequests') {
+        switch (header) {
+          case 'ID': value = item.id; break;
+          case 'Имя': value = item.name; break;
+          case 'Email': value = item.email; break;
+          case 'Телефон': value = item.phone; break;
+          case 'Источник страницы': value = item.source; break;
+          case 'Дата подачи': value = item.timestamp; break;
+          case 'IP адрес': value = item.userAgent; break;
+          case 'Источник': value = item.referrer; break;
+          default: value = item[header];
+        }
+      } else {
+        // Для форм презентаций
+        switch (header) {
+          case 'ID': value = item.id; break;
+          case 'Имя': value = item.name; break;
+          case 'Email': value = item.email; break;
+          case 'Телефон': value = item.phone; break;
+          case 'Компания': value = item.company; break;
+          case 'Программа': value = item.programType; break;
+          case 'Дата подачи': value = item.timestamp; break;
+          case 'IP адрес': value = item.userAgent; break;
+          case 'Источник': value = item.referrer; break;
+          default: value = item[header];
+        }
+      }
       
       // Форматируем даты
       if (value && (header.toLowerCase().includes('date') || header.toLowerCase().includes('time'))) {
