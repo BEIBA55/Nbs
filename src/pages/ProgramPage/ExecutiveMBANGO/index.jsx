@@ -56,22 +56,22 @@ const ExecutiveMBANGO = () => {
       
       if (saveResult.success) {
         console.log('Данные формы сохранены:', saveResult.data);
-        
-        showDownloadSuccess();
-        setShowSuccess(true);
-        
-        setTimeout(() => {
-          handleDownloadPresentation();
-          setShowPresentationModal(false);
-          setShowSuccess(false);
-          setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            company: '',
-          });
-          setError('');
-        }, 3000);
+    
+    showDownloadSuccess();
+    setShowSuccess(true);
+    
+    setTimeout(() => {
+      handleDownloadPresentation();
+      setShowPresentationModal(false);
+      setShowSuccess(false);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+      });
+      setError('');
+    }, 3000);
       } else {
         setError('Ошибка при сохранении данных. Попробуйте еще раз.');
       }
@@ -407,16 +407,16 @@ const ExecutiveMBANGO = () => {
             <div className="space-y-8 sm:space-y-12 lg:space-y-20">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight">
                 <span className="text-[#4C1C6F]">{t('executiveMbaNgoPage.aboutProgram.title')}</span>
-                <br />
+                 <br />
                 <span className="text-[#7C3EA9]">{t('executiveMbaNgoPage.aboutProgram.titleHighlight')}</span>
-              </h2>
+               </h2>
                              <button 
                  onClick={() => setShowContactModal(true)}
                  className="bg-[#4C1C6F] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base hover:bg-[#5A2A8A] transition-colors transform hover:scale-105"
                >
                  {t('executiveMbaNgoPage.aboutProgram.contactButton')}
                </button>
-            </div>
+             </div>
             
             {/* Right side - Description */}
             <div className="text-[#6E767D] space-y-4 text-base sm:text-lg lg:text-xl leading-relaxed">
@@ -454,57 +454,57 @@ const ExecutiveMBANGO = () => {
         <div className="max-w-7xl mx-auto">
           <div className="bg-[#F4F4F4]/85 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12">
             <div className="grid lg:grid-cols-3 gap-8 sm:gap-12 items-center">
-              {/* Left side - Image */}
-              <div className="flex justify-center lg:justify-start h-full">
-                <img 
-                  src="/images/NBS.png" 
-                  alt="Narxoz Business School" 
+               {/* Left side - Image */}
+               <div className="flex justify-center lg:justify-start h-full">
+                 <img 
+                   src="/images/NBS.png" 
+                   alt="Narxoz Business School" 
                   className="rounded-xl sm:rounded-2xl w-full max-w-xs sm:max-w-sm h-full object-cover"
-                />
-              </div>
-              
-              {/* Right side - White container with stats */}
+                 />
+               </div>
+               
+               {/* Right side - White container with stats */}
               <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 lg:col-span-2">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-                  {/* Column 1 */}
-                  <div className="text-center">
+                   {/* Column 1 */}
+                   <div className="text-center">
                     <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#4C1C6F] mb-2">
                       {t('executiveMbaNgoPage.features.stats.daysPerMonth.number')}
-                    </div>
+                     </div>
                     <div className="text-base sm:text-lg text-[#6E767D] mb-3">
                       {t('executiveMbaNgoPage.features.stats.daysPerMonth.label')}
-                    </div>
+                     </div>
                     <div className="text-xs sm:text-sm text-[#6E767D] leading-relaxed">
                       {t('executiveMbaNgoPage.features.stats.daysPerMonth.description')}
-                    </div>
-                  </div>
-                  
-                  {/* Column 2 */}
-                  <div className="text-center">
+                     </div>
+                   </div>
+                   
+                   {/* Column 2 */}
+                   <div className="text-center">
                     <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#4C1C6F] mb-2">
                       {t('executiveMbaNgoPage.features.stats.groupSize.number')}
-                    </div>
+                     </div>
                     <div className="text-base sm:text-lg text-[#6E767D] mb-3">
                       {t('executiveMbaNgoPage.features.stats.groupSize.label')}
-                    </div>
+                     </div>
                     <div className="text-xs sm:text-sm text-[#6E767D] leading-relaxed">
                       {t('executiveMbaNgoPage.features.stats.groupSize.description')}
-                    </div>
-                  </div>
-                  
-                  {/* Column 3 */}
-                  <div className="text-center">
+                     </div>
+                   </div>
+                   
+                   {/* Column 3 */}
+                   <div className="text-center">
                     <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#4C1C6F] mb-2">
                       {t('executiveMbaNgoPage.features.stats.experts.number')}
-                    </div>
+                     </div>
                     <div className="text-base sm:text-lg text-[#6E767D] mb-3">
                       {t('executiveMbaNgoPage.features.stats.experts.label')}
-                    </div>
+                     </div>
                     <div className="text-xs sm:text-sm text-[#6E767D] leading-relaxed">
                       {t('executiveMbaNgoPage.features.stats.experts.description')}
-                    </div>
-                  </div>
-                </div>
+                     </div>
+                   </div>
+                 </div>
               </div>
             </div>
           </div>
@@ -568,31 +568,31 @@ const ExecutiveMBANGO = () => {
                           animation: 'fadeIn 0.5s ease-in-out forwards'
                         }}
                       >
-                        {/* Image with icon overlay */}
-                        <div className="relative mb-4">
+                    {/* Image with icon overlay */}
+                    <div className="relative mb-4">
                           <img 
                             src={card.image} 
                             alt={card.title}
                             className="w-full h-40 sm:h-48 object-cover rounded-lg sm:rounded-xl"
                           />
-                          {/* Icon in top left corner of image */}
+                      {/* Icon in top left corner of image */}
                           <div className="absolute top-2 left-2 w-8 h-8 sm:w-10 sm:h-10 bg-[#4C1C6F] rounded-full flex items-center justify-center">
                             <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={card.icon} />
-                            </svg>
-                          </div>
-                        </div>
-                        
-                        {/* Title and description below image */}
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {/* Title and description below image */}
                         <h3 className="text-lg sm:text-xl lg:text-2xl font-normal text-[#4C1C6F] mb-3">
                           {card.title}
-                        </h3>
+                    </h3>
                         <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                           {card.description}
                         </p>
                       </div>
                     ))}
-                </div>
+                    </div>
                 
                 {/* Mobile navigation buttons */}
                 <div className="flex md:hidden justify-center mt-6 space-x-4">
@@ -690,15 +690,15 @@ const ExecutiveMBANGO = () => {
                         alt={member.name}
                         className="w-full h-full object-cover"
                       />
-                    </div>
+              </div>
 
                     {/* Black line separator after photo */}
                     <div className="w-full h-px bg-black mx-auto mb-3 sm:mb-4"></div>
-                    
+                  
                     {/* Name and title */}
                     <h3 className="text-sm sm:text-base lg:text-lg font-normal text-[#4C1C6F] mb-2">
                       {member.name}
-                    </h3>
+                  </h3>
                     <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-1">
                       {member.title}
                     </p>
@@ -736,40 +736,77 @@ const ExecutiveMBANGO = () => {
           </div>
 
           {/* Табы навигации */}
-          <div className="flex justify-center mb-8 sm:mb-12">
-            <div className="bg-[#7C3EA9] rounded-full px-4 sm:px-8 lg:px-24 py-2 flex flex-col sm:flex-row gap-2 sm:gap-4 lg:gap-8 w-full max-w-4xl">
+          <div className="mb-8 sm:mb-12">
+            {/* Мобильная версия - горизонтальная прокрутка */}
+            <div className="sm:hidden">
+              <div className="flex overflow-x-auto gap-3 px-4 pb-2 scrollbar-hide">
               <button
                 onClick={() => setActiveTab('mandatory')}
-                className={`px-4 sm:px-8 lg:px-16 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+                  className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
+                    activeTab === 'mandatory'
+                      ? 'bg-[#4C1C6F] text-white shadow-lg'
+                      : 'bg-[#7C3EA9] text-white border border-white/30 hover:bg-[#8B4FBA]'
+                  }`}
+                >
+                  {t('executiveMbaNgoPage.curriculum.tabs.mandatory.short')}
+                </button>
+                <button
+                  onClick={() => setActiveTab('elective')}
+                  className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
+                    activeTab === 'elective'
+                      ? 'bg-[#4C1C6F] text-white shadow-lg'
+                      : 'bg-[#7C3EA9] text-white border border-white/30 hover:bg-[#8B4FBA]'
+                  }`}
+                >
+                  {t('executiveMbaNgoPage.curriculum.tabs.elective.short')}
+                </button>
+                <button
+                  onClick={() => setActiveTab('specializations')}
+                  className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
+                    activeTab === 'specializations'
+                      ? 'bg-[#4C1C6F] text-white shadow-lg'
+                      : 'bg-[#7C3EA9] text-white border border-white/30 hover:bg-[#8B4FBA]'
+                  }`}
+                >
+                  {t('executiveMbaNgoPage.curriculum.tabs.specializations')}
+                </button>
+              </div>
+            </div>
+
+            {/* Десктопная версия */}
+            <div className="hidden sm:flex justify-center">
+              <div className="bg-[#7C3EA9] rounded-full px-8 lg:px-24 py-2 flex gap-4 lg:gap-8">
+                <button
+                  onClick={() => setActiveTab('mandatory')}
+                  className={`px-8 lg:px-16 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeTab === 'mandatory'
                     ? 'bg-[#4C1C6F] text-white shadow-lg'
                     : 'text-white border border-white hover:bg-white/10'
                 }`}
               >
-                <span className="hidden sm:inline">{t('executiveMbaNgoPage.curriculum.tabs.mandatory.full')}</span>
-                <span className="sm:hidden">{t('executiveMbaNgoPage.curriculum.tabs.mandatory.short')}</span>
+                  {t('executiveMbaNgoPage.curriculum.tabs.mandatory.full')}
               </button>
               <button
                 onClick={() => setActiveTab('elective')}
-                className={`px-4 sm:px-8 lg:px-16 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+                  className={`px-8 lg:px-16 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeTab === 'elective'
                     ? 'bg-[#4C1C6F] text-white shadow-lg'
                     : 'text-white border border-white hover:bg-white/10'
                 }`}
               >
-                <span className="hidden sm:inline">{t('executiveMbaNgoPage.curriculum.tabs.elective.full')}</span>
-                <span className="sm:hidden">{t('executiveMbaNgoPage.curriculum.tabs.elective.short')}</span>
+                  {t('executiveMbaNgoPage.curriculum.tabs.elective.full')}
               </button>
               <button
                 onClick={() => setActiveTab('specializations')}
-                className={`px-4 sm:px-8 lg:px-16 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+                  className={`px-8 lg:px-16 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeTab === 'specializations'
                     ? 'bg-[#4C1C6F] text-white shadow-lg'
                     : 'text-white border border-white hover:bg-white/10'
                 }`}
               >
-                {t('executiveMbaNgoPage.curriculum.tabs.specializations')}
+                  {t('executiveMbaNgoPage.curriculum.tabs.specializations')}
               </button>
+              </div>
             </div>
           </div>
 
@@ -1114,7 +1151,7 @@ const ExecutiveMBANGO = () => {
               >
                 <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                    </svg>
               </button>
 
               {/* Header */}
@@ -1159,9 +1196,9 @@ const ExecutiveMBANGO = () => {
                     <p className="text-xs sm:text-sm text-gray-500">{t('executiveMbaNgoPage.modals.contact.phone.label')}</p>
                     <a href="tel:+77767083636" className="text-sm sm:text-base font-medium text-[#4C1C6F] hover:text-[#5A2A8A] transition-colors">
                       {t('executiveMbaNgoPage.modals.contact.phone.number')}
-                    </a>
-                  </div>
+                  </a>
                 </div>
+              </div>
 
                 {/* Email */}
                 <div className="flex items-center justify-center space-x-3">
@@ -1175,8 +1212,8 @@ const ExecutiveMBANGO = () => {
                     <a href="mailto:gsb@narxoz.kz" className="text-sm sm:text-base font-medium text-[#4C1C6F] hover:text-[#5A2A8A] transition-colors">
                       {t('executiveMbaNgoPage.modals.contact.email.address')}
                     </a>
-                  </div>
-                </div>
+              </div>
+            </div>
 
                 {/* Working Hours */}
                 <div className="flex items-center justify-center space-x-3">
@@ -1196,13 +1233,13 @@ const ExecutiveMBANGO = () => {
 
               {/* Action Buttons */}
               <div className="mt-6 sm:mt-8 space-y-3">
-                <button 
+                  <button 
                   onClick={() => setShowContactModal(false)}
                   className="w-full bg-[#4C1C6F] text-white px-6 py-3 rounded-full font-semibold text-sm sm:text-base hover:bg-[#5A2A8A] transition-colors"
-                >
+                  >
                   {t('executiveMbaNgoPage.modals.contact.buttons.close')}
-                </button>
-                <button 
+                  </button>
+                  <button 
                   onClick={() => {
                     setShowContactModal(false);
                     setShowPresentationModal(true);
@@ -1210,11 +1247,11 @@ const ExecutiveMBANGO = () => {
                   className="w-full bg-gray-100 text-[#4C1C6F] px-6 py-3 rounded-full font-semibold text-sm sm:text-base hover:bg-gray-200 transition-colors"
                 >
                   {t('executiveMbaNgoPage.modals.contact.buttons.downloadPresentation')}
-                </button>
+                  </button>
+                </div>
+              </div>
               </div>
             </div>
-          </div>
-        </div>
       )}
 
       {/* Custom Presentation Modal with #4C1C6F color */}

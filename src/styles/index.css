@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Скрытие полосы прокрутки */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
 /* Анимации для библиотеки */
 @keyframes float {
   0%, 100% {

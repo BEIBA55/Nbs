@@ -59,13 +59,13 @@ const NewsCard = ({ news, className = '' }) => {
         </Link>
       )}
 
-      {/* Content */}
-      <div className="p-4 sm:p-5 flex flex-col flex-grow relative">
+      {/* Content - Enhanced Mobile Optimization */}
+      <div className="p-3 sm:p-4 md:p-5 flex flex-col flex-grow relative">
         {/* Category Badge (Desktop) */}
         {category && (
-          <div className="hidden sm:block mb-3">
-            <span className="inline-flex items-center text-xs text-red-600 font-semibold bg-red-50 px-3 py-1.5 rounded-full border border-red-100">
-              <svg className="w-3 h-3 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
+          <div className="hidden sm:block mb-2 sm:mb-3">
+            <span className="inline-flex items-center text-xs text-red-600 font-semibold bg-red-50 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-red-100">
+              <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 mr-1 sm:mr-1.5" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
               </svg>
               {t(`news.${category}`)}
@@ -75,8 +75,8 @@ const NewsCard = ({ news, className = '' }) => {
 
         {/* Date */}
         {date && (
-          <div className="flex items-center text-xs text-gray-500 font-medium mb-3">
-            <svg className="w-3.5 h-3.5 mr-1.5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+          <div className="flex items-center text-xs text-gray-500 font-medium mb-2 sm:mb-3">
+            <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
             </svg>
             {date}
@@ -84,16 +84,16 @@ const NewsCard = ({ news, className = '' }) => {
         )}
 
         {/* Title */}
-        <Link to={`/news/${news.id}`} className="block mb-3">
-          <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-tight line-clamp-2 group-hover:text-red-700 transition-colors duration-300">
+        <Link to={`/news/${news.id}`} className="block mb-2 sm:mb-3">
+          <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 leading-tight line-clamp-2 group-hover:text-red-700 transition-colors duration-300">
             {title}
           </h3>
         </Link>
 
         {/* Description */}
         {description && (
-          <div className="mb-4 flex-grow">
-            <p className="text-sm text-gray-600 leading-relaxed line-clamp-3 group-hover:text-gray-700 transition-colors duration-300">
+          <div className="mb-3 sm:mb-4 flex-grow">
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-3 group-hover:text-gray-700 transition-colors duration-300">
               {description}
             </p>
           </div>
@@ -101,13 +101,13 @@ const NewsCard = ({ news, className = '' }) => {
 
         {/* Tags */}
         {tags && tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mb-4">
+          <div className="flex flex-wrap gap-1 sm:gap-1.5 mb-3 sm:mb-4">
             {tags.slice(0, 2).map((tag, index) => (
               <span
                 key={index}
-                className="inline-flex items-center text-xs text-gray-600 bg-gray-50 hover:bg-gray-100 px-2.5 py-1 rounded-full border border-gray-200 transition-colors duration-200"
+                className="inline-flex items-center text-xs text-gray-600 bg-gray-50 hover:bg-gray-100 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-gray-200 transition-colors duration-200"
               >
-                <svg className="w-2.5 h-2.5 mr-1 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-2 h-2 sm:w-2.5 sm:h-2.5 mr-1 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
                 </svg>
                 {tag}
@@ -117,15 +117,15 @@ const NewsCard = ({ news, className = '' }) => {
         )}
 
         {/* Read More Button */}
-        <div className="mt-auto pt-3 border-t border-gray-100">
+        <div className="mt-auto pt-2 sm:pt-3 border-t border-gray-100">
           <Link 
             to={`/news/${news.id}`}
-            className="inline-flex items-center justify-between w-full text-red-600 hover:text-red-700 font-semibold text-sm transition-all duration-300 group/btn"
+            className="inline-flex items-center justify-between w-full text-red-600 hover:text-red-700 font-semibold text-xs sm:text-sm transition-all duration-300 group/btn"
           >
             <span className="flex items-center">
               {t('common.readMore', 'Читать далее')}
               <svg
-                className="w-4 h-4 ml-2 transform group-hover/btn:translate-x-1 transition-transform duration-300"
+                className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 transform group-hover/btn:translate-x-1 transition-transform duration-300"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -133,8 +133,8 @@ const NewsCard = ({ news, className = '' }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </span>
-            <div className="w-6 h-6 rounded-full bg-red-50 group-hover/btn:bg-red-100 transition-colors duration-300 flex items-center justify-center">
-              <svg className="w-3 h-3 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+            <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-red-50 group-hover/btn:bg-red-100 transition-colors duration-300 flex items-center justify-center">
+              <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
               </svg>
             </div>

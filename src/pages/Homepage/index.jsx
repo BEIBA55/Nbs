@@ -436,8 +436,8 @@ const Homepage = () => {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section - Mobile Optimized */}
-      <div className="relative h-screen min-h-[600px] lg:min-h-[700px] overflow-hidden">
+      {/* Hero Section - Enhanced Mobile Optimization */}
+      <div className="relative h-screen min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] overflow-hidden">
         {/* Background Video */}
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
@@ -452,22 +452,22 @@ const Homepage = () => {
           <img src="/images/img_.png" alt="Background" className="w-full h-full object-cover" />
         </video>
 
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-40 sm:bg-opacity-50"></div>
 
-        {/* Title Section - Mobile Optimized */}
-        <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-10 flex flex-col items-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-lg text-center animate-fade-in-up">
+        {/* Title Section - Enhanced Mobile Optimization */}
+        <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-10 flex flex-col items-center px-3 sm:px-6 lg:px-8">
+          <h1 className="text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight drop-shadow-lg text-center animate-fade-in-up max-w-6xl">
             {t('homepage.hero.title')}
           </h1>
         </div>
 
-        {/* Contact Form - Mobile Optimized */}
-        <div className="absolute bottom-4 sm:bottom-8 lg:bottom-20 left-0 right-0 z-10 flex flex-col items-center w-full px-4 sm:px-6 lg:px-8">
-          <h2 className="text-white text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium leading-tight mb-4 sm:mb-6 drop-shadow-lg text-center animate-fade-in-up">
+        {/* Contact Form - Enhanced Mobile Optimization */}
+        <div className="absolute bottom-2 sm:bottom-4 md:bottom-8 lg:bottom-20 left-0 right-0 z-10 flex flex-col items-center w-full px-3 sm:px-6 lg:px-8">
+          <h2 className="text-white text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-tight mb-3 sm:mb-4 md:mb-6 drop-shadow-lg text-center animate-fade-in-up max-w-4xl">
             {t('homepage.hero.subtitle')}
           </h2>
           <form
-            className="flex flex-col gap-3 sm:gap-2 w-full max-w-4xl mx-auto lg:flex-row"
+            className="flex flex-col gap-2 sm:gap-3 w-full max-w-4xl mx-auto lg:flex-row lg:gap-2"
             onSubmit={(e) => {
               e.preventDefault();
               handleConsultationSubmit();
@@ -477,24 +477,24 @@ const Homepage = () => {
               placeholder={t('forms.namePlaceholder')}
               value={formData.name}
               onChange={(value) => handleInputChange('name', value)}
-              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
+              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[40px] sm:h-[44px] lg:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
             />
             <EditText
               placeholder={t('forms.emailPlaceholder')}
               type="email"
               value={formData.email}
               onChange={(value) => handleInputChange('email', value)}
-              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
+              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[40px] sm:h-[44px] lg:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
             />
             <EditText
               placeholder={t('forms.phonePlaceholder')}
               value={formData.phone}
               onChange={(value) => handleInputChange('phone', value)}
-              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
+              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[40px] sm:h-[44px] lg:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
             />
             <button
               type="submit"
-              className="flex-1 lg:flex-none lg:min-w-[200px] bg-[#991E1E] text-white px-4 py-2 font-medium rounded-md shadow-sm hover:bg-[#7a1818] active:bg-[#660c0c] transition-colors flex items-center justify-center h-[44px] sm:h-[42px] text-sm sm:text-base touch-manipulation"
+              className="flex-1 lg:flex-none lg:min-w-[180px] xl:min-w-[200px] bg-[#991E1E] text-white px-3 sm:px-4 py-2 font-medium rounded-md shadow-sm hover:bg-[#7a1818] active:bg-[#660c0c] transition-colors flex items-center justify-center h-[40px] sm:h-[44px] lg:h-[42px] text-sm sm:text-base touch-manipulation"
             >
               {t('homepage.hero.consultationTitle')}
             </button>
@@ -502,20 +502,20 @@ const Homepage = () => {
         </div>
       </div>
 
-      {/* New About Section - Mobile Optimized */}
-      <div className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-[#F9F8F6]">
+      {/* New About Section - Enhanced Mobile Optimization */}
+      <div className="py-6 sm:py-8 md:py-12 lg:py-16 px-3 sm:px-4 md:px-6 lg:px-8 bg-[#F9F8F6]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
             {/* Левая колонка с заголовком */}
-            <div className="animate-fade-in-up">
-              <h2 className="text-[#991E1E] text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
+            <div className="animate-fade-in-up text-center lg:text-left">
+              <h2 className="text-[#991E1E] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
                 {t('homepage.newAboutSection.title')}
               </h2>
               {/* Кнопка Contact Us */}
-              <div className="mt-8">
+              <div className="mt-6 sm:mt-8">
                 <button 
                   onClick={() => setIsContactModalOpen(true)}
-                  className="bg-[#991E1E] text-white px-6 py-3 rounded-md font-medium hover:bg-[#7a1818] transition-colors"
+                  className="bg-[#991E1E] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium hover:bg-[#7a1818] transition-colors text-sm sm:text-base w-full sm:w-auto"
                 >
                   {t('homepage.newAboutSection.contactButton')}
                 </button>
@@ -524,7 +524,7 @@ const Homepage = () => {
             
             {/* Правая колонка с описанием */}
             <div className="animate-fade-in-up">
-              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+              <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-left">
                 {t('homepage.newAboutSection.description')}
               </p>
             </div>

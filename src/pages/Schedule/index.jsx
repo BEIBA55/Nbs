@@ -703,23 +703,23 @@ const Schedule = () => {
       days.push(
         <div
           key={day}
-          className={`h-24 border border-gray-200 p-1 overflow-hidden hover:bg-gray-50 cursor-pointer ${isToday ? 'bg-blue-50 border-blue-300' : ''}`}
+          className={`h-16 sm:h-20 md:h-24 border border-gray-200 p-1 overflow-hidden hover:bg-gray-50 cursor-pointer ${isToday ? 'bg-blue-50 border-blue-300' : ''}`}
         >
-          <div className={`text-sm font-medium mb-1 ${isToday ? 'text-blue-600' : 'text-gray-900'}`}>
+          <div className={`text-xs sm:text-sm font-medium mb-1 ${isToday ? 'text-blue-600' : 'text-gray-900'}`}>
             {day}
           </div>
-          <div className="space-y-1">
+          <div className="space-y-0.5 sm:space-y-1">
             {dayEvents.slice(0, 2).map((event) => {
               const eventStatus = getEventStatus(event.date);
               return (
                 <div
                   key={event.id}
-                  className={`text-xs p-1 rounded text-white cursor-pointer hover:opacity-80 ${eventStatus === 'past' ? 'opacity-60' : ''} ${eventTypes[event.type].color}`}
+                  className={`text-xs p-0.5 sm:p-1 rounded text-white cursor-pointer hover:opacity-80 ${eventStatus === 'past' ? 'opacity-60' : ''} ${eventTypes[event.type].color}`}
                   onClick={() => setSelectedEvent(event)}
                   title={getLocalizedEventData(event.id).title}
                 >
-                  <div className="truncate font-medium">{event.time}</div>
-                  <div className="truncate">{getLocalizedEventData(event.id).title}</div>
+                  <div className="truncate font-medium text-xs">{event.time}</div>
+                  <div className="truncate text-xs">{getLocalizedEventData(event.id).title}</div>
                   {eventStatus === 'past' && (
                     <div className="truncate text-xs opacity-75">{t('schedule.event.completed')}</div>
                   )}
@@ -741,41 +741,41 @@ const Schedule = () => {
     <div className="min-h-screen bg-gray-50">
       <Header />
 
-      {/* Hero Section */}
-      <div className="bg-white py-16 px-8 mt-16">
+      {/* Hero Section - Enhanced Mobile Optimization */}
+      <div className="bg-white pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-14 md:pb-16 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
             {t('schedule.hero.title')}
           </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
             {t('schedule.hero.subtitle')}
           </p>
         </div>
       </div>
 
-      {/* Переключатель режимов */}
-      <div className="flex justify-center items-center gap-4 mt-8 mb-4">
+      {/* Переключатель режимов - Enhanced Mobile Optimization */}
+      <div className="flex justify-center items-center gap-2 sm:gap-4 mt-6 sm:mt-8 mb-3 sm:mb-4 px-3 sm:px-4">
         <button
-          className={`px-6 py-2 rounded-lg font-semibold border transition-colors ${viewMode === 'calendar' ? 'bg-red-600 text-white border-red-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'}`}
+          className={`px-4 sm:px-6 py-2 rounded-lg font-semibold border transition-colors text-sm sm:text-base ${viewMode === 'calendar' ? 'bg-red-600 text-white border-red-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'}`}
           onClick={() => setViewMode('calendar')}
         >
           {t('schedule.viewMode.calendar')}
         </button>
         <button
-          className={`px-6 py-2 rounded-lg font-semibold border transition-colors ${viewMode === 'list' ? 'bg-red-600 text-white border-red-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'}`}
+          className={`px-4 sm:px-6 py-2 rounded-lg font-semibold border transition-colors text-sm sm:text-base ${viewMode === 'list' ? 'bg-red-600 text-white border-red-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'}`}
           onClick={() => setViewMode('list')}
         >
           {t('schedule.viewMode.list')}
         </button>
       </div>
 
-      {/* Фильтры для списка */}
+      {/* Фильтры для списка - Enhanced Mobile Optimization */}
       {viewMode === 'list' && (
-        <div className="max-w-7xl mx-auto px-8 mb-6">
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-bold text-gray-900">{t('schedule.filters.title')}</h3>
-              <div className="text-sm text-gray-600">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 mb-4 sm:mb-6">
+          <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2 sm:gap-0">
+              <h3 className="text-base sm:text-lg font-bold text-gray-900">{t('schedule.filters.title')}</h3>
+              <div className="text-xs sm:text-sm text-gray-600">
                 {t('schedule.filters.foundEvents', { count: filteredEvents.length })}
                 {filters.dateRange === 'upcoming' && (
                   <span className="ml-2 text-green-600">
@@ -789,10 +789,10 @@ const Schedule = () => {
                 )}
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               {/* Поиск */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="sm:col-span-2 lg:col-span-1">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   {t('schedule.filters.search')}
                 </label>
                 <input
@@ -800,19 +800,19 @@ const Schedule = () => {
                   placeholder={t('schedule.filters.searchPlaceholder')}
                   value={filters.searchQuery}
                   onChange={(e) => setFilters(prev => ({ ...prev, searchQuery: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm sm:text-base"
                 />
               </div>
 
               {/* Тип мероприятия */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   {t('schedule.filters.eventType')}
                 </label>
                 <select
                   value={filters.eventType}
                   onChange={(e) => setFilters(prev => ({ ...prev, eventType: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm sm:text-base"
                 >
                   <option value="all">{t('schedule.eventTypes.all')}</option>
                   {Object.entries(eventTypes).map(([type, config]) => (
@@ -823,13 +823,13 @@ const Schedule = () => {
 
               {/* Период */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   {t('schedule.filters.dateRange')}
                 </label>
                 <select
                   value={filters.dateRange}
                   onChange={(e) => setFilters(prev => ({ ...prev, dateRange: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm sm:text-base"
                 >
                   <option value="upcoming">{t('schedule.upcoming')}</option>
                   <option value="past">{t('schedule.past')}</option>
@@ -845,7 +845,7 @@ const Schedule = () => {
                     dateRange: 'upcoming',
                     searchQuery: ''
                   })}
-                  className="w-full px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                  className="w-full px-3 sm:px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm sm:text-base"
                 >
                   {t('schedule.filters.resetFilters')}
                 </button>
@@ -855,29 +855,29 @@ const Schedule = () => {
         </div>
       )}
 
-      {/* Calendar/List Section */}
-      <div className="py-8 px-8 max-w-7xl mx-auto">
+      {/* Calendar/List Section - Enhanced Mobile Optimization */}
+      <div className="py-6 sm:py-8 px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
         {viewMode === 'calendar' ? (
-          <div className="bg-white rounded-lg shadow-lg p-6">
+          <div className="bg-white rounded-lg shadow-lg p-3 sm:p-4 md:p-6">
             {/* Calendar Header */}
-            <div className="flex justify-between items-center mb-6">
-              <div className="flex items-center space-x-4">
+            <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 gap-3 sm:gap-0">
+              <div className="flex items-center space-x-2 sm:space-x-4">
                 <button
                   onClick={() => changeMonth(-1)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-1 sm:p-2 hover:bg-gray-100 rounded-lg transition-colors"
                 >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 </button>
-                <h2 className="text-2xl font-bold text-gray-900">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
                   {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
                 </h2>
                 <button
                   onClick={() => changeMonth(1)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-1 sm:p-2 hover:bg-gray-100 rounded-lg transition-colors"
                 >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                   </svg>
                 </button>
@@ -886,7 +886,7 @@ const Schedule = () => {
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => setCurrentDate(new Date())}
-                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                  className="px-3 sm:px-4 py-1 sm:py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm sm:text-base"
                 >
                   {t('schedule.today')}
                 </button>
@@ -894,9 +894,9 @@ const Schedule = () => {
             </div>
 
             {/* Week Days Header */}
-            <div className="grid grid-cols-7 gap-0 mb-2">
+            <div className="grid grid-cols-7 gap-0 mb-1 sm:mb-2">
               {weekDays.map((day) => (
-                <div key={day} className="p-3 text-center font-medium text-gray-600 bg-gray-100 border border-gray-200">
+                <div key={day} className="p-2 sm:p-3 text-center font-medium text-gray-600 bg-gray-100 border border-gray-200 text-xs sm:text-sm">
                   {day}
                 </div>
               ))}
@@ -906,18 +906,18 @@ const Schedule = () => {
             <div className="grid grid-cols-7 gap-0">{renderCalendar()}</div>
           </div>
         ) : (
-          <div className="bg-white rounded-lg shadow-lg p-6">
+          <div className="bg-white rounded-lg shadow-lg p-3 sm:p-4 md:p-6">
             {filteredEvents.length === 0 ? (
-              <div className="text-center py-12">
+              <div className="text-center py-8 sm:py-12">
                 <div className="text-gray-400 mb-4">
-                  <svg className="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="mx-auto h-8 w-8 sm:h-12 sm:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">
+                <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-2">
                   {t('schedule.list.noEventsFound')}
                 </h3>
-                <p className="text-gray-500 mb-4">
+                <p className="text-sm sm:text-base text-gray-500 mb-4">
                   {t('schedule.list.noEventsFoundDescription')}
                 </p>
                 <button
@@ -926,30 +926,30 @@ const Schedule = () => {
                     dateRange: 'upcoming',
                     searchQuery: ''
                   })}
-                  className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+                  className="bg-red-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-red-700 transition-colors text-sm sm:text-base"
                 >
                   {t('schedule.list.resetFilters')}
                 </button>
               </div>
             ) : (
               sortedDates.map((date) => (
-                <div key={date} className="mb-8">
-                  <div className="text-lg font-bold text-gray-700 mb-2 flex items-center gap-2">
-                    <span className="uppercase text-gray-400 text-base font-semibold">
+                <div key={date} className="mb-6 sm:mb-8">
+                  <div className="text-base sm:text-lg font-bold text-gray-700 mb-2 flex items-center gap-2">
+                    <span className="uppercase text-gray-400 text-sm sm:text-base font-semibold">
                       {formatLocalizedDate(date)}
                     </span>
                   </div>
-                  <div className="space-y-6">
+                  <div className="space-y-4 sm:space-y-6">
                     {groupedEvents[date].map((event) => {
                       const eventStatus = getEventStatus(event.date);
                       return (
                         <div 
                           key={event.id} 
-                          className={`flex flex-col md:flex-row gap-4 border-b pb-6 cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors ${eventStatus === 'past' ? 'opacity-75' : ''}`}
+                          className={`flex flex-col gap-3 sm:gap-4 border-b pb-4 sm:pb-6 cursor-pointer hover:bg-gray-50 p-3 sm:p-4 rounded-lg transition-colors ${eventStatus === 'past' ? 'opacity-75' : ''}`}
                           onClick={() => setSelectedEvent(event)}
                         >
                           <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
+                            <div className="flex flex-wrap items-center gap-2 mb-2">
                               <span className={`text-xs font-bold uppercase tracking-wider ${eventTypes[event.type]?.color || 'bg-gray-300'} text-white px-2 py-1 rounded`}>
                                 {eventTypes[event.type]?.name || event.type}
                               </span>
@@ -960,9 +960,9 @@ const Schedule = () => {
                                 </span>
                               )}
                             </div>
-                                                          <div className="text-xl font-bold text-gray-900 mb-1">{getLocalizedEventData(event.id).title}</div>
-                            <div className="text-gray-700 mb-1">{getLocalizedEventData(event.id).description}</div>
-                            <div className="flex flex-wrap gap-4 text-sm text-gray-500 mt-2">
+                            <div className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{getLocalizedEventData(event.id).title}</div>
+                            <div className="text-sm sm:text-base text-gray-700 mb-2">{getLocalizedEventData(event.id).description}</div>
+                            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500">
                               <span><b>{t('eventRegistration.eventDetails.speaker')}:</b> {getLocalizedEventData(event.id).speaker}</span>
                               <span><b>{t('eventRegistration.eventDetails.location')}:</b> {getLocalizedEventData(event.id).location}</span>
                               <span><b>{t('eventRegistration.eventDetails.cost')}:</b> {getLocalizedEventData(event.id).cost}</span>
@@ -978,26 +978,26 @@ const Schedule = () => {
           </div>
         )}
 
-        {/* Event Types Legend */}
-        <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">{t('schedule.filters.title')}</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {/* Event Types Legend - Enhanced Mobile Optimization */}
+        <div className="mt-6 sm:mt-8 bg-white rounded-lg shadow-lg p-4 sm:p-6">
+          <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-4">{t('schedule.filters.title')}</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
             {Object.entries(eventTypes).map(([type, config]) => (
               <div key={type} className="flex items-center space-x-2">
-                <div className={`w-4 h-4 rounded ${config.color}`}></div>
-                <span className="text-sm text-gray-700">{config.name}</span>
+                <div className={`w-3 h-3 sm:w-4 sm:h-4 rounded ${config.color}`}></div>
+                <span className="text-xs sm:text-sm text-gray-700">{config.name}</span>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Event Detail Modal */}
+      {/* Event Detail Modal - Enhanced Mobile Optimization */}
       {selectedEvent && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-md w-full p-6">
-            <div className="flex justify-between items-start mb-4">
-              <div className={`px-3 py-1 rounded-full text-white text-sm ${eventTypes[selectedEvent.type].color}`}>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-3 sm:p-4">
+          <div className="bg-white rounded-lg max-w-md w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-start mb-3 sm:mb-4">
+              <div className={`px-2 sm:px-3 py-1 rounded-full text-white text-xs sm:text-sm ${eventTypes[selectedEvent.type].color}`}>
                 {eventTypes[selectedEvent.type].name}
               </div>
               <button
@@ -1005,58 +1005,58 @@ const Schedule = () => {
                 className="text-gray-400 hover:text-gray-600"
                 title={t('schedule.modal.close')}
               >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </button>
             </div>
 
-            <h3 className="text-xl font-bold text-gray-900 mb-3">{getLocalizedEventData(selectedEvent.id).title}</h3>
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{getLocalizedEventData(selectedEvent.id).title}</h3>
 
-            <div className="space-y-3 text-sm text-gray-600">
+            <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
               <div className="flex items-center space-x-2">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                 </svg>
                 <span><strong>{t('eventRegistration.eventDetails.date')}:</strong> {selectedEvent.date}</span>
               </div>
 
               <div className="flex items-center space-x-2">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                 </svg>
                 <span><strong>{t('eventRegistration.eventDetails.time')}:</strong> {selectedEvent.time}</span>
               </div>
 
               <div className="flex items-center space-x-2">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
                 <span><strong>{t('eventRegistration.eventDetails.location')}:</strong> {getLocalizedEventData(selectedEvent.id).location}</span>
               </div>
 
               <div className="flex items-center space-x-2">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                 </svg>
                 <span><strong>{t('eventRegistration.eventDetails.speaker')}:</strong> {getLocalizedEventData(selectedEvent.id).speaker}</span>
               </div>
 
               <div className="flex items-center space-x-2">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
                 <span><strong>{t('eventRegistration.eventDetails.cost')}:</strong> {getLocalizedEventData(selectedEvent.id).cost}</span>
               </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-gray-200">
-              <p className="text-gray-700">{getLocalizedEventData(selectedEvent.id).description}</p>
+            <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200">
+              <p className="text-sm sm:text-base text-gray-700">{getLocalizedEventData(selectedEvent.id).description}</p>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-4 sm:mt-6">
               {getEventStatus(selectedEvent.date) === 'past' ? (
-                <div className="w-full bg-gray-500 text-white py-2 px-4 rounded-lg text-center">
+                <div className="w-full bg-gray-500 text-white py-2 px-4 rounded-lg text-center text-sm sm:text-base">
                   {t('schedule.modal.eventCompleted')}
                 </div>
               ) : (
@@ -1065,7 +1065,7 @@ const Schedule = () => {
                     setSelectedEvent(null);
                     navigate(`/events/register/${selectedEvent.id}`);
                   }}
-                  className="w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors"
+                  className="w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors text-sm sm:text-base"
                 >
                   {t('schedule.modal.register')}
                 </button>

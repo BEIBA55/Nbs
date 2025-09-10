@@ -6,8 +6,169 @@ const ExecutiveEducationGrid = () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-             <div className="grid grid-cols-4 grid-rows-2 gap-0 w-full h-[540px]">
+    <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+      {/* Мобильная версия - вертикальная сетка */}
+      <div className="block lg:hidden space-y-3 sm:space-y-4">
+        {/* Корпоративным клиентам */}
+        <Link
+          to="/corporate-clients"
+          className="bg-[#991E1E] text-white flex flex-col justify-center items-center relative rounded-2xl sm:rounded-3xl border border-gray-200 h-32 sm:h-40 w-full p-4 sm:p-6"
+        >
+          <span className="text-2xl sm:text-3xl md:text-4xl font-medium leading-tight text-center">
+            {t('homepage.executiveEducationGrid.corporate.title')}
+          </span>
+          <div className="flex items-center mt-2 sm:mt-4">
+            <div className="flex items-center border-2 border-white rounded-full px-3 sm:px-4 py-1">
+              <span className="text-white font-medium text-xs sm:text-sm">{t('homepage.executiveEducationGrid.more')}</span>
+            </div>
+            <div className="flex items-center border-2 border-white rounded-full w-6 h-6 sm:w-7 sm:h-7 ml-0">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </Link>
+
+        {/* Mini-MBA */}
+        <Link
+          to="/programs/mini-mba"
+          className="bg-[#E94848] text-white flex flex-col justify-center items-center relative rounded-2xl sm:rounded-3xl border border-gray-200 h-32 sm:h-40 w-full p-4 sm:p-6"
+        >
+          <span className="text-2xl sm:text-3xl md:text-4xl font-medium leading-tight text-center">
+            {t('homepage.executiveEducationGrid.miniMba.title')}
+          </span>
+          <span className="text-xs sm:text-sm font-normal mt-1 sm:mt-2 opacity-80 text-center">
+            {t('homepage.executiveEducationGrid.miniMba.description')}
+          </span>
+          <div className="flex items-center mt-2 sm:mt-4">
+            <div className="flex items-center border-2 border-white rounded-full px-3 sm:px-4 py-1">
+              <span className="text-white font-medium text-xs sm:text-sm">{t('homepage.executiveEducationGrid.more')}</span>
+            </div>
+            <div className="flex items-center border-2 border-white rounded-full w-6 h-6 sm:w-7 sm:h-7 ml-0">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </Link>
+
+        {/* Executive MBA для лидеров НПО/НКО */}
+        <Link
+          to="/programs/executive-mba-ngo"
+          className="bg-white text-[#991E1E] flex flex-col justify-center items-center relative rounded-2xl sm:rounded-3xl border border-gray-200 h-32 sm:h-40 w-full p-4 sm:p-6"
+        >
+          <span className="text-2xl sm:text-3xl md:text-4xl font-medium leading-tight text-center">
+            {t('homepage.executiveEducationGrid.executiveMbaNgo.title')}
+          </span>
+          <div className="flex items-center mt-2 sm:mt-4">
+            <div className="flex items-center border-2 border-[#991E1E] rounded-full px-3 sm:px-4 py-1">
+              <span className="text-[#991E1E] font-medium text-xs sm:text-sm">{t('homepage.executiveEducationGrid.more')}</span>
+            </div>
+            <div className="flex items-center border-2 border-[#991E1E] rounded-full w-6 h-6 sm:w-7 sm:h-7 ml-0">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="#991E1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </Link>
+
+        {/* Executive MBA для СІО */}
+        <Link
+          to="/programs/executive-mba-cio"
+          className="bg-[#991E1E] text-white flex flex-col justify-center items-center relative rounded-2xl sm:rounded-3xl border border-gray-200 h-32 sm:h-40 w-full p-4 sm:p-6"
+        >
+          <span className={`font-medium leading-tight text-center ${
+            i18n.language === 'kk' 
+              ? 'text-xl sm:text-2xl md:text-3xl' 
+              : 'text-2xl sm:text-3xl md:text-4xl'
+          }`}>
+            {t('homepage.executiveEducationGrid.executiveMbaCio.title')}
+          </span>
+          <span className="text-xs sm:text-sm font-normal mt-1 sm:mt-2 opacity-80 text-center">
+            {t('homepage.executiveEducationGrid.executiveMbaCio.description')}
+          </span>
+          <div className="flex items-center mt-2 sm:mt-4">
+            <div className="flex items-center border-2 border-white rounded-full px-3 sm:px-4 py-1">
+              <span className="text-white font-medium text-xs sm:text-sm">{t('homepage.executiveEducationGrid.more')}</span>
+            </div>
+            <div className="flex items-center border-2 border-white rounded-full w-6 h-6 sm:w-7 sm:h-7 ml-0">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </Link>
+
+        {/* Тренинги */}
+        <Link
+          to="/programs/trainings"
+          className="bg-[#E94848] text-white flex flex-col justify-center items-center relative rounded-2xl sm:rounded-3xl border border-gray-200 h-32 sm:h-40 w-full p-4 sm:p-6"
+        >
+          <span className="text-2xl sm:text-3xl md:text-4xl font-medium leading-tight text-center">
+            {t('homepage.executiveEducationGrid.trainings.title')}
+          </span>
+          <span className="text-xs sm:text-sm font-normal mt-1 sm:mt-2 opacity-80 text-center">
+            {t('homepage.executiveEducationGrid.trainings.description')}
+          </span>
+          <div className="flex items-center mt-2 sm:mt-4">
+            <div className="flex items-center border-2 border-white rounded-full px-3 sm:px-4 py-1">
+              <span className="text-white font-medium text-xs sm:text-sm">{t('homepage.executiveEducationGrid.more')}</span>
+            </div>
+            <div className="flex items-center border-2 border-white rounded-full w-6 h-6 sm:w-7 sm:h-7 ml-0">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </Link>
+
+        {/* Изображение */}
+        <div className="bg-white flex flex-col justify-center items-center rounded-2xl sm:rounded-3xl border border-gray-200 h-48 sm:h-56 w-full overflow-hidden p-0">
+          <img
+            src="/images/treningiphoto.png"
+            alt="Graduates"
+            className="object-cover w-full h-full"
+          />
+        </div>
+      </div>
+
+      {/* Десктопная версия - оригинальная сетка */}
+      <div className="hidden lg:grid grid-cols-4 grid-rows-2 gap-0 w-full h-[540px]">
                  {/* Ряд 1, Колонка 1-2: Корпоративным клиентам */}
          <Link
            to="/corporate-clients"

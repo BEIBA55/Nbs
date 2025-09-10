@@ -6,8 +6,130 @@ const BusinessSchoolGrid = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="grid grid-cols-4 grid-rows-2 w-full h-[540px] gap-0">
+    <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+      {/* Мобильная версия - вертикальная сетка */}
+      <div className="block lg:hidden space-y-3 sm:space-y-4">
+        {/* MBA */}
+        <Link
+          to="/programs/mba"
+          className="bg-[#991E1E] text-white flex flex-col justify-center items-center relative rounded-2xl sm:rounded-3xl border border-gray-200 h-32 sm:h-40 w-full p-4 sm:p-6"
+        >
+          <span className="text-2xl sm:text-3xl md:text-4xl font-medium leading-tight text-center">
+            {t('homepage.businessGrid.mba.program')}
+          </span>
+          <span className="text-sm sm:text-base font-normal mt-1 sm:mt-2 opacity-80 text-center">
+            {t('homepage.businessGrid.mba.rank')} {t('homepage.businessGrid.mba.region')}
+          </span>
+          <div className="flex items-center mt-2 sm:mt-4">
+            <div className="flex items-center border-2 border-white rounded-full px-3 sm:px-4 py-1">
+              <span className="text-white font-medium text-xs sm:text-sm">{t('homepage.businessGrid.more')}</span>
+            </div>
+            <div className="flex items-center border-2 border-white rounded-full w-6 h-6 sm:w-7 sm:h-7 ml-0">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </Link>
+
+        {/* DBA */}
+        <Link
+          to="/programs/dba"
+          className="bg-white text-[#991E1E] flex flex-col justify-center items-center relative rounded-2xl sm:rounded-3xl border border-gray-200 h-32 sm:h-40 w-full p-4 sm:p-6"
+        >
+          <span className="text-2xl sm:text-3xl md:text-4xl font-medium leading-tight text-center">
+            {t('homepage.businessGrid.dba.program')}
+          </span>
+          <span className="text-sm sm:text-base font-normal mt-1 sm:mt-2 opacity-80 text-center">
+            {t('homepage.businessGrid.dba.description')}
+          </span>
+          <div className="flex items-center mt-2 sm:mt-4">
+            <div className="flex items-center border-2 border-[#991E1E] rounded-full px-3 sm:px-4 py-1">
+              <span className="text-[#991E1E] font-medium text-xs sm:text-sm">{t('homepage.businessGrid.more')}</span>
+            </div>
+            <div className="flex items-center border-2 border-[#991E1E] rounded-full w-6 h-6 sm:w-7 sm:h-7 ml-0">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="#991E1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </Link>
+
+        {/* Executive MBA */}
+        <Link
+          to="/programs/executive-mba"
+          className="bg-[#E94848] text-white flex flex-col justify-center items-center relative rounded-2xl sm:rounded-3xl border border-gray-200 h-32 sm:h-40 w-full p-4 sm:p-6"
+        >
+          <span className="text-2xl sm:text-3xl md:text-4xl font-medium leading-tight text-center">
+            {t('homepage.businessGrid.executiveMba.program').split(' ')[0]}
+            <br />
+            {t('homepage.businessGrid.executiveMba.program').split(' ')[1]}
+          </span>
+          <div className="flex items-center mt-2 sm:mt-4">
+            <div className="flex items-center border-2 border-white rounded-full px-3 sm:px-4 py-1">
+              <span className="text-white font-medium text-xs sm:text-sm">{t('homepage.businessGrid.more')}</span>
+            </div>
+            <div className="flex items-center border-2 border-white rounded-full w-6 h-6 sm:w-7 sm:h-7 ml-0">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </Link>
+
+        {/* Executive Education */}
+        <Link
+          to="/programs/executive-education"
+          className="bg-[#991E1E] text-white flex flex-col justify-center items-center rounded-2xl sm:rounded-3xl border border-gray-200 h-32 sm:h-40 w-full p-4 sm:p-6"
+        >
+          <span className="text-2xl sm:text-3xl md:text-4xl font-medium leading-tight text-center">
+            Executive
+            <br />
+            Education
+          </span>
+          <div className="flex items-center mt-2 sm:mt-4">
+            <div className="flex items-center border-2 border-white rounded-full px-3 sm:px-4 py-1">
+              <span className="text-white font-medium text-xs sm:text-sm">{t('homepage.businessGrid.more')}</span>
+            </div>
+            <div className="flex items-center border-2 border-white rounded-full w-6 h-6 sm:w-7 sm:h-7 ml-0">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </Link>
+      </div>
+
+      {/* Десктопная версия - оригинальная сетка */}
+      <div className="hidden lg:grid grid-cols-4 grid-rows-2 w-full h-[540px] gap-0">
         {/* 1. №1 MBA */}
         <Link
           to="/programs/mba"

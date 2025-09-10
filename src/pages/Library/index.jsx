@@ -138,8 +138,8 @@ const Library = () => {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section */}
-      <div className="relative h-screen overflow-hidden">
+      {/* Hero Section - Enhanced Mobile Optimization */}
+      <div className="relative h-[80vh] sm:h-[90vh] md:h-screen lg:h-screen overflow-hidden pt-24 sm:pt-28 md:pt-32 lg:pt-36">
         <div className="absolute inset-0">
           <img 
             src="/images/libra.png" 
@@ -148,29 +148,102 @@ const Library = () => {
           />
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
-        <div className="relative h-full flex items-end justify-center pb-20">
-          <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+        <div className="relative h-full flex items-end justify-center pb-12 sm:pb-16 md:pb-20">
+          <div className="text-center text-white max-w-4xl px-3 sm:px-4 md:px-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6">
               {t('library.title')}
             </h1>
-            <p className="text-xl md:text-2xl mb-8">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 sm:mb-6 md:mb-8">
               {t('library.subtitle')}
             </p>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
               {t('library.description')}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Services Section */}
-      <div className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      {/* Services Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
+          {/* Mobile Layout - Stacked Cards */}
+          <div className="block lg:hidden space-y-4 sm:space-y-6">
             {/* First Block - Full Image */}
-            <div className="lg:col-span-1 bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="h-48 sm:h-64">
+                <img 
+                  src="/images/block1.png" 
+                  alt={t('library.services.digitalResources')}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Second Block - Text and Icon */}
+            <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
+              <div className="text-center">
+                <div className="text-[#991E1E] mb-4 sm:mb-6 flex justify-center">
+                  <svg className="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 leading-tight">
+                  {t('library.services.digitalResources')}
+                </h3>
+              </div>
+            </div>
+
+            {/* Third Block - Text and Icon */}
+            <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
+              <div className="text-center">
+                <div className="text-[#991E1E] mb-4 sm:mb-6 flex justify-center">
+                  <svg className="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/>
+                  </svg>
+                </div>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 leading-tight">
+                  {t('library.services.studySpaces')}
+                </h3>
+              </div>
+            </div>
+
+            {/* Fourth Block - Image and Text */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="h-40 sm:h-48">
+                <img 
+                  src="/images/block3.png" 
+                  alt={t('library.services.researchSupport')}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4 sm:p-6 text-center">
+                <h3 className="text-sm sm:text-base font-semibold text-gray-900 leading-tight">
+                  {t('library.services.researchSupport')}
+                </h3>
+              </div>
+            </div>
+
+            {/* Fifth Block - Image and Text */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="h-40 sm:h-48">
+                <img 
+                  src="/images/block2.png" 
+                  alt={t('library.services.databases')}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4 sm:p-6 text-center">
+                <h3 className="text-sm sm:text-base font-semibold text-gray-900 leading-tight">
+                  {t('library.services.databases')}
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Layout - Grid */}
+          <div className="hidden lg:grid grid-cols-5 gap-6">
+            {/* First Block - Full Image */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="h-80">
                 <img 
                   src="/images/block1.png" 
@@ -181,7 +254,7 @@ const Library = () => {
             </div>
 
             {/* Second Block - Text and Icon */}
-            <div className="lg:col-span-1 bg-white rounded-xl shadow-lg p-8 flex flex-col justify-center">
+            <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col justify-center">
               <div className="text-center">
                 <div className="text-[#991E1E] mb-6 flex justify-center">
                   <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
@@ -195,7 +268,7 @@ const Library = () => {
             </div>
 
             {/* Third Block - Text and Icon */}
-            <div className="lg:col-span-1 bg-white rounded-xl shadow-lg p-8 flex flex-col justify-center">
+            <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col justify-center">
               <div className="text-center">
                 <div className="text-[#991E1E] mb-6 flex justify-center">
                   <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
@@ -209,7 +282,7 @@ const Library = () => {
             </div>
 
             {/* Fourth Block - Image and Text */}
-            <div className="lg:col-span-1 bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="h-48">
                 <img 
                   src="/images/block3.png" 
@@ -225,7 +298,7 @@ const Library = () => {
             </div>
 
             {/* Fifth Block - Image and Text */}
-            <div className="lg:col-span-1 bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="h-48">
                 <img 
                   src="/images/block2.png" 
@@ -243,26 +316,26 @@ const Library = () => {
         </div>
       </div>
 
-      {/* Description and Quote Section */}
-      <div className="py-20 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* Description and Quote Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-20 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
             {/* Left Block - Description */}
             <div>
-              <p className="text-2xl text-gray-800 leading-relaxed font-medium">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-800 leading-relaxed font-medium">
                 {t('library.aboutTitle')} {t('library.trainingSessions')} {t('library.trainingSessionsDesc')}
               </p>
             </div>
 
             {/* Right Block - Quote Card */}
-            <div className="bg-white rounded-lg shadow-lg p-6 relative">
+            <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 relative">
               {/* Quote Navigation */}
-              <div className="flex gap-4 mb-4">
+              <div className="flex gap-2 sm:gap-4 mb-3 sm:mb-4">
                 {quotes.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentQuote(index)}
-                    className={`text-sm font-semibold transition-colors ${
+                    className={`text-xs sm:text-sm font-semibold transition-colors ${
                       currentQuote === index 
                         ? 'text-[#991E1E] underline' 
                         : 'text-gray-600 hover:text-gray-800'
@@ -274,14 +347,14 @@ const Library = () => {
               </div>
 
               {/* Quote Mark */}
-              <div className="text-[#991E1E] text-5xl font-bold mb-4">"</div>
+              <div className="text-[#991E1E] text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">"</div>
 
               {/* Quote Text with Animation */}
-              <div className="relative h-24 mb-6 overflow-hidden">
+              <div className="relative h-20 sm:h-24 mb-4 sm:mb-6 overflow-hidden">
                 {quotes.map((quote, index) => (
                   <blockquote 
                     key={index}
-                    className={`text-lg text-gray-800 leading-relaxed absolute w-full transition-all duration-500 ease-in-out ${
+                    className={`text-sm sm:text-base md:text-lg text-gray-800 leading-relaxed absolute w-full transition-all duration-500 ease-in-out ${
                       currentQuote === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}>
                     {quote.text}
@@ -290,25 +363,25 @@ const Library = () => {
               </div>
 
               {/* Author Info with Animation */}
-              <div className="relative h-12 overflow-hidden">
+              <div className="relative h-10 sm:h-12 overflow-hidden">
                 {quotes.map((quote, index) => (
                   <div 
                     key={index}
-                    className={`flex items-center gap-3 absolute w-full transition-all duration-500 ease-in-out ${
+                    className={`flex items-center gap-2 sm:gap-3 absolute w-full transition-all duration-500 ease-in-out ${
                       currentQuote === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}>
-                    <div className="w-10 h-10 rounded-full overflow-hidden">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden flex-shrink-0">
                       <img 
                         src={quote.image} 
                         alt={quote.author}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div>
-                      <div className="font-bold text-[#991E1E] text-base uppercase">
+                    <div className="min-w-0 flex-1">
+                      <div className="font-bold text-[#991E1E] text-xs sm:text-sm md:text-base uppercase">
                         {quote.author}
                       </div>
-                      <div className="text-gray-600 text-sm">
+                      <div className="text-gray-600 text-xs sm:text-sm">
                         {quote.description}
                       </div>
                     </div>
@@ -320,25 +393,66 @@ const Library = () => {
         </div>
       </div>
 
-      {/* Book Recommendations Section */}
-      <div className="py-20 bg-red-900">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Book Recommendations Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-20 bg-red-900">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
           {/* Header */}
-          <div className="text-center mb-16">
-            <div className="inline-block bg-red-700 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <div className="inline-block bg-red-700 text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
               {t('library.books.title')}
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">
               {t('library.recommendationsTitle')}
             </h2>
           </div>
 
-          {/* Books Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Mobile Layout - Single Column */}
+          <div className="block sm:hidden space-y-6">
+            {recommendedBooks.map((book, index) => (
+              <div key={index} className="bg-red-800 rounded-xl p-4 shadow-lg">
+                <div className="flex gap-4">
+                  {/* Book Cover */}
+                  <div className="w-24 h-32 rounded-lg overflow-hidden shadow-lg flex-shrink-0">
+                    <img 
+                      src={book.cover} 
+                      alt={book.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  
+                  {/* Book Info */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-white font-semibold text-sm mb-2 leading-tight">
+                      {book.title}
+                    </h3>
+                    <p className="text-red-200 text-xs mb-2">
+                      {book.author}
+                    </p>
+                    <p className="text-red-100 text-xs mb-3 leading-relaxed line-clamp-3">
+                      {book.description}
+                    </p>
+                    
+                    {/* Link to Book */}
+                    <a 
+                      href={book.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-red-700 hover:bg-red-600 text-white px-3 py-1.5 rounded text-xs font-medium transition-colors"
+                    >
+                      {t('library.books.readOnline')}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Tablet and Desktop Layout - Grid */}
+          <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {recommendedBooks.map((book, index) => (
               <div key={index} className="text-center">
                 {/* Book Cover */}
-                <div className="w-full h-112 rounded-lg mb-4 overflow-hidden shadow-lg">
+                <div className="w-full h-80 sm:h-96 md:h-112 rounded-lg mb-3 sm:mb-4 overflow-hidden shadow-lg">
                   <img 
                     src={book.cover} 
                     alt={book.title}
@@ -347,13 +461,13 @@ const Library = () => {
                 </div>
                 
                 {/* Book Info */}
-                <h3 className="text-white font-semibold text-lg mb-2 leading-tight">
+                <h3 className="text-white font-semibold text-sm sm:text-base md:text-lg mb-2 leading-tight">
                   {book.title}
                 </h3>
-                <p className="text-red-200 text-sm mb-4">
+                <p className="text-red-200 text-xs sm:text-sm mb-3 sm:mb-4">
                   {book.author}
                 </p>
-                <p className="text-red-100 text-xs mb-4 leading-relaxed">
+                <p className="text-red-100 text-xs mb-3 sm:mb-4 leading-relaxed">
                   {book.description}
                 </p>
                 
@@ -362,7 +476,7 @@ const Library = () => {
                   href={book.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-red-700 hover:bg-red-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors"
+                  className="inline-block bg-red-700 hover:bg-red-600 text-white px-3 sm:px-4 py-2 rounded text-xs sm:text-sm font-medium transition-colors"
                 >
                   {t('library.books.readOnline')}
                 </a>

@@ -75,10 +75,10 @@ const News = () => {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Breadcrumbs */}
-      <div className="bg-gray-50 py-4">
-        <div className="max-w-7xl mx-auto px-8">
-          <nav className="flex items-center space-x-2 text-sm">
+      {/* Breadcrumbs - Enhanced Mobile Optimization */}
+      <div className="bg-gray-50 py-3 sm:py-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          <nav className="flex items-center space-x-2 text-xs sm:text-sm">
             <Link to="/" className="text-gray-500 hover:text-red-600 transition-colors">
               {t('common.home')}
             </Link>
@@ -88,22 +88,22 @@ const News = () => {
         </div>
       </div>
 
-      {/* Filters and Search Section */}
-      <div className="py-8 px-8 bg-white border-b">
+      {/* Filters and Search Section - Enhanced Mobile Optimization */}
+      <div className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-6 sm:pb-8 px-3 sm:px-4 md:px-6 lg:px-8 bg-white border-b">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
+          <div className="flex flex-col gap-4 sm:gap-6">
             {/* Search */}
-            <div className="flex-1 max-w-md">
+            <div className="w-full">
               <div className="relative group">
                 <input
                   type="text"
                   placeholder={t('news.searchPlaceholder', 'Поиск новостей...')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 bg-white hover:bg-gray-50 focus:bg-white shadow-sm hover:shadow-md focus:shadow-lg"
+                  className="w-full pl-10 sm:pl-12 pr-10 sm:pr-12 py-2.5 sm:py-3.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 bg-white hover:bg-gray-50 focus:bg-white shadow-sm hover:shadow-md focus:shadow-lg text-sm sm:text-base"
                 />
                 <svg
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-red-500 transition-colors duration-300"
+                  className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-focus-within:text-red-500 transition-colors duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -118,7 +118,7 @@ const News = () => {
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 hover:text-red-500 transition-colors duration-200"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400 hover:text-red-500 transition-colors duration-200"
                   >
                     <svg fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -128,60 +128,63 @@ const News = () => {
               </div>
             </div>
 
-            {/* Category Filter */}
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <button
-                  key={category.key}
-                  onClick={() => setSelectedCategory(category.key)}
-                  className={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 ${
-                    selectedCategory === category.key
-                      ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-200'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-red-200 hover:text-red-600'
-                  }`}
-                >
-                  {t(`news.${category.key === 'all' ? 'allCategories' : category.key}`)}
-                </button>
-              ))}
-            </div>
+            {/* Category Filter and Sort */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center justify-between">
+              {/* Category Filter */}
+              <div className="flex flex-wrap gap-2">
+                {categories.map((category) => (
+                  <button
+                    key={category.key}
+                    onClick={() => setSelectedCategory(category.key)}
+                    className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 ${
+                      selectedCategory === category.key
+                        ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-200'
+                        : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-red-200 hover:text-red-600'
+                    }`}
+                  >
+                    {t(`news.${category.key === 'all' ? 'allCategories' : category.key}`)}
+                  </button>
+                ))}
+              </div>
 
-            {/* Sort */}
-            <div className="flex items-center space-x-3">
-              <span className="text-gray-600 text-sm font-medium">{t('news.sortBy', 'Сортировать:')}</span>
-              <div className="relative">
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="appearance-none px-4 py-2.5 pr-10 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 bg-white hover:bg-gray-50 focus:bg-white shadow-sm hover:shadow-md focus:shadow-lg cursor-pointer"
-                >
-                  <option value="date">{t('news.sortByDate', 'По дате')}</option>
-                  <option value="title">{t('news.sortByTitle', 'По названию')}</option>
-                  <option value="category">{t('news.sortByCategory', 'По категории')}</option>
-                </select>
-                <svg
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+              {/* Sort */}
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <span className="text-gray-600 text-xs sm:text-sm font-medium">{t('news.sortBy', 'Сортировать:')}</span>
+                <div className="relative">
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="appearance-none px-3 sm:px-4 py-2 sm:py-2.5 pr-8 sm:pr-10 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 bg-white hover:bg-gray-50 focus:bg-white shadow-sm hover:shadow-md focus:shadow-lg cursor-pointer text-xs sm:text-sm"
+                  >
+                    <option value="date">{t('news.sortByDate', 'По дате')}</option>
+                    <option value="title">{t('news.sortByTitle', 'По названию')}</option>
+                    <option value="category">{t('news.sortByCategory', 'По категории')}</option>
+                  </select>
+                  <svg
+                    className="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 text-gray-400 pointer-events-none"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* News Grid Section */}
-      <div className="py-16 px-8">
+      {/* News Grid Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Results Info */}
-          <div className="mb-8 text-center">
-            <div className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-gray-50 to-gray-100 rounded-full border border-gray-200">
-              <svg className="w-5 h-5 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <div className="mb-6 sm:mb-8 text-center">
+            <div className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-gray-50 to-gray-100 rounded-full border border-gray-200">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
               </svg>
-              <p className="text-gray-700 font-medium">
+              <p className="text-gray-700 font-medium text-sm sm:text-base">
                 {searchQuery && selectedCategory !== 'all' 
                   ? t('news.foundResultsInCategory', { 
                       count: sortedNews.length, 
@@ -200,7 +203,7 @@ const News = () => {
 
           {/* News Grid */}
           {currentNews.length > 0 ? (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 auto-rows-fr">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12 auto-rows-fr">
               {currentNews.map((news, index) => (
                 <div 
                   key={news.id} 
@@ -215,16 +218,16 @@ const News = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-20">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-6">
-                <svg className="w-10 h-10 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+            <div className="text-center py-12 sm:py-20">
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gray-100 rounded-full mb-4 sm:mb-6">
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-700 mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-2 sm:mb-3">
                 {t('news.noNewsFound', 'Новости не найдены')}
               </h3>
-              <p className="text-gray-500 max-w-md mx-auto leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-500 max-w-md mx-auto leading-relaxed">
                 {t('news.noNewsFoundDescription', 'Попробуйте изменить параметры поиска или фильтры')}
               </p>
               <button
@@ -233,7 +236,7 @@ const News = () => {
                   setSelectedCategory('all');
                   setSortBy('date');
                 }}
-                className="mt-6 px-6 py-3 bg-red-600 text-white rounded-full hover:bg-red-700 transition-colors duration-300 font-medium"
+                className="mt-4 sm:mt-6 px-4 sm:px-6 py-2 sm:py-3 bg-red-600 text-white rounded-full hover:bg-red-700 transition-colors duration-300 font-medium text-sm sm:text-base"
               >
                 Сбросить фильтры
               </button>

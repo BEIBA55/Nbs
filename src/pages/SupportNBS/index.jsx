@@ -158,31 +158,31 @@ const SupportNBS = () => {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* ProBono Hero Section */}
-      <div className="bg-white pt-32 pb-20 px-8">
+      {/* ProBono Hero Section - Enhanced Mobile Optimization */}
+      <div className="bg-white pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">
+          <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
               <span className="text-red-600 font-bold">{t('supportNBS.hero.title')}</span>
               <span className="text-black"> {t('supportNBS.hero.subtitle')}</span>
               </h1>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-4 sm:mt-6">
                 <Button
                   onClick={handleSupport}
-                  className="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors"
+                  className="bg-red-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-red-700 transition-colors text-sm sm:text-base w-full sm:w-auto"
                 >
                   {t('supportNBS.hero.supportButton')}
                 </Button>
-                         <Button
-           onClick={handleDownloadPresentation}
-           className="bg-[#991E1E] text-white px-8 py-3 rounded-lg hover:bg-[#7A1818] transition-colors"
-         >
-           {t('supportNBS.hero.downloadPresentation')}
-         </Button>
+                <Button
+                  onClick={handleDownloadPresentation}
+                  className="bg-[#991E1E] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-[#7A1818] transition-colors text-sm sm:text-base w-full sm:w-auto"
+                >
+                  {t('supportNBS.hero.downloadPresentation')}
+                </Button>
               </div>
           </div>
           
-          <div className="w-full h-[600px] rounded-lg overflow-hidden">
+          <div className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[600px] rounded-lg overflow-hidden">
             <img
               src="/images/probro.png"
               alt={t('supportNBS.hero.title')}
@@ -192,27 +192,27 @@ const SupportNBS = () => {
         </div>
       </div>
 
-      {/* About Project Section */}
-      <div className="bg-white py-20 px-8">
+      {/* About Project Section - Enhanced Mobile Optimization */}
+      <div className="bg-white py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <div className="inline-block bg-white border border-gray-300 rounded-full px-4 py-2 text-sm" style={{ color: '#991E1E' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="inline-block bg-white border border-gray-300 rounded-full px-3 sm:px-4 py-2 text-xs sm:text-sm" style={{ color: '#991E1E' }}>
                 {t('supportNBS.aboutProject.title')}
               </div>
-              <h2 className="text-3xl font-bold leading-tight" style={{ color: '#991E1E' }}>
+              <h2 className="text-2xl sm:text-3xl font-bold leading-tight" style={{ color: '#991E1E' }}>
                 {t('supportNBS.aboutProject.mainTitle')}
               </h2>
             </div>
 
-            <div className="space-y-6 text-gray-700">
-              <p>
+            <div className="space-y-4 sm:space-y-6 text-gray-700">
+              <p className="text-sm sm:text-base">
                 <strong style={{ color: '#991E1E' }}>Pro Bono Narxoz Business School</strong> {t('supportNBS.aboutProject.description1')}
               </p>
-              <p>
+              <p className="text-sm sm:text-base">
                 {t('supportNBS.aboutProject.description2')}
               </p>
-              <p>
+              <p className="text-sm sm:text-base">
                 {t('supportNBS.aboutProject.description3')}
               </p>
             </div>
@@ -220,17 +220,17 @@ const SupportNBS = () => {
         </div>
       </div>
 
-      {/* Lecture Image Section */}
+      {/* Lecture Image Section - Enhanced Mobile Optimization */}
       <div className="w-full relative">
-        <div className="w-full h-screen relative">
+        <div className="w-full h-64 sm:h-80 md:h-96 lg:h-screen relative">
           <img
             src="/images/opis.png"
             alt={t('supportNBS.lectureSection.title')}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <div className="text-center text-white max-w-4xl px-8">
-              <p className="text-3xl font-bold">
+            <div className="text-center text-white max-w-4xl px-3 sm:px-4 md:px-6 lg:px-8">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
                 <span className="text-red-400">Pro Bono Narxoz Business School</span> {t('supportNBS.lectureSection.title')}
               </p>
             </div>
@@ -238,16 +238,16 @@ const SupportNBS = () => {
         </div>
       </div>
 
-            {/* Advantages Section */}
-      <div className="bg-gray-50 py-20 px-8" ref={sectionRef}>
+            {/* Advantages Section - Enhanced Mobile Optimization */}
+      <div className="bg-gray-50 py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8" ref={sectionRef}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-block bg-white border border-red-600 rounded-full px-6 py-2 mb-6">
-              <span className="text-black font-medium">{t('supportNBS.advantages.title')}</span>
+          <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+            <div className="inline-block bg-white border border-red-600 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6">
+              <span className="text-black font-medium text-sm sm:text-base">{t('supportNBS.advantages.title')}</span>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {advantages.map((advantage, index) => (
               <div
                 key={index}
@@ -262,25 +262,25 @@ const SupportNBS = () => {
                   transform: isVisible ? 'translateY(0)' : 'translateY(30px)'
                 }}
               >
-                <div className={`p-8 text-center transition-all duration-300 relative ${
+                <div className={`p-4 sm:p-6 md:p-8 text-center transition-all duration-300 relative ${
                   advantage.highlighted ? 'bg-[#991E1E]' : 'bg-[#991E1E]'
                 }`}>
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 transform transition-all duration-300 hover:scale-110 shadow-md">
-                    <div className="text-[#991E1E]">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 transform transition-all duration-300 hover:scale-110 shadow-md">
+                    <div className="text-[#991E1E] text-lg sm:text-xl md:text-2xl">
                       {advantage.icon}
                     </div>
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-30"></div>
                 </div>
-                <div className={`p-8 transition-all duration-300 ${
+                <div className={`p-4 sm:p-6 md:p-8 transition-all duration-300 ${
                   advantage.highlighted ? 'bg-[#991E1E]' : 'bg-white group-hover:bg-[#991E1E]'
                 }`}>
-                  <h3 className={`text-xl font-bold mb-4 transition-colors duration-300 ${
+                  <h3 className={`text-lg sm:text-xl font-bold mb-3 sm:mb-4 transition-colors duration-300 ${
                     advantage.highlighted ? 'text-white' : 'text-[#991E1E] group-hover:text-white'
                   }`}>
                     {advantage.title}
                   </h3>
-                  <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+                  <p className={`text-xs sm:text-sm leading-relaxed transition-colors duration-300 ${
                     advantage.highlighted ? 'text-white opacity-90' : 'text-gray-600 group-hover:text-white group-hover:opacity-90'
                   }`}>
                     {advantage.description}
@@ -292,27 +292,27 @@ const SupportNBS = () => {
         </div>
       </div>
 
-            {/* Program Directions Section */}
-      <div className="bg-white py-20 px-8">
+            {/* Program Directions Section - Enhanced Mobile Optimization */}
+      <div className="bg-white py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#991E1E] leading-tight">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#991E1E] leading-tight">
               {t('supportNBS.programDirections.title')}
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
             {programDirections.map((direction, index) => (
               <div 
                 key={index} 
-                className="border border-gray-200 rounded-xl p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer group"
+                className="border border-gray-200 rounded-xl p-4 sm:p-6 md:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer group"
                 style={{
                   animation: isVisible ? `fadeInUp 0.8s ease-out ${index * 0.2}s both` : 'none',
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? 'translateY(0)' : 'translateY(30px)'
                 }}
               >
-                <div className="w-full h-56 rounded-lg mb-8 relative overflow-hidden shadow-lg">
+                <div className="w-full h-40 sm:h-48 md:h-56 rounded-lg mb-6 sm:mb-8 relative overflow-hidden shadow-lg">
                   <img
                     src={direction.title === t('supportNBS.programDirections.npo.title') ? '/images/ProBornNPO.png' : '/images/ProBornObrz.png'}
                     alt={direction.title}
@@ -320,13 +320,13 @@ const SupportNBS = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-                <h3 className="text-3xl font-bold text-[#991E1E] mb-6 group-hover:text-[#B91C1C] transition-colors duration-300">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#991E1E] mb-4 sm:mb-6 group-hover:text-[#B91C1C] transition-colors duration-300">
                   {direction.title}
                 </h3>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base md:text-lg leading-relaxed">
                   {direction.description}
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {direction.points.map((point, pointIndex) => (
                     <li 
                       key={pointIndex} 
@@ -337,8 +337,8 @@ const SupportNBS = () => {
                         transform: isVisible ? 'translateX(0)' : 'translateX(-20px)'
                       }}
                     >
-                      <span className="text-[#991E1E] mr-3 text-lg group-hover/item:scale-110 transition-transform duration-300">•</span>
-                      <span className="leading-relaxed">{point}</span>
+                      <span className="text-[#991E1E] mr-2 sm:mr-3 text-sm sm:text-base md:text-lg group-hover/item:scale-110 transition-transform duration-300">•</span>
+                      <span className="leading-relaxed text-sm sm:text-base">{point}</span>
                     </li>
                   ))}
                 </ul>
@@ -348,20 +348,20 @@ const SupportNBS = () => {
         </div>
       </div>
 
-            {/* Initiators Section */}
-      <div className="bg-gray-50 py-20">
+            {/* Initiators Section - Enhanced Mobile Optimization */}
+      <div className="bg-gray-50 py-12 sm:py-16 md:py-20">
         <div className="w-full">
-          <div className="text-center mb-12 px-8">
-            <h2 className="text-3xl font-bold text-gray-800">{t('supportNBS.initiators.title')}</h2>
+          <div className="text-center mb-8 sm:mb-10 lg:mb-12 px-3 sm:px-4 md:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">{t('supportNBS.initiators.title')}</h2>
           </div>
           
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-10 lg:space-y-12">
             {initiators.map((initiator, index) => (
               <div
                 key={index}
-                className={`${initiator.bgColor} rounded-3xl p-16 flex flex-col lg:flex-row items-center gap-16 shadow-xl mx-8`}
+                className={`${initiator.bgColor} rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 shadow-xl mx-3 sm:mx-4 md:mx-6 lg:mx-8`}
               >
-                <div className="w-96 h-80 rounded-2xl overflow-hidden flex-shrink-0 shadow-lg">
+                <div className="w-full sm:w-80 md:w-96 h-60 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden flex-shrink-0 shadow-lg">
                   <img
                     src={initiator.image}
                     alt={initiator.title}
@@ -369,9 +369,9 @@ const SupportNBS = () => {
                   />
                 </div>
                 <div className={`flex-1 text-left ${initiator.bgColor === 'bg-red-800' || initiator.bgColor === 'bg-[#A4AADA]' ? 'text-white' : 'text-gray-800'}`}>
-                  <h3 className="text-4xl font-bold mb-8">{initiator.title}</h3>
-                  <p className="text-2xl mb-8 leading-relaxed">{initiator.description}</p>
-                  <p className="text-xl opacity-90 leading-relaxed">{initiator.fullDescription}</p>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 md:mb-8">{initiator.title}</h3>
+                  <p className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 md:mb-8 leading-relaxed">{initiator.description}</p>
+                  <p className="text-base sm:text-lg md:text-xl opacity-90 leading-relaxed">{initiator.fullDescription}</p>
                 </div>
               </div>
             ))}

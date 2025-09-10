@@ -67,14 +67,14 @@ const Partners = () => {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-blue-50 via-white to-red-50 py-20 px-8">
+      {/* Hero Section - Enhanced Mobile Optimization */}
+      <div className="bg-gradient-to-br from-blue-50 via-white to-red-50 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-20 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 slide-in-up">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 slide-in-up">
             {t('partners.title')}
           </h1>
           <p
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed slide-in-up"
+            className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed slide-in-up"
             style={{ animationDelay: '0.2s' }}
           >
             {t('partners.subtitle')}
@@ -82,29 +82,29 @@ const Partners = () => {
         </div>
       </div>
 
-      {/* Corporate Partners Section */}
-      <div className="py-16 px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-12 slide-in-up">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('partners.corporatePartners.title')}</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+      {/* Corporate Partners Section - Enhanced Mobile Optimization */}
+      <div className="py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-12 slide-in-up">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">{t('partners.corporatePartners.title')}</h2>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
             {t('partners.corporatePartners.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-16">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 mb-12 sm:mb-16">
           {corporatePartners.map((partner, index) => (
             <a
               key={index}
               href={partner.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white h-32 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center p-4 group transform hover:-translate-y-2 border border-gray-100"
+              className="bg-white h-24 sm:h-28 md:h-32 rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center p-2 sm:p-3 md:p-4 group transform hover:-translate-y-2 border border-gray-100"
               style={{ animationDelay: `${index * 0.05}s` }}
             >
               <img
                 src={partner.src}
                 alt={partner.name}
-                className="max-h-20 max-w-full object-contain transition-all duration-300 group-hover:scale-110"
+                className="max-h-16 sm:max-h-18 md:max-h-20 max-w-full object-contain transition-all duration-300 group-hover:scale-110"
                 title={partner.name}
               />
             </a>
@@ -112,30 +112,30 @@ const Partners = () => {
         </div>
       </div>
 
-      {/* Academic Partners Section */}
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50 py-16 px-8">
+      {/* Academic Partners Section - Enhanced Mobile Optimization */}
+      <div className="bg-gradient-to-br from-gray-50 to-blue-50 py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 slide-in-up">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('partners.academicPartners.title')}</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-8 sm:mb-10 lg:mb-12 slide-in-up">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">{t('partners.academicPartners.title')}</h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               {t('partners.academicPartners.subtitle')}
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
             {academicPartners.map((partner, index) => (
               <a
                 key={index}
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white h-32 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center p-4 group transform hover:-translate-y-2 border border-gray-100"
+                className="bg-white h-24 sm:h-28 md:h-32 rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center p-2 sm:p-3 md:p-4 group transform hover:-translate-y-2 border border-gray-100"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 <img
                   src={partner.src}
                   alt={partner.name}
-                  className="max-h-20 max-w-full object-contain transition-all duration-300 group-hover:scale-110"
+                  className="max-h-16 sm:max-h-18 md:max-h-20 max-w-full object-contain transition-all duration-300 group-hover:scale-110"
                   title={partner.name}
                 />
               </a>
@@ -144,19 +144,19 @@ const Partners = () => {
         </div>
       </div>
 
-      {/* Partnership Benefits Section */}
-      <div className="py-16 px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-12 slide-in-up">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">{t('partners.benefits.title')}</h3>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+      {/* Partnership Benefits Section - Enhanced Mobile Optimization */}
+      <div className="py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-12 slide-in-up">
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">{t('partners.benefits.title')}</h3>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
             {t('partners.benefits.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           <div className="text-center slide-in-left">
-            <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-8 h-8" fill="none" stroke="#991E1E" viewBox="0 0 24 24">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+              <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="none" stroke="#991E1E" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -165,15 +165,15 @@ const Partners = () => {
                 />
               </svg>
             </div>
-            <h4 className="text-xl font-semibold text-gray-900 mb-4">{t('partners.benefits.internationalExperience.title')}</h4>
-            <p className="text-gray-600 leading-relaxed">
+            <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">{t('partners.benefits.internationalExperience.title')}</h4>
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
               {t('partners.benefits.internationalExperience.description')}
             </p>
           </div>
 
           <div className="text-center slide-in-up">
-            <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-8 h-8" fill="none" stroke="#991E1E" viewBox="0 0 24 24">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+              <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="none" stroke="#991E1E" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -182,15 +182,15 @@ const Partners = () => {
                 />
               </svg>
             </div>
-            <h4 className="text-xl font-semibold text-gray-900 mb-4">{t('partners.benefits.careerOpportunities.title')}</h4>
-            <p className="text-gray-600 leading-relaxed">
+            <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">{t('partners.benefits.careerOpportunities.title')}</h4>
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
               {t('partners.benefits.careerOpportunities.description')}
             </p>
           </div>
 
           <div className="text-center slide-in-right">
-            <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-8 h-8" fill="none" stroke="#991E1E" viewBox="0 0 24 24">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+              <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="none" stroke="#991E1E" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -199,26 +199,26 @@ const Partners = () => {
                 />
               </svg>
             </div>
-            <h4 className="text-xl font-semibold text-gray-900 mb-4">{t('partners.benefits.innovativeProjects.title')}</h4>
-            <p className="text-gray-600 leading-relaxed">
+            <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">{t('partners.benefits.innovativeProjects.title')}</h4>
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
               {t('partners.benefits.innovativeProjects.description')}
             </p>
           </div>
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="bg-[#991E1E] py-16 px-8">
+      {/* CTA Section - Enhanced Mobile Optimization */}
+      <div className="bg-[#991E1E] py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl font-bold text-white mb-6 slide-in-up">
+          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6 slide-in-up">
             {t('partners.cta.title')}
           </h3>
-          <p className="text-xl text-red-100 mb-8 slide-in-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-base sm:text-lg md:text-xl text-red-100 mb-6 sm:mb-8 slide-in-up" style={{ animationDelay: '0.2s' }}>
             {t('partners.cta.subtitle')}
           </p>
           <button
             onClick={() => setIsContactModalOpen(true)}
-            className="bg-white text-[#991E1E] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 slide-in-up"
+            className="bg-white text-[#991E1E] px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 slide-in-up text-sm sm:text-base w-full sm:w-auto"
             style={{ animationDelay: '0.4s' }}
           >
             {t('partners.cta.button')}

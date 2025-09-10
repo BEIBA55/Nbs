@@ -73,14 +73,14 @@ const Accreditations = () => {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-red-50 via-white to-blue-50 py-20 px-8">
+      {/* Hero Section - Enhanced Mobile Optimization */}
+      <div className="bg-gradient-to-br from-red-50 via-white to-blue-50 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-20 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 slide-in-up">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 slide-in-up">
             {t('accreditations.title')}
           </h1>
           <p
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed slide-in-up"
+            className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed slide-in-up"
             style={{ animationDelay: '0.2s' }}
           >
             {t('accreditations.subtitle')}
@@ -88,31 +88,31 @@ const Accreditations = () => {
         </div>
       </div>
 
-      {/* Accreditations Grid */}
-      <div className="py-16 px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-12 slide-in-up">
-          <h2 className="text-3xl font-bold text-gray-900">{t('accreditations.achievements.title')}</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
+      {/* Accreditations Grid - Enhanced Mobile Optimization */}
+      <div className="py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-12 slide-in-up">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{t('accreditations.achievements.title')}</h2>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mt-3 sm:mt-4">
             {t('accreditations.achievements.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {accreditationItems.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 group"
+              className="bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex flex-col items-center text-center h-full">
-                <div className="w-24 h-24 mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mb-4 sm:mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <img
                     src={item.image}
                     alt="Accreditation"
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed font-medium group-hover:text-gray-900 transition-colors duration-300">
+                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed font-medium group-hover:text-gray-900 transition-colors duration-300">
                   {item.text}
                 </p>
               </div>
@@ -121,22 +121,22 @@ const Accreditations = () => {
         </div>
       </div>
 
-      {/* Info Section */}
-      <div className="bg-gradient-to-br from-gray-50 to-red-50 py-16 px-8">
+      {/* Info Section - Enhanced Mobile Optimization */}
+      <div className="bg-gradient-to-br from-gray-50 to-red-50 py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl font-bold text-gray-900 mb-8 slide-in-up">
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 slide-in-up">
             {t('accreditations.whatMeans.title')}
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 text-left">
             <div className="slide-in-left">
-              <h4 className="text-xl font-semibold text-red-600 mb-4">{t('accreditations.whatMeans.internationalRecognition.title')}</h4>
-              <p className="text-gray-600 leading-relaxed">
+              <h4 className="text-lg sm:text-xl font-semibold text-red-600 mb-3 sm:mb-4">{t('accreditations.whatMeans.internationalRecognition.title')}</h4>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 {t('accreditations.whatMeans.internationalRecognition.description')}
               </p>
             </div>
             <div className="slide-in-right">
-              <h4 className="text-xl font-semibold text-red-600 mb-4">{t('accreditations.whatMeans.educationQuality.title')}</h4>
-              <p className="text-gray-600 leading-relaxed">
+              <h4 className="text-lg sm:text-xl font-semibold text-red-600 mb-3 sm:mb-4">{t('accreditations.whatMeans.educationQuality.title')}</h4>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 {t('accreditations.whatMeans.educationQuality.description')}
               </p>
             </div>
