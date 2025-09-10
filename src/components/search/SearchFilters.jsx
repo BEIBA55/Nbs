@@ -15,24 +15,24 @@ const SearchFilters = ({ filters, onFilterChange }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('search.filters')}</h3>
+    <div className="bg-white rounded-lg border border-gray-200 p-4 sm:p-6">
+      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">{t('search.filters')}</h3>
       
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {/* Тип контента */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
             {t('search.contentType')}
           </label>
           <select
             value={filters.type || 'all'}
             onChange={(e) => handleFilterChange('type', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:border-[#991E1E]"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:border-[#991E1E] text-sm sm:text-base"
           >
             <option value="all">{t('search.allTypes')}</option>
             {types.map((type) => (
               <option key={type} value={type}>
-                {getTypeLabel(type)}
+                {getTypeLabel(type, t)}
               </option>
             ))}
           </select>
@@ -40,18 +40,18 @@ const SearchFilters = ({ filters, onFilterChange }) => {
 
         {/* Категория */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
             {t('search.category')}
           </label>
           <select
             value={filters.category || 'all'}
             onChange={(e) => handleFilterChange('category', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:border-[#991E1E]"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:border-[#991E1E] text-sm sm:text-base"
           >
             <option value="all">{t('search.allCategories')}</option>
             {categories.map((category) => (
               <option key={category} value={category}>
-                {category}
+                {getCategoryLabel(category, t)}
               </option>
             ))}
           </select>
@@ -61,7 +61,7 @@ const SearchFilters = ({ filters, onFilterChange }) => {
         <div>
           <button
             onClick={() => onFilterChange({})}
-            className="w-full px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:border-[#991E1E] transition-colors"
+            className="w-full px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:border-[#991E1E] transition-colors"
           >
             {t('search.resetFilters')}
           </button>
@@ -71,25 +71,29 @@ const SearchFilters = ({ filters, onFilterChange }) => {
   );
 };
 
-const getTypeLabel = (type) => {
+const getTypeLabel = (type, t) => {
   switch (type) {
     case 'program':
-      return 'Программы';
+      return t('search.program');
     case 'news':
-      return 'Новости';
+      return t('search.news');
     case 'faculty':
-      return 'Преподаватели';
+      return t('search.faculty');
     case 'accreditation':
-      return 'Аккредитации';
+      return t('search.accreditation');
     case 'partner':
-      return 'Партнеры';
+      return t('search.partner');
     case 'graduate':
-      return 'Выпускники';
+      return t('search.graduate');
     case 'library':
-      return 'Библиотека';
+      return t('search.library');
     default:
       return type;
   }
+};
+
+const getCategoryLabel = (category, t) => {
+  return t(`search.categories.${category}`, category);
 };
 
 export default SearchFilters; 

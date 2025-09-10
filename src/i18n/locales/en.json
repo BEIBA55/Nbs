@@ -1082,7 +1082,98 @@
     "partner": "Partner",
     "graduate": "Graduate",
     "library": "Library",
-    "result": "Result"
+    "result": "Result",
+    "categories": {
+      "Программы": "Programs",
+      "Новости": "News",
+      "Преподаватели": "Faculty",
+      "Аккредитации": "Accreditations",
+      "Партнеры": "Partners",
+      "Выпускники": "Graduates",
+      "Библиотека": "Library"
+    },
+    "searchData": {
+      "mba": {
+        "title": "MBA",
+        "description": "Master's program in business administration"
+      },
+      "executiveMba": {
+        "title": "Executive MBA",
+        "description": "Program for top managers and executives"
+      },
+      "dba": {
+        "title": "DBA",
+        "description": "Doctoral program in business administration"
+      },
+      "magistracy": {
+        "title": "Master's Degree",
+        "description": "Master's programs in various fields"
+      },
+      "mbaFinance": {
+        "title": "MBA Finance",
+        "description": "Specialized program in finance"
+      },
+      "mbaAi": {
+        "title": "MBA AI",
+        "description": "Program in artificial intelligence in business"
+      },
+      "executiveEducation": {
+        "title": "Executive Education",
+        "description": "Corporate training programs"
+      },
+      "topExperts": {
+        "title": "Top experts",
+        "description": "Real executives from real companies who have practically implemented contract management tools"
+      },
+      "qsRanking": {
+        "title": "Narxoz Business School entered the top 50 best business schools in Asia according to QS",
+        "description": "The MBA program of Narxoz University Business School took 42nd place in the QS Global MBA 2025 Asia ranking and became #1 in the Central Asian region."
+      },
+      "digitalTransformation": {
+        "title": "A new Executive MBA program focused on digital transformation has been launched",
+        "description": "Narxoz Business School presented an updated Executive MBA program, which includes modules on artificial intelligence and digital technologies."
+      },
+      "ahmetov": {
+        "title": "Dr. Akhmetov A.K.",
+        "description": "Professor of the Department of Finance and Banking"
+      },
+      "ivanova": {
+        "title": "Professor Ivanova M.P.",
+        "description": "Head of the Department of Marketing and Management"
+      },
+      "aacsb": {
+        "title": "AACSB Accreditation",
+        "description": "International AACSB accreditation for MBA programs"
+      },
+      "equis": {
+        "title": "EQUIS Accreditation",
+        "description": "European EQUIS accreditation"
+      },
+      "kpmg": {
+        "title": "KPMG Kazakhstan",
+        "description": "Strategic partner in consulting"
+      },
+      "ey": {
+        "title": "Ernst & Young",
+        "description": "Partner in audit and consulting"
+      },
+      "aliev": {
+        "title": "Aliev A.M.",
+        "description": "CEO of a large IT company, MBA graduate 2020"
+      },
+      "sultanova": {
+        "title": "Sultanova G.K.",
+        "description": "Financial director of the bank, Executive MBA graduate"
+      },
+      "businessCases": {
+        "title": "Business cases",
+        "description": "Collection of business cases from leading companies"
+      },
+      "studyMaterials": {
+        "title": "Study materials",
+        "description": "Electronic textbooks and teaching aids"
+      }
+    }
   },
   "schedule": {
     "title": "Event Schedule",

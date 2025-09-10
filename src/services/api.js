@@ -1,11 +1,11 @@
-// Mock данные для поиска
-const searchData = [
+// Функция для получения переведенных данных поиска
+const getTranslatedSearchData = (t) => [
   // Программы
   {
     id: 1,
     type: 'program',
-    title: 'MBA',
-    description: 'Магистерская программа в области бизнес-администрирования',
+    title: t('search.searchData.mba.title'),
+    description: t('search.searchData.mba.description'),
     url: '/programs/mba',
     category: 'Программы',
     tags: ['MBA', 'магистратура', 'бизнес', 'администрирование']
@@ -13,8 +13,8 @@ const searchData = [
   {
     id: 2,
     type: 'program',
-    title: 'Executive MBA',
-    description: 'Программа для топ-менеджеров и руководителей',
+    title: t('search.searchData.executiveMba.title'),
+    description: t('search.searchData.executiveMba.description'),
     url: '/programs/executive-mba',
     category: 'Программы',
     tags: ['Executive MBA', 'топ-менеджмент', 'руководство']
@@ -22,8 +22,8 @@ const searchData = [
   {
     id: 3,
     type: 'program',
-    title: 'DBA',
-    description: 'Докторская программа в области бизнес-администрирования',
+    title: t('search.searchData.dba.title'),
+    description: t('search.searchData.dba.description'),
     url: '/programs/dba',
     category: 'Программы',
     tags: ['DBA', 'докторантура', 'исследования']
@@ -31,8 +31,8 @@ const searchData = [
   {
     id: 4,
     type: 'program',
-    title: 'Магистратура',
-    description: 'Магистерские программы по различным направлениям',
+    title: t('search.searchData.magistracy.title'),
+    description: t('search.searchData.magistracy.description'),
     url: '/programs/magistracy',
     category: 'Программы',
     tags: ['магистратура', 'образование']
@@ -40,8 +40,8 @@ const searchData = [
   {
     id: 5,
     type: 'program',
-    title: 'MBA Finance',
-    description: 'Специализированная программа по финансам',
+    title: t('search.searchData.mbaFinance.title'),
+    description: t('search.searchData.mbaFinance.description'),
     url: '/programs/mba-finance',
     category: 'Программы',
     tags: ['MBA', 'финансы', 'банкинг']
@@ -49,8 +49,8 @@ const searchData = [
   {
     id: 6,
     type: 'program',
-    title: 'MBA AI',
-    description: 'Программа по искусственному интеллекту в бизнесе',
+    title: t('search.searchData.mbaAi.title'),
+    description: t('search.searchData.mbaAi.description'),
     url: '/programs/mba-ai',
     category: 'Программы',
     tags: ['MBA', 'AI', 'искусственный интеллект', 'технологии']
@@ -58,8 +58,8 @@ const searchData = [
   {
     id: 7,
     type: 'program',
-    title: 'Executive Education',
-    description: 'Корпоративные программы обучения',
+    title: t('search.searchData.executiveEducation.title'),
+    description: t('search.searchData.executiveEducation.description'),
     url: '/programs/executive-education',
     category: 'Программы',
     tags: ['Executive Education', 'корпоративное обучение']
@@ -69,8 +69,8 @@ const searchData = [
   {
     id: 8,
     type: 'news',
-    title: 'Топовые эксперты',
-    description: 'Реальные руководители из реальных компаний на практике внедрявшие инструменты контрактного менеджмента',
+    title: t('search.searchData.topExperts.title'),
+    description: t('search.searchData.topExperts.description'),
     url: '/news/1',
     category: 'Новости',
     tags: ['Конференции', 'Эксперты']
@@ -78,8 +78,8 @@ const searchData = [
   {
     id: 9,
     type: 'news',
-    title: 'Narxoz Business School вошла в топ-50 лучших бизнес-школ Азии по версии QS',
-    description: 'Программа MBA Бизнес-школы Университета Нархоз заняла 42-е место в рейтинге QS Global MBA 2025 Asia и стала №1 в Центрально-Азиатском регионе.',
+    title: t('search.searchData.qsRanking.title'),
+    description: t('search.searchData.qsRanking.description'),
     url: '/news/2',
     category: 'Новости',
     tags: ['Рейтинги', 'QS']
@@ -87,8 +87,8 @@ const searchData = [
   {
     id: 10,
     type: 'news',
-    title: 'Запущена новая программа Executive MBA с фокусом на цифровую трансформацию',
-    description: 'Narxoz Business School представила обновленную программу Executive MBA, которая включает модули по искусственному интеллекту и цифровым технологиям.',
+    title: t('search.searchData.digitalTransformation.title'),
+    description: t('search.searchData.digitalTransformation.description'),
     url: '/news/3',
     category: 'Новости',
     tags: ['Executive MBA', 'Цифровизация']
@@ -98,8 +98,8 @@ const searchData = [
   {
     id: 11,
     type: 'faculty',
-    title: 'Доктор Ахметов А.К.',
-    description: 'Профессор кафедры финансов и банковского дела',
+    title: t('search.searchData.ahmetov.title'),
+    description: t('search.searchData.ahmetov.description'),
     url: '/faculty',
     category: 'Преподаватели',
     tags: ['финансы', 'банкинг', 'профессор']
@@ -107,8 +107,8 @@ const searchData = [
   {
     id: 12,
     type: 'faculty',
-    title: 'Профессор Иванова М.П.',
-    description: 'Заведующая кафедрой маркетинга и менеджмента',
+    title: t('search.searchData.ivanova.title'),
+    description: t('search.searchData.ivanova.description'),
     url: '/faculty',
     category: 'Преподаватели',
     tags: ['маркетинг', 'менеджмент', 'профессор']
@@ -118,8 +118,8 @@ const searchData = [
   {
     id: 13,
     type: 'accreditation',
-    title: 'AACSB Accreditation',
-    description: 'Международная аккредитация AACSB для программ MBA',
+    title: t('search.searchData.aacsb.title'),
+    description: t('search.searchData.aacsb.description'),
     url: '/accreditations',
     category: 'Аккредитации',
     tags: ['AACSB', 'аккредитация', 'международная']
@@ -127,8 +127,8 @@ const searchData = [
   {
     id: 14,
     type: 'accreditation',
-    title: 'EQUIS Accreditation',
-    description: 'Европейская аккредитация EQUIS',
+    title: t('search.searchData.equis.title'),
+    description: t('search.searchData.equis.description'),
     url: '/accreditations',
     category: 'Аккредитации',
     tags: ['EQUIS', 'аккредитация', 'европейская']
@@ -138,8 +138,8 @@ const searchData = [
   {
     id: 15,
     type: 'partner',
-    title: 'KPMG Kazakhstan',
-    description: 'Стратегический партнер в области консалтинга',
+    title: t('search.searchData.kpmg.title'),
+    description: t('search.searchData.kpmg.description'),
     url: '/partners',
     category: 'Партнеры',
     tags: ['KPMG', 'консалтинг', 'партнерство']
@@ -147,8 +147,8 @@ const searchData = [
   {
     id: 16,
     type: 'partner',
-    title: 'Ernst & Young',
-    description: 'Партнер в области аудита и консалтинга',
+    title: t('search.searchData.ey.title'),
+    description: t('search.searchData.ey.description'),
     url: '/partners',
     category: 'Партнеры',
     tags: ['EY', 'аудит', 'консалтинг']
@@ -158,8 +158,8 @@ const searchData = [
   {
     id: 17,
     type: 'graduate',
-    title: 'Алиев А.М.',
-    description: 'CEO крупной IT компании, выпускник MBA 2020',
+    title: t('search.searchData.aliev.title'),
+    description: t('search.searchData.aliev.description'),
     url: '/graduates',
     category: 'Выпускники',
     tags: ['CEO', 'IT', 'MBA 2020']
@@ -167,8 +167,8 @@ const searchData = [
   {
     id: 18,
     type: 'graduate',
-    title: 'Султанова Г.К.',
-    description: 'Финансовый директор банка, выпускница Executive MBA',
+    title: t('search.searchData.sultanova.title'),
+    description: t('search.searchData.sultanova.description'),
     url: '/graduates',
     category: 'Выпускники',
     tags: ['CFO', 'банк', 'Executive MBA']
@@ -178,8 +178,8 @@ const searchData = [
   {
     id: 19,
     type: 'library',
-    title: 'Бизнес-кейсы',
-    description: 'Коллекция бизнес-кейсов от ведущих компаний',
+    title: t('search.searchData.businessCases.title'),
+    description: t('search.searchData.businessCases.description'),
     url: '/library',
     category: 'Библиотека',
     tags: ['кейсы', 'бизнес', 'обучение']
@@ -187,8 +187,8 @@ const searchData = [
   {
     id: 20,
     type: 'library',
-    title: 'Учебные материалы',
-    description: 'Электронные учебники и методические пособия',
+    title: t('search.searchData.studyMaterials.title'),
+    description: t('search.searchData.studyMaterials.description'),
     url: '/library',
     category: 'Библиотека',
     tags: ['учебники', 'материалы', 'обучение']
@@ -197,7 +197,7 @@ const searchData = [
 
 // Функция поиска
 export const searchAPI = {
-  search: async (query, filters = {}) => {
+  search: async (query, filters = {}, t) => {
     // Имитация задержки API
     await new Promise(resolve => setTimeout(resolve, 300));
 
@@ -211,6 +211,7 @@ export const searchAPI = {
     }
 
     const searchQuery = query.toLowerCase().trim();
+    const searchData = getTranslatedSearchData(t);
     
     // Фильтрация результатов
     let filteredResults = searchData.filter(item => {
@@ -240,13 +241,14 @@ export const searchAPI = {
     };
   },
 
-  getSearchSuggestions: async (query) => {
+  getSearchSuggestions: async (query, t) => {
     if (!query || query.trim() === '') {
       return [];
     }
 
     const searchQuery = query.toLowerCase().trim();
     const suggestions = new Set();
+    const searchData = getTranslatedSearchData(t);
 
     searchData.forEach(item => {
       if (item.title.toLowerCase().includes(searchQuery)) {
@@ -262,14 +264,15 @@ export const searchAPI = {
     return Array.from(suggestions).slice(0, 5);
   },
 
-  getCategories: () => {
+  getCategories: (t) => {
+    const searchData = getTranslatedSearchData(t);
     const categories = [...new Set(searchData.map(item => item.category))];
     return categories;
   },
 
   getTypes: () => {
-    const types = [...new Set(searchData.map(item => item.type))];
-    return types;
+    // Типы не зависят от языка
+    return ['program', 'news', 'faculty', 'accreditation', 'partner', 'graduate', 'library'];
   }
 };
 

@@ -82,47 +82,49 @@ const SearchCard = ({ item }) => {
   return (
     <Link
       to={item.url}
-      className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-200 group"
+      className="block p-4 sm:p-6 bg-white rounded-lg border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-200 group"
     >
-      <div className="flex items-start space-x-4">
+      <div className="flex items-start space-x-3 sm:space-x-4">
         <div className="flex-shrink-0 mt-1">
-          {getTypeIcon(item.type)}
+          <div className="w-4 h-4 sm:w-5 sm:h-5">
+            {getTypeIcon(item.type)}
+          </div>
         </div>
         
         <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#991E1E] transition-colors line-clamp-2">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-2">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 group-hover:text-[#991E1E] transition-colors line-clamp-2">
               {item.title}
             </h3>
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+            <span className="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 self-start sm:self-auto">
               {getTypeLabel(item.type)}
             </span>
           </div>
           
-          <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+          <p className="text-gray-600 text-xs sm:text-sm mb-3 line-clamp-2">
             {item.description}
           </p>
           
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <div className="flex flex-wrap gap-1">
-              {item.tags.slice(0, 3).map((tag, index) => (
+              {item.tags.slice(0, 2).map((tag, index) => (
                 <span
                   key={index}
-                  className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium"
+                  className="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md text-xs font-medium"
                   style={{ backgroundColor: '#991E1E20', color: '#991E1E' }}
                 >
                   {tag}
                 </span>
               ))}
-              {item.tags.length > 3 && (
-                <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-50 text-gray-600">
-                  +{item.tags.length - 3}
+              {item.tags.length > 2 && (
+                <span className="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md text-xs font-medium bg-gray-50 text-gray-600">
+                  +{item.tags.length - 2}
                 </span>
               )}
             </div>
             
             <div className="text-xs text-gray-500">
-              {item.category}
+              {t(`search.categories.${item.category}`, item.category)}
             </div>
           </div>
         </div>

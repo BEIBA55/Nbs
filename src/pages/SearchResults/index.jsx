@@ -45,34 +45,34 @@ const SearchResults = () => {
     return (
       <div className="min-h-screen bg-gray-50">
         <Header />
-        <div className="pt-20 pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="pt-24 sm:pt-28 md:pt-32 pb-12 px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center">
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                 {t('search.title')}
               </h1>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
                 {t('search.subtitle')}
               </p>
               
-                             <form onSubmit={handleSearchSubmit} className="max-w-2xl mx-auto">
-                 <div className="flex">
-                   <input
-                     type="text"
-                     name="search"
-                     placeholder={t('search.placeholder')}
-                     className="flex-1 px-4 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:border-[#991E1E]"
-                     autoFocus
-                   />
-                   <button
-                     type="submit"
-                     className="px-6 py-3 text-white font-medium rounded-r-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors"
-                     style={{ backgroundColor: '#991E1E' }}
-                   >
-                     {t('search.searchButton')}
-                   </button>
-                 </div>
-               </form>
+              <form onSubmit={handleSearchSubmit} className="max-w-2xl mx-auto">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+                  <input
+                    type="text"
+                    name="search"
+                    placeholder={t('search.placeholder')}
+                    className="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-l-lg sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:border-[#991E1E] text-sm sm:text-base"
+                    autoFocus
+                  />
+                  <button
+                    type="submit"
+                    className="px-4 sm:px-6 py-2 sm:py-3 text-white font-medium rounded-lg sm:rounded-l-none sm:rounded-r-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors text-sm sm:text-base"
+                    style={{ backgroundColor: '#991E1E' }}
+                  >
+                    {t('search.searchButton')}
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -84,85 +84,85 @@ const SearchResults = () => {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      <div className="pt-20 pb-12 px-4 sm:px-6 lg:px-8">
+      <div className="pt-24 sm:pt-28 md:pt-32 pb-12 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Поисковая строка */}
-          <div className="mb-8">
-                         <form onSubmit={handleSearchSubmit} className="max-w-2xl">
-               <div className="flex">
-                                   <input
-                     type="text"
-                     name="search"
-                     defaultValue={query}
-                     placeholder={t('search.placeholder')}
-                     className="flex-1 px-4 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:border-[#991E1E]"
-                   />
-                   <button
-                     type="submit"
-                     className="px-6 py-3 text-white font-medium rounded-r-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors"
-                     style={{ backgroundColor: '#991E1E' }}
-                   >
-                     {t('search.searchButton')}
-                   </button>
-               </div>
-             </form>
+          <div className="mb-6 sm:mb-8">
+            <form onSubmit={handleSearchSubmit} className="max-w-2xl">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+                <input
+                  type="text"
+                  name="search"
+                  defaultValue={query}
+                  placeholder={t('search.placeholder')}
+                  className="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-l-lg sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:border-[#991E1E] text-sm sm:text-base"
+                />
+                <button
+                  type="submit"
+                  className="px-4 sm:px-6 py-2 sm:py-3 text-white font-medium rounded-lg sm:rounded-l-none sm:rounded-r-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors text-sm sm:text-base"
+                  style={{ backgroundColor: '#991E1E' }}
+                >
+                  {t('search.searchButton')}
+                </button>
+              </div>
+            </form>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-8">
+          <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
             {/* Фильтры */}
-            <div className="lg:w-80 flex-shrink-0">
+            <div className="lg:w-80 flex-shrink-0 order-2 lg:order-1">
               <SearchFilters filters={filters} onFilterChange={handleFilterChange} />
             </div>
 
             {/* Результаты */}
-            <div className="flex-1">
-                             {isLoading ? (
-                 <div className="text-center py-12">
-                   <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2" style={{ borderColor: '#991E1E' }}></div>
-                   <p className="mt-4 text-gray-600">{t('search.loading')}</p>
-                 </div>
-               ) : error ? (
-                 <div className="text-center py-12">
-                   <p className="text-red-600">{t('search.error')}</p>
-                 </div>
-               ) : searchResults?.total === 0 ? (
-                 <div className="text-center py-12">
-                   <div className="text-gray-400 mb-4">
-                     <svg className="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <div className="flex-1 order-1 lg:order-2">
+              {isLoading ? (
+                <div className="text-center py-8 sm:py-12">
+                  <div className="inline-block animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-b-2" style={{ borderColor: '#991E1E' }}></div>
+                  <p className="mt-3 sm:mt-4 text-gray-600 text-sm sm:text-base">{t('search.loading')}</p>
+                </div>
+              ) : error ? (
+                <div className="text-center py-8 sm:py-12">
+                  <p className="text-red-600 text-sm sm:text-base">{t('search.error')}</p>
+                </div>
+              ) : searchResults?.total === 0 ? (
+                <div className="text-center py-8 sm:py-12">
+                  <div className="text-gray-400 mb-3 sm:mb-4">
+                    <svg className="mx-auto h-10 w-10 sm:h-12 sm:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                      </svg>
                    </div>
-                   <h3 className="text-lg font-medium text-gray-900 mb-2">
+                   <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-2">
                      {t('search.noResults')}
                    </h3>
-                   <p className="text-gray-600">
+                   <p className="text-gray-600 text-sm sm:text-base">
                      {t('search.noResultsDescription', { query })}
                    </p>
                  </div>
                ) : (
                 <div>
-                                     {/* Статистика результатов */}
-                   <div className="mb-6">
-                     <p className="text-gray-600">
-                       {t('search.foundResults', { count: searchResults?.total, query })}
-                     </p>
-                   </div>
+                  {/* Статистика результатов */}
+                  <div className="mb-4 sm:mb-6">
+                    <p className="text-gray-600 text-sm sm:text-base">
+                      {t('search.foundResults', { count: searchResults?.total, query })}
+                    </p>
+                  </div>
 
                   {/* Результаты поиска */}
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     {searchResults?.results.map((item) => (
                       <SearchCard key={item.id} item={item} />
                     ))}
                   </div>
 
-                                     {/* Пагинация (если нужно) */}
-                   {searchResults?.total > 10 && (
-                     <div className="mt-8 text-center">
-                       <p className="text-gray-600">
-                         {t('search.showingResults', { shown: searchResults.results.length, total: searchResults.total })}
-                       </p>
-                     </div>
-                   )}
+                  {/* Пагинация (если нужно) */}
+                  {searchResults?.total > 10 && (
+                    <div className="mt-6 sm:mt-8 text-center">
+                      <p className="text-gray-600 text-sm sm:text-base">
+                        {t('search.showingResults', { shown: searchResults.results.length, total: searchResults.total })}
+                      </p>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
