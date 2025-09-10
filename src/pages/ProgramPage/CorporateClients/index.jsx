@@ -142,8 +142,8 @@ const CorporateClients = () => {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section */}
-      <div className="relative h-screen flex items-end justify-center overflow-hidden pb-20">
+      {/* Hero Section - Enhanced Mobile Optimization */}
+      <div className="relative h-screen flex items-end justify-center overflow-hidden pb-12 sm:pb-16 md:pb-20 pt-24 sm:pt-28 md:pt-32">
         {/* Background Image */}
         <img 
           src="/images/HiroCorp.jpg" 
@@ -155,25 +155,25 @@ const CorporateClients = () => {
         <div className="absolute inset-0 bg-black/40"></div>
         
         {/* Content */}
-        <div className="relative z-10 text-center text-white px-8 max-w-4xl mx-auto">
-          <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight whitespace-nowrap">
+        <div className="relative z-10 text-center text-white px-3 sm:px-4 md:px-8 max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
             {t('corporateClients.hero.title')}
           </h1>
-          <p className="text-2xl lg:text-2xl font-medium mb-8 opacity-90 whitespace-nowrap" style={{ transform: 'translateX(-50px)' }}>
+          <p className="text-lg sm:text-xl md:text-2xl font-medium mb-6 sm:mb-8 opacity-90">
             {t('corporateClients.hero.subtitle')}
           </p>
           
           {/* Download Button */}
           <button
             onClick={() => setShowPresentationModal(true)}
-            className="bg-[#991E1E] hover:bg-[#B91C1C] text-white px-8 py-4 rounded-full transition-all duration-300 flex items-center justify-center mx-auto space-x-3 shadow-lg"
+            className="bg-[#991E1E] hover:bg-[#B91C1C] text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 flex items-center justify-center mx-auto space-x-2 sm:space-x-3 shadow-lg"
           >
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
             </svg>
             <div className="text-left">
-              <div className="font-semibold text-lg">{t('corporateClients.hero.downloadButton')}</div>
-              <div className="text-sm opacity-90 uppercase">
+              <div className="font-semibold text-sm sm:text-base md:text-lg">{t('corporateClients.hero.downloadButton')}</div>
+              <div className="text-xs sm:text-sm opacity-90 uppercase">
                 {t('corporateClients.hero.catalogInfo')}
               </div>
             </div>
@@ -181,68 +181,67 @@ const CorporateClients = () => {
         </div>
       </div>
 
-      {/* Information Cards Section */}
-      <div className="relative -mt-16 px-8 pb-24">
+      {/* Information Cards Section - Enhanced Mobile Optimization */}
+      <div className="relative -mt-8 sm:-mt-12 md:-mt-16 px-3 sm:px-4 md:px-8 pb-12 sm:pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto">
-          {/* Все 4 блока в одном ряду */}
-          <div className="flex justify-center gap-4">
-            {/* Первые 2 блока в общем контейнере */}
-            <div className="bg-[#F4F4F4] rounded-2xl p-4 w-120 h-80">
-              <div className="flex gap-4 h-full">
-                {/* Block 1 - Чисто фото без контейнера */}
-                <div className="w-60 h-84 flex justify-center items-center">
-                  <img 
-                    src="/images/BlockCorp.png" 
-                    alt="Открытые программы" 
-                    className="w-full h-72 object-cover rounded-lg"
-                  />
-                </div>
-
-                {/* Block 2 - Заголовок и описание в белом контейнере */}
-                <div className="bg-white rounded-2xl p-6 w-64 h-84 flex flex-col justify-between">
-                  <h3 className="text-xl font-bold text-[#991E1E] mb-4">
-                    {t('corporateClients.programTypes.openPrograms.title')}
-                  </h3>
-                  <p className="text-[#6E767D] text-left text-base leading-relaxed">
-                    {t('corporateClients.programTypes.openPrograms.description')}
-                  </p>
-                </div>
+          {/* Адаптивная сетка для мобильных */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6">
+            {/* Block 1 - Изображение */}
+            <div className="lg:col-span-2 bg-[#F4F4F4] rounded-xl sm:rounded-2xl p-3 sm:p-4 h-64 sm:h-72 md:h-80">
+              <div className="flex justify-center items-center h-full">
+                <img 
+                  src="/images/BlockCorp.png" 
+                  alt="Открытые программы" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
             </div>
 
-            {/* Block 3 - Иконка пазла, заголовок и описание в белом контейнере */}
-            <div className="bg-[#F4F4F4] rounded-3xl p-4 w-64 h-80">
-              <div className="bg-white rounded-2xl p-6 w-full h-full flex flex-col justify-start">
-                <div className="flex justify-start mb-4">
+            {/* Block 2 - Заголовок и описание */}
+            <div className="bg-[#F4F4F4] rounded-xl sm:rounded-2xl p-3 sm:p-4 h-64 sm:h-72 md:h-80">
+              <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 w-full h-full flex flex-col justify-between">
+                <h3 className="text-lg sm:text-xl font-bold text-[#991E1E] mb-3 sm:mb-4">
+                  {t('corporateClients.programTypes.openPrograms.title')}
+                </h3>
+                <p className="text-[#6E767D] text-left text-sm sm:text-base leading-relaxed">
+                  {t('corporateClients.programTypes.openPrograms.description')}
+                </p>
+              </div>
+            </div>
+
+            {/* Block 3 - Иконка пазла */}
+            <div className="bg-[#F4F4F4] rounded-xl sm:rounded-2xl p-3 sm:p-4 h-64 sm:h-72 md:h-80">
+              <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 w-full h-full flex flex-col justify-start">
+                <div className="flex justify-start mb-3 sm:mb-4">
                   <img 
                     src="/icons/puzzle.png" 
                     alt="Программы на заказ" 
-                    className="w-16 h-16 object-contain"
+                    className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-[#991E1E] mb-4">
+                <h3 className="text-lg sm:text-xl font-bold text-[#991E1E] mb-3 sm:mb-4">
                   {t('corporateClients.programTypes.customPrograms.title')}
                 </h3>
-                <p className="text-[#6E767D] text-left text-base leading-relaxed">
+                <p className="text-[#6E767D] text-left text-sm sm:text-base leading-relaxed">
                   {t('corporateClients.programTypes.customPrograms.description')}
                 </p>
               </div>
             </div>
 
-            {/* Block 4 - Иконка стрелок, заголовок и описание в белом контейнере */}
-            <div className="bg-[#F4F4F4] rounded-2xl p-4 w-64 h-80">
-              <div className="bg-white rounded-2xl p-6 w-full h-full flex flex-col justify-start">
-                <div className="flex justify-start mb-4">
+            {/* Block 4 - Иконка стрелок */}
+            <div className="bg-[#F4F4F4] rounded-xl sm:rounded-2xl p-3 sm:p-4 h-64 sm:h-72 md:h-80">
+              <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 w-full h-full flex flex-col justify-start">
+                <div className="flex justify-start mb-3 sm:mb-4">
                   <img 
                     src="/icons/shooters.png" 
                     alt="Корпоративное сотрудничество" 
-                    className="w-16 h-16 object-contain"
+                    className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-[#991E1E] mb-4">
+                <h3 className="text-lg sm:text-xl font-bold text-[#991E1E] mb-3 sm:mb-4">
                   {t('corporateClients.programTypes.corporatePartnership.title')}
                 </h3>
-                <p className="text-[#6E767D] text-left text-base leading-relaxed">
+                <p className="text-[#6E767D] text-left text-sm sm:text-base leading-relaxed">
                   {t('corporateClients.programTypes.corporatePartnership.description')}
                 </p>
               </div>
@@ -251,32 +250,32 @@ const CorporateClients = () => {
         </div>
       </div>
 
-      {/* Client Success Stories Section */}
-      <div className="py-20 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* Client Success Stories Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 bg-gray-100">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
             {/* Left Block - Title */}
-            <div>
-              <h2 className="text-5xl font-normal leading-tight">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal leading-tight">
                 <span className="text-[#991E1E]">{t('corporateClients.successStories.titlePart1')}</span>
                 <span className="text-[#E94848]">{t('corporateClients.successStories.titlePart2')}</span>
                 <br />
                 <span className="text-[#991E1E]">{t('corporateClients.successStories.titlePart3')}</span>
               </h2>
-              <p className="text-[#6E767D] text-2xl leading-relaxed mt-6">
+              <p className="text-[#6E767D] text-lg sm:text-xl md:text-2xl leading-relaxed mt-4 sm:mt-6">
                 {t('corporateClients.successStories.subtitle')}
               </p>
             </div>
 
             {/* Right Block - Review Card */}
-            <div className="bg-white rounded-2xl p-8 relative">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 relative order-1 lg:order-2">
               {/* Review Navigation */}
-              <div className="flex gap-4 mb-6">
+              <div className="flex gap-3 sm:gap-4 mb-4 sm:mb-6">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveTestimonial(index)}
-                    className={`text-sm font-semibold transition-colors ${
+                    className={`text-xs sm:text-sm font-semibold transition-colors ${
                       activeTestimonial === index 
                         ? 'text-[#991E1E] underline' 
                         : 'text-gray-600 hover:text-gray-800'
@@ -288,14 +287,14 @@ const CorporateClients = () => {
               </div>
 
               {/* Quote Mark */}
-              <div className="text-[#991E1E] text-6xl font-bold mb-6">"</div>
+              <div className="text-[#991E1E] text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">"</div>
 
               {/* Review Text with Animation */}
-              <div className="relative h-32 mb-8 overflow-hidden">
+              <div className="relative h-24 sm:h-28 md:h-32 mb-6 sm:mb-8 overflow-hidden">
                 {testimonials.map((testimonial, index) => (
                   <blockquote 
                     key={index}
-                    className={`text-lg text-[#6E767D] leading-relaxed absolute w-full transition-all duration-500 ease-in-out ${
+                    className={`text-sm sm:text-base md:text-lg text-[#6E767D] leading-relaxed absolute w-full transition-all duration-500 ease-in-out ${
                       activeTestimonial === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}>
                     {testimonial.text}
@@ -304,14 +303,14 @@ const CorporateClients = () => {
               </div>
 
               {/* Author Info with Animation */}
-              <div className="relative h-16 overflow-hidden">
+              <div className="relative h-12 sm:h-14 md:h-16 overflow-hidden">
                 {testimonials.map((testimonial, index) => (
                   <div 
                     key={index}
-                    className={`flex items-center gap-4 absolute w-full transition-all duration-500 ease-in-out ${
+                    className={`flex items-center gap-3 sm:gap-4 absolute w-full transition-all duration-500 ease-in-out ${
                       activeTestimonial === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}>
-                    <div className="w-16 h-16 rounded-full overflow-hidden">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden">
                       <img 
                         src={testimonial.avatar} 
                         alt={testimonial.author}
@@ -319,10 +318,10 @@ const CorporateClients = () => {
                       />
                     </div>
                     <div>
-                      <div className="font-bold text-[#E94848] text-lg">
+                      <div className="font-bold text-[#E94848] text-base sm:text-lg">
                         {testimonial.author}
                       </div>
-                      <div className="text-[#6E767D] text-base">
+                      <div className="text-[#6E767D] text-sm sm:text-base">
                         {testimonial.position}
                       </div>
                     </div>
@@ -431,24 +430,24 @@ const CorporateClients = () => {
         </div>
       </div>
 
-      {/* Contact Section */}
-      <div className="py-24 px-8" style={{ backgroundColor: '#F9FAFB' }}>
+      {/* Contact Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#991E1E] mb-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#991E1E] mb-4 sm:mb-6">
               {t('corporateClients.contact.title')}
             </h2>
-            <p className="text-gray-600 text-xl max-w-3xl mx-auto">
+            <p className="text-gray-600 text-sm sm:text-base md:text-xl max-w-3xl mx-auto">
               {t('corporateClients.contact.subtitle')}
             </p>
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <form className="space-y-6" onSubmit={handleContactSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg">
+              <form className="space-y-4 sm:space-y-6" onSubmit={handleContactSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('corporateClients.forms.name')} *
                     </label>
                     <input
@@ -457,12 +456,12 @@ const CorporateClients = () => {
                       value={contactFormData.firstName}
                       onChange={(e) => handleContactInputChange('firstName', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('corporateClients.forms.namePlaceholder')}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('corporateClients.forms.email')} *
                     </label>
                     <input
@@ -471,15 +470,15 @@ const CorporateClients = () => {
                       value={contactFormData.email}
                       onChange={(e) => handleContactInputChange('email', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('corporateClients.forms.emailPlaceholder')}
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('corporateClients.forms.phone')} *
                     </label>
                     <input
@@ -488,12 +487,12 @@ const CorporateClients = () => {
                       value={contactFormData.phone}
                       onChange={(e) => handleContactInputChange('phone', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('corporateClients.forms.phonePlaceholder')}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       Фамилия *
                     </label>
                     <input
@@ -502,29 +501,29 @@ const CorporateClients = () => {
                       value={contactFormData.lastName}
                       onChange={(e) => handleContactInputChange('lastName', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder="Введите вашу фамилию"
                     />
                   </div>
                 </div>
 
-                <div className="flex items-center">
+                <div className="flex items-start">
                   <input
                     type="checkbox"
                     name="privacyConsent"
                     checked={contactFormData.privacyConsent}
                     onChange={(e) => handleContactInputChange('privacyConsent', e.target.checked)}
                     required
-                    className="w-4 h-4 text-[#991E1E] border-gray-300 rounded focus:ring-[#991E1E]"
+                    className="w-4 h-4 text-[#991E1E] border-gray-300 rounded focus:ring-[#991E1E] mt-1"
                   />
-                  <label className="ml-2 text-sm text-gray-600">
+                  <label className="ml-2 text-xs sm:text-sm text-gray-600 leading-relaxed">
                     {t('corporateClients.forms.privacyAgreement')}
                   </label>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#991E1E] text-white py-4 px-6 rounded-xl font-medium hover:bg-[#7A1818] transition-colors text-lg"
+                  className="w-full bg-[#991E1E] text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl font-medium hover:bg-[#7A1818] transition-colors text-sm sm:text-base md:text-lg"
                 >
                   {t('corporateClients.forms.submitApplication')}
                 </button>

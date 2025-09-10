@@ -205,8 +205,8 @@ const ExecutiveEducation = () => {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section */}
-      <div className="relative h-screen flex items-end justify-center overflow-hidden pb-20">
+      {/* Hero Section - Enhanced Mobile Optimization */}
+      <div className="relative h-screen flex items-end justify-center overflow-hidden pb-12 sm:pb-16 md:pb-20 pt-24 sm:pt-28 md:pt-32">
         {/* Background Image */}
         <img 
           src="/images/HeroExEu.jpg" 
@@ -218,25 +218,25 @@ const ExecutiveEducation = () => {
         <div className="absolute inset-0 bg-black/40"></div>
         
         {/* Content */}
-        <div className="relative z-10 text-center text-white px-8 max-w-4xl mx-auto">
-          <h1 className="text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+        <div className="relative z-10 text-center text-white px-3 sm:px-4 md:px-8 max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
             {t('executiveEducation.hero.title')}
           </h1>
-          <p className="text-2xl lg:text-2xl font-medium mb-8 opacity-90">
+          <p className="text-lg sm:text-xl md:text-2xl font-medium mb-6 sm:mb-8 opacity-90">
             {t('executiveEducation.hero.subtitle')}
           </p>
           
           {/* Download Button */}
           <button
             onClick={handleDownloadBrochure}
-            className="bg-[#991E1E] hover:bg-[#B91C1C] text-white px-8 py-4 rounded-full transition-all duration-300 flex items-center justify-center mx-auto space-x-3 shadow-lg"
+            className="bg-[#991E1E] hover:bg-[#B91C1C] text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 flex items-center justify-center mx-auto space-x-2 sm:space-x-3 shadow-lg"
           >
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
             </svg>
             <div className="text-left">
-              <div className="font-semibold text-lg">{t('executiveEducation.hero.downloadButton')}</div>
-              <div className="text-sm opacity-90 uppercase">
+              <div className="font-semibold text-sm sm:text-base md:text-lg">{t('executiveEducation.hero.downloadButton')}</div>
+              <div className="text-xs sm:text-sm opacity-90 uppercase">
                 {t('executiveEducation.hero.downloadDescription')}
               </div>
             </div>
@@ -244,13 +244,13 @@ const ExecutiveEducation = () => {
         </div>
       </div>
 
-      {/* New Section - Two Columns */}
-      <div className="py-24 px-8 bg-gray-50">
+      {/* New Section - Two Columns - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
             {/* Left Column - Headline and Button */}
-            <div className="space-y-8">
-              <h2 className="text-4xl lg:text-5xl font-normal leading-tight">
+            <div className="order-2 lg:order-1 space-y-6 sm:space-y-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal leading-tight">
                 <span className="text-[#E94848]">{t('executiveEducation.twoColumns.headline.line1')}<br />
                 {t('executiveEducation.twoColumns.headline.line2')}</span><br />
                 <span className="text-[#991E1E]">{t('executiveEducation.twoColumns.headline.line3')}<br />
@@ -258,14 +258,14 @@ const ExecutiveEducation = () => {
               </h2>
               <button
                 onClick={handleContactClick}
-                className="bg-[#991E1E] text-white px-6 py-3 rounded-full font-medium hover:bg-[#7A1818] transition-colors"
+                className="bg-[#991E1E] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-[#7A1818] transition-colors text-sm sm:text-base"
               >
                 {t('executiveEducation.twoColumns.contactButton')}
               </button>
             </div>
             
             {/* Right Column - Body Text */}
-            <div className="text-[#6E767D] text-lg leading-relaxed space-y-4">
+            <div className="order-1 lg:order-2 text-[#6E767D] text-base sm:text-lg leading-relaxed space-y-3 sm:space-y-4">
               <p>
                 {t('executiveEducation.twoColumns.description.paragraph1')}
               </p>
@@ -277,74 +277,74 @@ const ExecutiveEducation = () => {
         </div>
       </div>
 
-      {/* Stats Section */}
-      <div id="stats-section" className="py-16 px-8 bg-gray-50 border-b border-gray-100">
+      {/* Stats Section - Enhanced Mobile Optimization */}
+      <div id="stats-section" className="py-12 sm:py-16 px-3 sm:px-4 md:px-8 bg-gray-50 border-b border-gray-100">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             <div className="text-center transform hover:scale-105 transition-transform duration-300">
-              <div className="text-4xl lg:text-5xl font-bold text-[#991E1E] mb-2">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#991E1E] mb-2">
                 {animatedNumbers[0]}+
               </div>
-              <div className="text-gray-600 font-medium">{t('executiveEducation.stats.experience')}</div>
+              <div className="text-gray-600 font-medium text-sm sm:text-base">{t('executiveEducation.stats.experience')}</div>
             </div>
             <div className="text-center transform hover:scale-105 transition-transform duration-300">
-              <div className="text-4xl lg:text-5xl font-bold text-[#991E1E] mb-2">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#991E1E] mb-2">
                 {animatedNumbers[1]}+
               </div>
-              <div className="text-gray-600 font-medium">{t('executiveEducation.stats.graduates')}</div>
+              <div className="text-gray-600 font-medium text-sm sm:text-base">{t('executiveEducation.stats.graduates')}</div>
             </div>
             <div className="text-center transform hover:scale-105 transition-transform duration-300">
-              <div className="text-4xl lg:text-5xl font-bold text-[#991E1E] mb-2">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#991E1E] mb-2">
                 {animatedNumbers[2]}+
               </div>
-              <div className="text-gray-600 font-medium">{t('executiveEducation.stats.countries')}</div>
+              <div className="text-gray-600 font-medium text-sm sm:text-base">{t('executiveEducation.stats.countries')}</div>
             </div>
             <div className="text-center transform hover:scale-105 transition-transform duration-300">
-              <div className="text-4xl lg:text-5xl font-bold text-[#991E1E] mb-2">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#991E1E] mb-2">
                 {animatedNumbers[3]}%
               </div>
-              <div className="text-gray-600 font-medium">{t('executiveEducation.stats.satisfaction')}</div>
+              <div className="text-gray-600 font-medium text-sm sm:text-base">{t('executiveEducation.stats.satisfaction')}</div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Two Cards Section */}
-      <div className="py-24 px-8 bg-gray-50">
+      {/* Two Cards Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
             {/* Executive Education Card */}
-            <div className="bg-gradient-to-br from-[#991E1E] to-[#B91C1C] rounded-2xl p-8 text-white shadow-lg flex flex-col h-full relative overflow-hidden">
+            <div className="bg-gradient-to-br from-[#991E1E] to-[#B91C1C] rounded-xl sm:rounded-2xl p-6 sm:p-8 text-white shadow-lg flex flex-col h-full relative overflow-hidden">
               {/* Animated color block */}
-              <div className="absolute top-0 left-0 w-48 h-48 bg-[#E94848] rounded-lg blur-xl animate-pulse opacity-80"></div>
-              <div className="absolute top-20 right-10 w-36 h-36 bg-[#E94848] rounded-lg blur-xl animate-pulse opacity-70" style={{animationDelay: '1s'}}></div>
-              <div className="absolute bottom-20 left-1/4 w-56 h-56 bg-[#E94848] rounded-lg blur-xl animate-pulse opacity-75" style={{animationDelay: '2s'}}></div>
+              <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 bg-[#E94848] rounded-lg blur-xl animate-pulse opacity-80"></div>
+              <div className="absolute top-16 sm:top-20 right-6 sm:right-10 w-24 h-24 sm:w-36 sm:h-36 bg-[#E94848] rounded-lg blur-xl animate-pulse opacity-70" style={{animationDelay: '1s'}}></div>
+              <div className="absolute bottom-16 sm:bottom-20 left-1/4 w-40 h-40 sm:w-56 sm:h-56 bg-[#E94848] rounded-lg blur-xl animate-pulse opacity-75" style={{animationDelay: '2s'}}></div>
               
-              <h3 className="text-4xl font-normal mb-6 leading-tight max-w-md relative z-10">{t('executiveEducation.twoCards.executiveEducation.title')}</h3>
-              <p className="text-white mb-8 leading-relaxed text-lg relative z-10">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-normal mb-4 sm:mb-6 leading-tight max-w-md relative z-10">{t('executiveEducation.twoCards.executiveEducation.title')}</h3>
+              <p className="text-white mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg relative z-10">
                 {t('executiveEducation.twoCards.executiveEducation.description')}
               </p>
               
-              <div className="mt-auto flex justify-between items-end relative z-10">
+              <div className="mt-auto flex flex-col sm:flex-row justify-between items-start sm:items-end relative z-10 gap-4 sm:gap-0">
                 <div>
-                  <div className="text-5xl font-normal mb-2">{t('executiveEducation.twoCards.executiveEducation.statistic')}</div>
-                  <div className="text-white text-sm max-w-xs">
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-normal mb-2">{t('executiveEducation.twoCards.executiveEducation.statistic')}</div>
+                  <div className="text-white text-xs sm:text-sm max-w-xs">
                     {t('executiveEducation.twoCards.executiveEducation.statisticDescription')}
                   </div>
                 </div>
                 
                 <div className="flex items-center cursor-pointer" onClick={scrollToProgramCategories}>
-                  <div className="flex items-center border-2 border-white rounded-full px-6 py-2 bg-white">
-                    <span className="text-[#991E1E] font-medium text-sm">{t('executiveEducation.twoCards.executiveEducation.moreButton')}</span>
+                  <div className="flex items-center border-2 border-white rounded-full px-4 sm:px-6 py-2 bg-white">
+                    <span className="text-[#991E1E] font-medium text-xs sm:text-sm">{t('executiveEducation.twoCards.executiveEducation.moreButton')}</span>
                   </div>
-                  <div className="flex items-center border-2 border-white rounded-full w-8 h-8 ml-0">
+                  <div className="flex items-center border-2 border-white rounded-full w-6 h-6 sm:w-8 sm:h-8 ml-0">
                     <svg
-                      width="18"
-                      height="18"
+                      width="14"
+                      height="14"
                       viewBox="0 0 18 18"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      className="mx-auto"
+                      className="mx-auto sm:w-[18px] sm:h-[18px]"
                     >
                       <path d="M6 12L10 8L6 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -354,7 +354,7 @@ const ExecutiveEducation = () => {
             </div>
 
             {/* Corporate Training Card */}
-            <div className="relative rounded-2xl overflow-hidden shadow-lg">
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
               <img 
                 src="/images/Cartt.png" 
                 alt={t('executiveEducation.twoCards.corporateTraining.imageAlt')} 
@@ -362,24 +362,24 @@ const ExecutiveEducation = () => {
               />
               
               {/* Overlay Box */}
-              <div className="absolute bottom-4 left-4 right-4 bg-[#F2F2F2]/85 p-8 rounded-2xl min-h-[200px]">
-                <div className="mb-6">
-                  <div className="mb-4">
-                    <div className="text-6xl font-normal text-[#991E1E]">{t('executiveEducation.twoCards.corporateTraining.title').split(' ')[0]}</div>
-                    <div className="flex items-center gap-4">
-                      <div className="text-6xl font-normal text-[#991E1E]">{t('executiveEducation.twoCards.corporateTraining.title').split(' ')[1]}</div>
+              <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 bg-[#F2F2F2]/85 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl min-h-[160px] sm:min-h-[200px]">
+                <div className="mb-4 sm:mb-6">
+                  <div className="mb-3 sm:mb-4">
+                    <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#991E1E]">{t('executiveEducation.twoCards.corporateTraining.title').split(' ')[0]}</div>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+                      <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#991E1E]">{t('executiveEducation.twoCards.corporateTraining.title').split(' ')[1]}</div>
                       <div className="flex items-center gap-2 cursor-pointer" onClick={navigateToCorporateClients}>
-                        <div className="flex items-center border-2 border-[#6E767D] rounded-full px-6 py-2">
-                          <span className="text-[#991E1E] font-medium text-sm">{t('executiveEducation.twoCards.corporateTraining.moreButton')}</span>
+                        <div className="flex items-center border-2 border-[#6E767D] rounded-full px-3 sm:px-6 py-1 sm:py-2">
+                          <span className="text-[#991E1E] font-medium text-xs sm:text-sm">{t('executiveEducation.twoCards.corporateTraining.moreButton')}</span>
                         </div>
-                        <div className="flex items-center border-2 border-[#6E767D] rounded-full w-8 h-8">
+                        <div className="flex items-center border-2 border-[#6E767D] rounded-full w-6 h-6 sm:w-8 sm:h-8">
                           <svg
-                            width="18"
-                            height="18"
+                            width="14"
+                            height="14"
                             viewBox="0 0 18 18"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            className="mx-auto"
+                            className="mx-auto sm:w-[18px] sm:h-[18px]"
                           >
                             <path d="M6 12L10 8L6 4" stroke="#991E1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
@@ -387,7 +387,7 @@ const ExecutiveEducation = () => {
                       </div>
                     </div>
                   </div>
-                  <p className="text-gray-700 leading-relaxed text-lg mt-6">
+                  <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg mt-4 sm:mt-6">
                     {t('executiveEducation.twoCards.corporateTraining.description')}
                   </p>
                 </div>
@@ -543,25 +543,25 @@ const ExecutiveEducation = () => {
       </div>
 
       {/* Контактная секция */}
-      <div className="py-24 px-8" style={{ backgroundColor: '#F9FAFB' }}>
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-7xl mx-auto">
           {/* Заголовок */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#991E1E] mb-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#991E1E] mb-4 sm:mb-6">
               {t('executiveEducation.contactSection.title')}
             </h2>
-            <p className="text-[#6E767D] text-lg max-w-3xl mx-auto">
+            <p className="text-[#6E767D] text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
               {t('executiveEducation.contactSection.subtitle')}
             </p>
           </div>
 
           {/* Форма заявки */}
           <div className="max-w-2xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <form className="space-y-6" onSubmit={handleContactSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg">
+              <form className="space-y-4 sm:space-y-6" onSubmit={handleContactSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('executiveEducation.contactSection.form.firstName')}
                     </label>
                     <input
@@ -570,12 +570,12 @@ const ExecutiveEducation = () => {
                       value={contactFormData.firstName}
                       onChange={(e) => handleContactInputChange('firstName', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('executiveEducation.contactSection.form.firstNamePlaceholder')}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('executiveEducation.contactSection.form.lastName')}
                     </label>
                     <input
@@ -584,15 +584,15 @@ const ExecutiveEducation = () => {
                       value={contactFormData.lastName}
                       onChange={(e) => handleContactInputChange('lastName', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('executiveEducation.contactSection.form.lastNamePlaceholder')}
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('executiveEducation.contactSection.form.email')}
                     </label>
                     <input
@@ -601,12 +601,12 @@ const ExecutiveEducation = () => {
                       value={contactFormData.email}
                       onChange={(e) => handleContactInputChange('email', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('executiveEducation.contactSection.form.emailPlaceholder')}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('executiveEducation.contactSection.form.phone')}
                     </label>
                     <input
@@ -615,29 +615,29 @@ const ExecutiveEducation = () => {
                       value={contactFormData.phone}
                       onChange={(e) => handleContactInputChange('phone', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('executiveEducation.contactSection.form.phonePlaceholder')}
                     />
                   </div>
                 </div>
 
-                <div className="flex items-center">
+                <div className="flex items-start">
                   <input
                     type="checkbox"
                     name="privacyConsent"
                     checked={contactFormData.privacyConsent}
                     onChange={(e) => handleContactInputChange('privacyConsent', e.target.checked)}
                     required
-                    className="w-4 h-4 text-[#991E1E] border-gray-300 rounded focus:ring-[#991E1E]"
+                    className="w-4 h-4 text-[#991E1E] border-gray-300 rounded focus:ring-[#991E1E] mt-1"
                   />
-                  <label className="ml-2 text-sm text-gray-600">
+                  <label className="ml-2 text-xs sm:text-sm text-gray-600 leading-relaxed">
                     {t('executiveEducation.contactSection.form.privacyAgreement')}
                   </label>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#991E1E] text-white py-4 px-6 rounded-xl font-medium hover:bg-[#7A1818] transition-colors text-lg"
+                  className="w-full bg-[#991E1E] text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl font-medium hover:bg-[#7A1818] transition-colors text-sm sm:text-base md:text-lg"
                 >
                   {t('executiveEducation.contactSection.form.submitButton')}
                 </button>

@@ -360,26 +360,26 @@ const ExecutiveMBA = () => {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section */}
+      {/* Hero Section - Enhanced Mobile Optimization */}
       <div
-        className="relative bg-cover bg-center bg-no-repeat text-white py-64 px-8 min-h-screen flex items-end pb-32"
+        className="relative bg-cover bg-center bg-no-repeat text-white py-32 sm:py-48 md:py-64 px-3 sm:px-4 md:px-8 min-h-screen flex items-end pb-16 sm:pb-24 md:pb-32 pt-24 sm:pt-28 md:pt-32"
         style={{ backgroundImage: 'url(/images/EMBA_fon.png)' }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative max-w-7xl mx-auto text-center w-full">
-          <h1 className="text-6xl lg:text-7xl font-bold mb-8 leading-tight">{t('programs.executiveMbaPage.hero.title')}</h1>
-          <p className="text-2xl mb-16">{t('programs.executiveMbaPage.hero.subtitle')}</p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 md:mb-8 leading-tight">{t('programs.executiveMbaPage.hero.title')}</h1>
+          <p className="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-12 md:mb-16">{t('programs.executiveMbaPage.hero.subtitle')}</p>
           
-          <div className="flex flex-wrap justify-center gap-6">
-            <div className="bg-red-800 text-white px-8 py-3 rounded-full font-semibold text-lg">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
+            <div className="bg-red-800 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base md:text-lg">
               {t('programs.executiveMbaPage.hero.teachers')}
             </div>
-            <div className="bg-red-800 text-white px-8 py-3 rounded-full font-semibold text-lg">
+            <div className="bg-red-800 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base md:text-lg">
               {t('programs.executiveMbaPage.hero.weekendFormat')}
             </div>
             <div
                      onClick={() => setShowPresentationModal(true)}
-              className="bg-[#E94848] text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-[#D13A3A] transition-colors cursor-pointer"
+              className="bg-[#E94848] text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base md:text-lg hover:bg-[#D13A3A] transition-colors cursor-pointer"
                    >
                      {t('programs.executiveMbaPage.hero.downloadPresentation')}
             </div>
@@ -387,11 +387,81 @@ const ExecutiveMBA = () => {
           </div>
         </div>
 
-      {/* Information Cards Section */}
-      <div className="relative -mt-16 px-8 pb-24">
+      {/* Information Cards Section - Enhanced Mobile Optimization */}
+      <div className="relative -mt-8 sm:-mt-12 md:-mt-16 px-3 sm:px-4 md:px-8 pb-12 sm:pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto">
-          {/* Все 5 блоков в одном ряду */}
-          <div className="flex justify-center gap-2">
+          {/* Mobile Layout - Stacked Cards */}
+          <div className="block lg:hidden space-y-4 sm:space-y-6">
+            {/* Block 1 - Диплом */}
+            <div className="bg-[#F4F4F4] rounded-2xl p-3 sm:p-4">
+              <div className="bg-[#991E1E] rounded-2xl p-2 sm:p-3 w-full h-48 sm:h-56 flex justify-center items-center">
+                <img 
+                  src="/images/KrasnayaObl.png" 
+                  alt="Диплом Executive MBA" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+
+            {/* Block 2 - Международный диплом */}
+            <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-[#6E767D] text-sm sm:text-base leading-relaxed">
+                  {t('programs.executiveMbaPage.informationCards.internationalDiploma')}
+                </p>
+              </div>
+            </div>
+
+            {/* Block 3 - Размер группы */}
+            <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                  </svg>
+                </div>
+                <p className="text-[#6E767D] text-sm sm:text-base leading-relaxed">
+                  {t('programs.executiveMbaPage.informationCards.groupSize')}
+                </p>
+              </div>
+            </div>
+
+            {/* Block 4 - Формат обучения */}
+            <div className="bg-[#F4F4F4] rounded-2xl p-3 sm:p-4">
+              <div className="flex justify-center mb-3 sm:mb-4">
+                <img 
+                  src="/images/Obuche.jpg" 
+                  alt="Обучение 1-2 дня в месяц" 
+                  className="w-full h-32 sm:h-40 object-cover rounded-lg"
+                />
+              </div>
+              <p className="text-[#6E767D] text-sm sm:text-base leading-relaxed text-center">
+                {t('programs.executiveMbaPage.informationCards.studyFormat')}
+              </p>
+            </div>
+
+            {/* Block 5 - Модульная система */}
+            <div className="bg-[#F4F4F4] rounded-2xl p-3 sm:p-4">
+              <div className="flex justify-center mb-3 sm:mb-4">
+                <img 
+                  src="/images/modusis.jpg" 
+                  alt="Модульная система обучения" 
+                  className="w-full h-32 sm:h-40 object-cover rounded-lg"
+                />
+              </div>
+              <p className="text-[#6E767D] text-sm sm:text-base leading-relaxed text-center">
+                {t('programs.executiveMbaPage.informationCards.modularSystem')}
+              </p>
+            </div>
+          </div>
+
+          {/* Desktop Layout - Original Design */}
+          <div className="hidden lg:flex justify-center gap-2">
             {/* Первые 3 блока в общем контейнере */}
             <div className="bg-[#F4F4F4] rounded-2xl p-3 inline-block">
               <div className="flex gap-3">
@@ -467,76 +537,76 @@ const ExecutiveMBA = () => {
           </div>
         </div>
 
-      {/* About Program Section */}
-      <div className="py-24 px-8 bg-gray-50">
+      {/* About Program Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12 md:gap-16 items-center">
             {/* Left Section - Text Content */}
-            <div>
+            <div className="order-2 lg:order-1">
               {/* Tagline */}
-              <div className="inline-block bg-gray-50 border border-gray-300 text-[#991E1E] px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-block bg-gray-50 border border-gray-300 text-[#991E1E] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                 {t('programs.executiveMbaPage.aboutProgram.label')}
       </div>
 
               {/* Main Title */}
-              <h2 className="text-5xl font-normal text-[#991E1E] mb-8 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-[#991E1E] mb-6 sm:mb-8 leading-tight">
                 {t('programs.executiveMbaPage.aboutProgram.title')}
             </h2>
               
               {/* Description */}
-              <p className="text-[#6E767D] text-lg leading-relaxed mb-8">
+              <p className="text-[#6E767D] text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 {t('programs.executiveMbaPage.aboutProgram.description')}
               </p>
               
               {/* CTA Button */}
               <button 
                 onClick={() => setShowContactInfo(true)}
-                className="bg-[#991E1E] text-white px-6 py-3 rounded-full font-medium hover:bg-[#7A1818] transition-colors"
+                className="bg-[#991E1E] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-[#7A1818] transition-colors text-sm sm:text-base"
               >
                 {t('programs.executiveMbaPage.aboutProgram.contactButton')}
               </button>
           </div>
 
             {/* Right Section - Information Cards */}
-            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 order-1 lg:order-2">
               {/* Card 1 */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <div className="mb-4">
+              <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg">
+              <div className="mb-3 sm:mb-4">
                   <img 
                     src="/images/RostKon.jpg" 
                     alt="Использовать изменения как точки роста" 
-                    className="w-full h-64 object-cover rounded-lg"
+                    className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg"
                 />
               </div>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                   {t('programs.executiveMbaPage.aboutProgram.cards.growthPoints')}
               </p>
               </div>
 
               {/* Card 2 */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <div className="mb-4">
+              <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg">
+              <div className="mb-3 sm:mb-4">
                   <img 
                     src="/images/Razvit.jpg" 
                     alt="Развить управленческие навыки" 
-                    className="w-full h-64 object-cover rounded-lg"
+                    className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg"
                 />
               </div>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                   {t('programs.executiveMbaPage.aboutProgram.cards.managerialSkills')}
               </p>
             </div>
 
               {/* Card 3 */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <div className="mb-4">
+              <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg">
+              <div className="mb-3 sm:mb-4">
                   <img 
                     src="/images/NaShag.jpg" 
                     alt="Быть на шаг впереди" 
-                    className="w-full h-64 object-cover rounded-lg"
+                    className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg"
                 />
               </div>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                   {t('programs.executiveMbaPage.aboutProgram.cards.uncertainty')}
               </p>
               </div>
@@ -604,36 +674,36 @@ const ExecutiveMBA = () => {
         </div>
       )}
 
-      {/* Skills Development Section */}
-      <div className="py-24 px-8" style={{ backgroundColor: '#991E1E' }}>
+      {/* Skills Development Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8" style={{ backgroundColor: '#991E1E' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-left mb-16">
-            <h2 className="text-5xl font-bold text-white mb-4">
+          <div className="text-left mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
               {t('programs.executiveMbaPage.skillsDevelopment.title')}
             </h2>
-            <h3 className="text-4xl font-bold" style={{ color: '#E94848' }}>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ color: '#E94848' }}>
               {t('programs.executiveMbaPage.skillsDevelopment.subtitle')}
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* IQ Block */}
-            <div className="bg-[#E94848] rounded-3xl overflow-hidden h-128">
-              <div className="h-48 overflow-hidden">
+            <div className="bg-[#E94848] rounded-3xl overflow-hidden h-auto lg:h-128">
+              <div className="h-32 sm:h-40 md:h-48 overflow-hidden">
                 <img 
                   src="/images/BlockMbaF1.jpg" 
                   alt="IQ" 
                   className="w-full h-full object-cover"
                 />
                 </div>
-              <div className="p-6 flex flex-col h-80">
-                <h3 className="text-2xl font-bold text-white mb-4">{t('programs.executiveMbaPage.skillsDevelopment.iq.title')}</h3>
-                <p className="text-white text-sm mb-6 leading-relaxed flex-grow">
+              <div className="p-4 sm:p-6 flex flex-col h-auto lg:h-80">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">{t('programs.executiveMbaPage.skillsDevelopment.iq.title')}</h3>
+                <p className="text-white text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed flex-grow">
                   {t('programs.executiveMbaPage.skillsDevelopment.iq.description')}
                 </p>
-                <div className="flex flex-wrap gap-2 mt-auto">
+                <div className="flex flex-wrap gap-1 sm:gap-2 mt-auto">
                   {t('programs.executiveMbaPage.skillsDevelopment.iq.skills', { returnObjects: true }).map((skill, index) => (
-                    <span key={index} className="bg-[#F06565] text-white px-3 py-1 rounded-full text-xs">
+                    <span key={index} className="bg-[#F06565] text-white px-2 sm:px-3 py-1 rounded-full text-xs">
                       {skill}
                     </span>
                   ))}
@@ -642,22 +712,22 @@ const ExecutiveMBA = () => {
             </div>
 
             {/* EQ Block */}
-            <div className="bg-[#E94848] rounded-3xl overflow-hidden h-128">
-              <div className="h-48 overflow-hidden">
+            <div className="bg-[#E94848] rounded-3xl overflow-hidden h-auto lg:h-128">
+              <div className="h-32 sm:h-40 md:h-48 overflow-hidden">
                 <img 
                   src="/images/BlockMbaF2.jpg" 
                   alt="EQ" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6 flex flex-col h-80">
-                <h3 className="text-2xl font-bold text-white mb-4">{t('programs.executiveMbaPage.skillsDevelopment.eq.title')}</h3>
-                <p className="text-white text-sm mb-6 leading-relaxed flex-grow">
+              <div className="p-4 sm:p-6 flex flex-col h-auto lg:h-80">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">{t('programs.executiveMbaPage.skillsDevelopment.eq.title')}</h3>
+                <p className="text-white text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed flex-grow">
                   {t('programs.executiveMbaPage.skillsDevelopment.eq.description')}
                 </p>
-                <div className="flex flex-wrap gap-2 mt-auto">
+                <div className="flex flex-wrap gap-1 sm:gap-2 mt-auto">
                   {t('programs.executiveMbaPage.skillsDevelopment.eq.skills', { returnObjects: true }).map((skill, index) => (
-                    <span key={index} className="bg-[#F06565] text-white px-3 py-1 rounded-full text-xs">
+                    <span key={index} className="bg-[#F06565] text-white px-2 sm:px-3 py-1 rounded-full text-xs">
                       {skill}
                     </span>
                   ))}
@@ -666,22 +736,22 @@ const ExecutiveMBA = () => {
       </div>
 
             {/* Social Capital Block */}
-            <div className="bg-[#E94848] rounded-3xl overflow-hidden h-128">
-              <div className="h-48 overflow-hidden">
+            <div className="bg-[#E94848] rounded-3xl overflow-hidden h-auto lg:h-128">
+              <div className="h-32 sm:h-40 md:h-48 overflow-hidden">
                 <img
                   src="/images/BlockMbaF3.jpg" 
                   alt="Соц. капитал" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6 flex flex-col h-80">
-                <h3 className="text-2xl font-bold text-white mb-4">{t('programs.executiveMbaPage.skillsDevelopment.socialCapital.title')}</h3>
-                <p className="text-white text-sm mb-6 leading-relaxed flex-grow">
+              <div className="p-4 sm:p-6 flex flex-col h-auto lg:h-80">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">{t('programs.executiveMbaPage.skillsDevelopment.socialCapital.title')}</h3>
+                <p className="text-white text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed flex-grow">
                   {t('programs.executiveMbaPage.skillsDevelopment.socialCapital.description')}
                 </p>
-                <div className="flex flex-wrap gap-2 mt-auto">
+                <div className="flex flex-wrap gap-1 sm:gap-2 mt-auto">
                   {t('programs.executiveMbaPage.skillsDevelopment.socialCapital.skills', { returnObjects: true }).map((skill, index) => (
-                    <span key={index} className="bg-[#F06565] text-white px-3 py-1 rounded-full text-xs">
+                    <span key={index} className="bg-[#F06565] text-white px-2 sm:px-3 py-1 rounded-full text-xs">
                       {skill}
                     </span>
                   ))}
@@ -690,17 +760,17 @@ const ExecutiveMBA = () => {
       </div>
 
             {/* Meta-skills Block */}
-            <div className="bg-[#E94848] rounded-3xl overflow-hidden h-128">
-              <div className="h-48 overflow-hidden">
+            <div className="bg-[#E94848] rounded-3xl overflow-hidden h-auto lg:h-128">
+              <div className="h-32 sm:h-40 md:h-48 overflow-hidden">
                 <img 
                   src="/images/BlockMbaF4.jpg" 
                   alt="Meta-skills" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6 flex flex-col h-80">
-                <h3 className="text-2xl font-bold text-white mb-4">{t('programs.executiveMbaPage.skillsDevelopment.metaSkills.title')}</h3>
-                <p className="text-white text-sm mb-6 leading-relaxed flex-grow">
+              <div className="p-4 sm:p-6 flex flex-col h-auto lg:h-80">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">{t('programs.executiveMbaPage.skillsDevelopment.metaSkills.title')}</h3>
+                <p className="text-white text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed flex-grow">
                   {t('programs.executiveMbaPage.skillsDevelopment.metaSkills.description')}
                 </p>
                 <div className="flex flex-wrap gap-2 mt-auto">
@@ -716,82 +786,82 @@ const ExecutiveMBA = () => {
         </div>
       </div>
 
-      {/* Program Purpose Section */}
-      <div className="py-24 px-8 bg-gray-50">
+      {/* Program Purpose Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           {/* Tagline */}
-          <div className="text-center mb-6">
-            <span className="inline-block bg-gray-50 border border-[#6E767D] text-[#991E1E] px-4 py-2 rounded-full text-sm font-medium">
+          <div className="text-center mb-4 sm:mb-6">
+            <span className="inline-block bg-gray-50 border border-[#6E767D] text-[#991E1E] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
               {t('programs.executiveMbaPage.programPurpose.label')}
             </span>
                     </div>
           
           {/* Main Title */}
-          <h2 className="text-5xl font-normal text-[#991E1E] text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-[#991E1E] text-center mb-8 sm:mb-12 md:mb-16">
             {t('programs.executiveMbaPage.programPurpose.title')}
           </h2>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Card 1 - Strategic Vision */}
-            <div className="bg-[#F2F2F2] rounded-2xl p-8">
-              <div className="w-12 h-12 bg-[#E94848] rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <div className="bg-[#F2F2F2] rounded-2xl p-4 sm:p-6 md:p-8">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E94848] rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
                 </svg>
                   </div>
-              <h3 className="text-lg font-bold text-[#991E1E] mb-3">
+              <h3 className="text-base sm:text-lg font-bold text-[#991E1E] mb-2 sm:mb-3">
                 {t('programs.executiveMbaPage.programPurpose.cards.strategicVision.title')}
               </h3>
-              <p className="text-[#6E767D] text-sm leading-relaxed">
+              <p className="text-[#6E767D] text-xs sm:text-sm leading-relaxed">
                 {t('programs.executiveMbaPage.programPurpose.cards.strategicVision.description')}
             </p>
                 </div>
 
             {/* Card 2 - Talent Attraction */}
-            <div className="bg-[#F2F2F2] rounded-2xl p-8">
-              <div className="w-12 h-12 bg-[#E94848] rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <div className="bg-[#F2F2F2] rounded-2xl p-4 sm:p-6 md:p-8">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E94848] rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
                 </div>
-              <h3 className="text-lg font-bold text-[#991E1E] mb-3">
+              <h3 className="text-base sm:text-lg font-bold text-[#991E1E] mb-2 sm:mb-3">
                 {t('programs.executiveMbaPage.programPurpose.cards.talentAttraction.title')}
               </h3>
-              <p className="text-[#6E767D] text-sm leading-relaxed">
+              <p className="text-[#6E767D] text-xs sm:text-sm leading-relaxed">
                 {t('programs.executiveMbaPage.programPurpose.cards.talentAttraction.description')}
               </p>
               </div>
 
             {/* Card 3 - Competitiveness */}
-            <div className="bg-[#F2F2F2] rounded-2xl p-8">
-              <div className="w-12 h-12 bg-[#E94848] rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <div className="bg-[#F2F2F2] rounded-2xl p-4 sm:p-6 md:p-8">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E94848] rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="10" />
                   <circle cx="12" cy="12" r="6" />
                   <circle cx="12" cy="12" r="2" />
                   <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" strokeWidth="2" fill="none"/>
                   </svg>
           </div>
-              <h3 className="text-lg font-bold text-[#991E1E] mb-3">
+              <h3 className="text-base sm:text-lg font-bold text-[#991E1E] mb-2 sm:mb-3">
                 {t('programs.executiveMbaPage.programPurpose.cards.competitiveness.title')}
               </h3>
-              <p className="text-[#6E767D] text-sm leading-relaxed">
+              <p className="text-[#6E767D] text-xs sm:text-sm leading-relaxed">
                 {t('programs.executiveMbaPage.programPurpose.cards.competitiveness.description')}
               </p>
                 </div>
 
             {/* Card 4 - Flexibility */}
-            <div className="bg-[#F2F2F2] rounded-2xl p-8">
-              <div className="w-12 h-12 bg-[#E94848] rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <div className="bg-[#F2F2F2] rounded-2xl p-4 sm:p-6 md:p-8">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E94848] rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M3 12h4l3-9 4 18 3-9h4"/>
                   </svg>
                     </div>
-              <h3 className="text-lg font-bold text-[#991E1E] mb-3">
+              <h3 className="text-base sm:text-lg font-bold text-[#991E1E] mb-2 sm:mb-3">
                 {t('programs.executiveMbaPage.programPurpose.cards.flexibility.title')}
               </h3>
-              <p className="text-[#6E767D] text-sm leading-relaxed">
+              <p className="text-[#6E767D] text-xs sm:text-sm leading-relaxed">
                 {t('programs.executiveMbaPage.programPurpose.cards.flexibility.description')}
               </p>
                   </div>
@@ -799,81 +869,81 @@ const ExecutiveMBA = () => {
         </div>
       </div>
 
-      {/* Особенности программы */}
-      <div className="py-24 px-8 bg-gray-50">
+      {/* Особенности программы - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12" style={{ color: '#991E1E' }}>{t('programs.executiveMbaPage.programFeatures.title')}</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12" style={{ color: '#991E1E' }}>{t('programs.executiveMbaPage.programFeatures.title')}</h2>
 
-          <div className="space-y-8">
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <div className="flex items-start gap-6">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
+              <div className="flex flex-col lg:flex-row items-start gap-4 sm:gap-6">
                 <div className="flex-1">
-                  <div className="text-sm text-[#991E1E] mb-2">{t('programs.executiveMbaPage.programFeatures.features.workStudy.number')}</div>
-                  <h3 className="text-xl font-bold text-red-800 mb-4">
+                  <div className="text-xs sm:text-sm text-[#991E1E] mb-2">{t('programs.executiveMbaPage.programFeatures.features.workStudy.number')}</div>
+                  <h3 className="text-lg sm:text-xl font-bold text-red-800 mb-3 sm:mb-4">
                     {t('programs.executiveMbaPage.programFeatures.features.workStudy.title')}
                   </h3>
-                  <ul className="space-y-3 text-gray-700 text-base leading-relaxed">
+                  <ul className="space-y-2 sm:space-y-3 text-gray-700 text-sm sm:text-base leading-relaxed">
                     {t('programs.executiveMbaPage.programFeatures.features.workStudy.points', { returnObjects: true }).map((point, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-red-600 mr-3 mt-1">•</span>
+                        <span className="text-red-600 mr-2 sm:mr-3 mt-1">•</span>
                         <span>{point}</span>
                       </li>
                     ))}
                   </ul>
             </div>
-                <div className="w-52 flex-shrink-0">
+                <div className="w-full lg:w-52 flex-shrink-0 flex justify-center lg:justify-end">
                   <img
                     src="/images/BlokMba1.png"
                     alt="Обучение без отрыва от работы"
-                    className="w-full h-auto object-contain"
+                    className="w-32 h-auto sm:w-40 lg:w-full object-contain"
                   />
           </div>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <div className="flex items-start gap-6">
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
+              <div className="flex flex-col lg:flex-row items-start gap-4 sm:gap-6">
                   <div className="flex-1">
-                  <div className="text-sm text-[#991E1E] mb-2">{t('programs.executiveMbaPage.programFeatures.features.peerEducation.number')}</div>
-                  <h3 className="text-xl font-bold text-red-800 mb-4">{t('programs.executiveMbaPage.programFeatures.features.peerEducation.title')}</h3>
-                  <ul className="space-y-3 text-gray-700 text-base leading-relaxed">
+                  <div className="text-xs sm:text-sm text-[#991E1E] mb-2">{t('programs.executiveMbaPage.programFeatures.features.peerEducation.number')}</div>
+                  <h3 className="text-lg sm:text-xl font-bold text-red-800 mb-3 sm:mb-4">{t('programs.executiveMbaPage.programFeatures.features.peerEducation.title')}</h3>
+                  <ul className="space-y-2 sm:space-y-3 text-gray-700 text-sm sm:text-base leading-relaxed">
                     {t('programs.executiveMbaPage.programFeatures.features.peerEducation.points', { returnObjects: true }).map((point, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-red-600 mr-3 mt-1">•</span>
+                        <span className="text-red-600 mr-2 sm:mr-3 mt-1">•</span>
                         <span>{point}</span>
                       </li>
                     ))}
                   </ul>
                   </div>
-                <div className="w-52 flex-shrink-0">
+                <div className="w-full lg:w-52 flex-shrink-0 flex justify-center lg:justify-end">
                   <img
                     src="/images/BlokMba2.png"
                     alt="Peer to Peer education"
-                    className="w-full h-auto object-contain"
+                    className="w-32 h-auto sm:w-40 lg:w-full object-contain"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <div className="flex items-start gap-6">
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
+              <div className="flex flex-col lg:flex-row items-start gap-4 sm:gap-6">
                 <div className="flex-1">
-                  <div className="text-sm text-[#991E1E] mb-2">{t('programs.executiveMbaPage.programFeatures.features.practicalImmersion.number')}</div>
-                  <h3 className="text-xl font-bold text-red-800 mb-4">{t('programs.executiveMbaPage.programFeatures.features.practicalImmersion.title')}</h3>
-                  <ul className="space-y-3 text-gray-700 text-base leading-relaxed">
+                  <div className="text-xs sm:text-sm text-[#991E1E] mb-2">{t('programs.executiveMbaPage.programFeatures.features.practicalImmersion.number')}</div>
+                  <h3 className="text-lg sm:text-xl font-bold text-red-800 mb-3 sm:mb-4">{t('programs.executiveMbaPage.programFeatures.features.practicalImmersion.title')}</h3>
+                  <ul className="space-y-2 sm:space-y-3 text-gray-700 text-sm sm:text-base leading-relaxed">
                     {t('programs.executiveMbaPage.programFeatures.features.practicalImmersion.points', { returnObjects: true }).map((point, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-red-600 mr-3 mt-1">•</span>
+                        <span className="text-red-600 mr-2 sm:mr-3 mt-1">•</span>
                         <span>{point}</span>
                       </li>
                     ))}
                 </ul>
                   </div>
-                <div className="w-52 flex-shrink-0">
+                <div className="w-full lg:w-52 flex-shrink-0 flex justify-center lg:justify-end">
                   <img
                     src="/images/BlokMba3.png"
                     alt="Practical Immersion"
-                    className="w-full h-auto object-contain"
+                    className="w-32 h-auto sm:w-40 lg:w-full object-contain"
                   />
                     </div>
                   </div>
@@ -882,46 +952,46 @@ const ExecutiveMBA = () => {
         </div>
       </div>
 
-      {/* Professional Profile Section */}
-      <div className="relative bg-cover bg-center bg-no-repeat text-white py-24 px-8 min-h-screen flex items-end" style={{ backgroundImage: 'url(/images/KtoObuchaet.png)' }}>
+      {/* Professional Profile Section - Enhanced Mobile Optimization */}
+      <div className="relative bg-cover bg-center bg-no-repeat text-white py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8 min-h-screen flex items-end" style={{ backgroundImage: 'url(/images/KtoObuchaet.png)' }}>
         <div className="max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-6">
             {/* Title Block */}
-            <div className="lg:col-span-2 bg-[#F2F2F2] rounded-2xl p-8 text-black">
+            <div className="lg:col-span-2 bg-[#F2F2F2] rounded-2xl p-4 sm:p-6 md:p-8 text-black">
               {/* Tagline */}
-              <div className="mb-6">
-                <span className="inline-block bg-[#F2F2F2] border border-gray-300 text-[#991E1E] px-3 py-1 rounded-full text-sm font-medium">
+              <div className="mb-4 sm:mb-6">
+                <span className="inline-block bg-[#F2F2F2] border border-gray-300 text-[#991E1E] px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
                   {t('programs.executiveMbaPage.professionalProfile.label')}
                 </span>
           </div>
 
               {/* Main Title */}
-              <h2 className="text-3xl font-bold leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-bold leading-tight">
                 <span className="text-[#E94848]">{t('programs.executiveMbaPage.professionalProfile.title')}</span> <span className="text-[#991E1E]">{t('programs.executiveMbaPage.professionalProfile.titleHighlight')}</span>
               </h2>
                   </div>
 
             {/* Statistics Cards */}
             {/* Card 1 */}
-            <div className="bg-[#F2F2F2] rounded-2xl p-6 text-black">
-              <div className="text-3xl font-normal text-[#E94848] mb-5">{t('programs.executiveMbaPage.professionalProfile.statistics.topManagers.percentage')}</div>
-              <p className="text-[#6E767D] text-sm leading-relaxed">
+            <div className="bg-[#F2F2F2] rounded-2xl p-4 sm:p-6 text-black">
+              <div className="text-2xl sm:text-3xl font-normal text-[#E94848] mb-3 sm:mb-5">{t('programs.executiveMbaPage.professionalProfile.statistics.topManagers.percentage')}</div>
+              <p className="text-[#6E767D] text-xs sm:text-sm leading-relaxed">
                 {t('programs.executiveMbaPage.professionalProfile.statistics.topManagers.description')}
               </p>
                 </div>
 
             {/* Card 2 */}
-            <div className="bg-[#F2F2F2] rounded-2xl p-6 text-black">
-              <div className="text-3xl font-normal text-[#E94848] mb-5">{t('programs.executiveMbaPage.professionalProfile.statistics.businessOwners.percentage')}</div>
-              <p className="text-[#6E767D] text-sm leading-relaxed">
+            <div className="bg-[#F2F2F2] rounded-2xl p-4 sm:p-6 text-black">
+              <div className="text-2xl sm:text-3xl font-normal text-[#E94848] mb-3 sm:mb-5">{t('programs.executiveMbaPage.professionalProfile.statistics.businessOwners.percentage')}</div>
+              <p className="text-[#6E767D] text-xs sm:text-sm leading-relaxed">
                 {t('programs.executiveMbaPage.professionalProfile.statistics.businessOwners.description')}
               </p>
                   </div>
 
             {/* Card 3 */}
-            <div className="bg-[#F2F2F2] rounded-2xl p-6 text-black">
-              <div className="text-3xl font-normal text-[#E94848] mb-5">{t('programs.executiveMbaPage.professionalProfile.statistics.departmentHeads.percentage')}</div>
-              <p className="text-[#6E767D] text-sm leading-relaxed">
+            <div className="bg-[#F2F2F2] rounded-2xl p-4 sm:p-6 text-black">
+              <div className="text-2xl sm:text-3xl font-normal text-[#E94848] mb-3 sm:mb-5">{t('programs.executiveMbaPage.professionalProfile.statistics.departmentHeads.percentage')}</div>
+              <p className="text-[#6E767D] text-xs sm:text-sm leading-relaxed">
                 {t('programs.executiveMbaPage.professionalProfile.statistics.departmentHeads.description')}
               </p>
                 </div>
@@ -929,107 +999,107 @@ const ExecutiveMBA = () => {
                   </div>
                 </div>
 
-      {/* Обязательные дисциплины Section */}
-      <div className="py-24 px-8" style={{ backgroundColor: '#F9FAFB' }}>
+      {/* Обязательные дисциплины Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-7xl mx-auto">
           {/* Тег сверху */}
-          <div className="text-center mb-6">
-            <span className="inline-block bg-[#F9FAFB] border border-[#991E1E] text-[#991E1E] px-4 py-2 rounded-full text-sm font-medium">
+          <div className="text-center mb-4 sm:mb-6">
+            <span className="inline-block bg-[#F9FAFB] border border-[#991E1E] text-[#991E1E] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
               {t('programs.executiveMbaPage.curriculum.required.label')}
             </span>
                   </div>
 
           {/* Заголовок */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-normal">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal">
               <span className="text-[#E94848]">{t('programs.executiveMbaPage.curriculum.required.title')}</span>
               <span className="text-[#991E1E]">{t('programs.executiveMbaPage.curriculum.required.titleHighlight')}</span>
             </h2>
                 </div>
 
           {/* Сетка дисциплин - 2 колонки, 3 ряда */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {/* Дисциплина 1 */}
             {t('programs.executiveMbaPage.curriculum.required.disciplines', { returnObjects: true }).map((discipline, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8">
-                <div className="text-gray-400 text-sm mb-2">{(index + 1).toString().padStart(2, '0')}</div>
-                <h3 className="text-xl font-normal text-[#991E1E]">{discipline}</h3>
+              <div key={index} className="bg-white rounded-2xl p-4 sm:p-6 md:p-8">
+                <div className="text-gray-400 text-xs sm:text-sm mb-2">{(index + 1).toString().padStart(2, '0')}</div>
+                <h3 className="text-lg sm:text-xl font-normal text-[#991E1E]">{discipline}</h3>
               </div>
             ))}
                   </div>
                     </div>
                   </div>
 
-      {/* Дисциплины по выбору Section */}
-      <div className="py-24 px-8" style={{ backgroundColor: '#F9FAFB' }}>
+      {/* Дисциплины по выбору Section - Enhanced Mobile Optimization */}
+      <div className="py-8 sm:py-12 md:py-24 px-3 sm:px-4 md:px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-7xl mx-auto">
           {/* Тег сверху */}
-          <div className="text-center mb-6">
-            <span className="inline-block bg-[#F9FAFB] border border-[#991E1E] text-[#991E1E] px-4 py-2 rounded-full text-sm font-medium">
+          <div className="text-center mb-4 sm:mb-6">
+            <span className="inline-block bg-[#F9FAFB] border border-[#991E1E] text-[#991E1E] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
               {t('programs.executiveMbaPage.curriculum.elective.label')}
             </span>
                 </div>
 
           {/* Заголовок */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-normal">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal">
               <span className="text-[#991E1E]">{t('programs.executiveMbaPage.curriculum.elective.title')}</span>
               <span className="text-[#E94848]">{t('programs.executiveMbaPage.curriculum.elective.titleHighlight')}</span>
             </h2>
                   </div>
 
           {/* Сетка дисциплин - 2 колонки */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {t('programs.executiveMbaPage.curriculum.elective.disciplines', { returnObjects: true }).map((discipline, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8">
-                <div className="text-gray-400 text-sm mb-2">{(index + 1).toString().padStart(2, '0')}</div>
-                <h3 className="text-xl font-normal text-[#991E1E]">{discipline}</h3>
+              <div key={index} className="bg-white rounded-2xl p-4 sm:p-6 md:p-8">
+                <div className="text-gray-400 text-xs sm:text-sm mb-2">{(index + 1).toString().padStart(2, '0')}</div>
+                <h3 className="text-lg sm:text-xl font-normal text-[#991E1E]">{discipline}</h3>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Специализации на выбор Section */}
-      <div className="py-24 px-8" style={{ backgroundColor: '#F9FAFB' }}>
+      {/* Специализации на выбор Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-7xl mx-auto">
           {/* Тег сверху */}
-          <div className="text-center mb-6">
-            <span className="inline-block bg-[#F9FAFB] border border-[#991E1E] text-[#991E1E] px-4 py-2 rounded-full text-sm font-medium">
+          <div className="text-center mb-4 sm:mb-6">
+            <span className="inline-block bg-[#F9FAFB] border border-[#991E1E] text-[#991E1E] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
               {t('programs.executiveMbaPage.specializations.label')}
             </span>
           </div>
 
           {/* Заголовок */}
-          <div className="text-center mb-6">
-            <h2 className="text-5xl font-normal mb-4">
+          <div className="text-center mb-6 sm:mb-8 md:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal mb-3 sm:mb-4">
               <span className="text-[#E94848]">{t('programs.executiveMbaPage.specializations.title')}</span>
               <span className="text-[#991E1E]">{t('programs.executiveMbaPage.specializations.titleHighlight')}</span>
             </h2>
-            <p className="text-gray-600 text-lg max-w-4xl mx-auto">
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-4xl mx-auto">
               {t('programs.executiveMbaPage.specializations.subtitle')}
             </p>
           </div>
 
           {/* Сетка специализаций - 2 колонки */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-8 sm:mt-12 md:mt-16">
             {/* Специализация 1 - Стратегическое управление */}
             <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: '#F9FAFB' }}>
-              <div className="h-64 overflow-hidden rounded-t-2xl">
+              <div className="h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
                 <img 
                   src="/images/BlockMbaF4.jpg" 
                   alt="Стратегическое управление" 
                   className="w-full h-full object-cover rounded-t-2xl rounded-b-2xl"
                 />
                 </div>
-              <div className="p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
-                <div className="text-gray-500 text-sm mb-2">{t('programs.executiveMbaPage.specializations.specializationLabel')}</div>
-                <h3 className="text-2xl font-normal text-[#E94848] mb-6">{t('programs.executiveMbaPage.specializations.items.strategicManagement.title')}</h3>
-                <ul className="space-y-3">
+              <div className="p-4 sm:p-6 md:p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
+                <div className="text-gray-500 text-xs sm:text-sm mb-2">{t('programs.executiveMbaPage.specializations.specializationLabel')}</div>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-normal text-[#E94848] mb-4 sm:mb-6">{t('programs.executiveMbaPage.specializations.items.strategicManagement.title')}</h3>
+                <ul className="space-y-2 sm:space-y-3">
                   {t('programs.executiveMbaPage.specializations.items.strategicManagement.points', { returnObjects: true }).map((point, index) => (
                     <li key={index} className="flex items-start">
-                      <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">{point}</span>
+                      <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                      <span className="text-gray-700 text-sm sm:text-base">{point}</span>
                     </li>
                   ))}
                 </ul>
@@ -1038,21 +1108,21 @@ const ExecutiveMBA = () => {
 
             {/* Специализация 2 - Стратегический HR */}
             <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: '#F9FAFB' }}>
-              <div className="h-64 overflow-hidden rounded-t-2xl">
+              <div className="h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
                 <img 
                   src="/images/BMba2.png" 
                   alt="Стратегический HR" 
                   className="w-full h-full object-cover rounded-t-2xl rounded-b-2xl"
                 />
               </div>
-              <div className="p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
-                <div className="text-gray-500 text-sm mb-2">{t('programs.executiveMbaPage.specializations.specializationLabel')}</div>
-                <h3 className="text-2xl font-normal text-[#E94848] mb-6">{t('programs.executiveMbaPage.specializations.items.strategicHR.title')}</h3>
-                <ul className="space-y-3">
+              <div className="p-4 sm:p-6 md:p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
+                <div className="text-gray-500 text-xs sm:text-sm mb-2">{t('programs.executiveMbaPage.specializations.specializationLabel')}</div>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-normal text-[#E94848] mb-4 sm:mb-6">{t('programs.executiveMbaPage.specializations.items.strategicHR.title')}</h3>
+                <ul className="space-y-2 sm:space-y-3">
                   {t('programs.executiveMbaPage.specializations.items.strategicHR.points', { returnObjects: true }).map((point, index) => (
                     <li key={index} className="flex items-start">
-                      <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">{point}</span>
+                      <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                      <span className="text-gray-700 text-sm sm:text-base">{point}</span>
                     </li>
                   ))}
                 </ul>
@@ -1061,21 +1131,21 @@ const ExecutiveMBA = () => {
 
             {/* Специализация 3 - ИИ в бизнесе */}
             <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: '#F9FAFB' }}>
-              <div className="h-64 overflow-hidden rounded-t-2xl">
+              <div className="h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
                 <img 
                   src="/images/BMba3.jpg" 
                   alt="ИИ в бизнесе" 
                   className="w-full h-full object-cover rounded-t-2xl rounded-b-2xl"
                 />
               </div>
-              <div className="p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
-                <div className="text-gray-500 text-sm mb-2">{t('programs.executiveMbaPage.specializations.specializationLabel')}</div>
-                <h3 className="text-2xl font-normal text-[#E94848] mb-6">{t('programs.executiveMbaPage.specializations.items.aiInBusiness.title')}</h3>
-                <ul className="space-y-3">
+              <div className="p-4 sm:p-6 md:p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
+                <div className="text-gray-500 text-xs sm:text-sm mb-2">{t('programs.executiveMbaPage.specializations.specializationLabel')}</div>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-normal text-[#E94848] mb-4 sm:mb-6">{t('programs.executiveMbaPage.specializations.items.aiInBusiness.title')}</h3>
+                <ul className="space-y-2 sm:space-y-3">
                   {t('programs.executiveMbaPage.specializations.items.aiInBusiness.points', { returnObjects: true }).map((point, index) => (
                     <li key={index} className="flex items-start">
-                      <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">{point}</span>
+                      <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                      <span className="text-gray-700 text-sm sm:text-base">{point}</span>
                     </li>
                   ))}
                 </ul>
@@ -1132,55 +1202,55 @@ const ExecutiveMBA = () => {
         </div>
               </div>
 
-      {/* Возможные выездные модули Section */}
-      <div className="py-12 px-8 bg-white">
+      {/* Возможные выездные модули Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Заголовок */}
-          <div className="text-left mb-16">
-            <h2 className="text-5xl font-normal">
+          <div className="text-left mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal">
               <span className="text-[#991E1E]">{t('programs.executiveMbaPage.fieldModules.title')}</span>
               <span className="text-[#E94848]">{t('programs.executiveMbaPage.fieldModules.titleHighlight')}</span>
             </h2>
           </div>
 
                     {/* Карусель университетов */}
-          <div className="relative min-h-[600px]">
-                        {/* Стрелка влево - фиксированная позиция */}
+          <div className="relative min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
+                        {/* Стрелка влево - улучшенная для мобильных */}
             <button
               onClick={prevSlide}
               disabled={isTransitioning}
-              className={`absolute left-4 top-[250px] z-10 bg-white rounded-full p-3 border border-gray-200 transition-all duration-300 ease-out ${
+              className={`absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 sm:p-4 md:p-3 border border-gray-200 shadow-lg transition-all duration-300 ease-out touch-manipulation ${
                 isTransitioning 
                   ? 'opacity-50 cursor-not-allowed' 
-                  : 'hover:bg-gray-50 hover:scale-110 hover:shadow-lg active:scale-95'
+                  : 'hover:bg-white hover:scale-110 hover:shadow-xl active:scale-95 active:bg-gray-50'
               }`}
             >
-              <svg className={`w-6 h-6 text-gray-600 transition-transform duration-300 ${
+              <svg className={`w-5 h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 text-gray-700 transition-transform duration-300 ${
                 isTransitioning ? 'scale-90' : 'group-hover:scale-110'
-              }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              }`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
             </button>
 
-            {/* Стрелка вправо - фиксированная позиция */}
+            {/* Стрелка вправо - улучшенная для мобильных */}
             <button
               onClick={nextSlide}
               disabled={isTransitioning}
-              className={`absolute right-4 top-[250px] z-10 bg-white rounded-full p-3 border border-gray-200 transition-all duration-300 ease-out ${
+              className={`absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 sm:p-4 md:p-3 border border-gray-200 shadow-lg transition-all duration-300 ease-out touch-manipulation ${
                 isTransitioning 
                   ? 'opacity-50 cursor-not-allowed' 
-                  : 'hover:bg-gray-50 hover:scale-110 hover:shadow-lg active:scale-95'
+                  : 'hover:bg-white hover:scale-110 hover:shadow-xl active:scale-95 active:bg-gray-50'
               }`}
             >
-              <svg className={`w-6 h-6 text-gray-600 transition-transform duration-300 ${
+              <svg className={`w-5 h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 text-gray-700 transition-transform duration-300 ${
                 isTransitioning ? 'scale-90' : 'group-hover:scale-110'
-              }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              }`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
             </button>
 
                                     {/* Сетка университетов */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 px-8 sm:px-12">
               {getCurrentUniversities().map((university, index) => (
                 <div 
                   key={`${university.id}-${currentSlide}`} 
@@ -1194,7 +1264,7 @@ const ExecutiveMBA = () => {
                     transformOrigin: 'center bottom'
                   }}
                 >
-                  <div className="h-64 overflow-hidden">
+                  <div className="h-48 sm:h-56 md:h-64 overflow-hidden">
                     <img 
                       src={university.image} 
                       alt={university.title} 
@@ -1205,8 +1275,8 @@ const ExecutiveMBA = () => {
                       }`}
                     />
               </div>
-                  <div className="p-6">
-                    <h3 className={`text-xl font-normal text-[#991E1E] mb-4 transition-all duration-500 ${
+                  <div className="p-4 sm:p-6">
+                    <h3 className={`text-lg sm:text-xl font-normal text-[#991E1E] mb-3 sm:mb-4 transition-all duration-500 ${
                       isTransitioning 
                         ? 'opacity-0 transform translate-y-4' 
                         : 'opacity-100 transform translate-y-0'
@@ -1215,7 +1285,7 @@ const ExecutiveMBA = () => {
                     >
                       {university.title}
                     </h3>
-                    <p className={`text-[#6E767D] text-sm mb-6 leading-relaxed transition-all duration-500 ${
+                    <p className={`text-[#6E767D] text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed transition-all duration-500 ${
                       isTransitioning 
                         ? 'opacity-0 transform translate-y-4' 
                         : 'opacity-100 transform translate-y-0'
@@ -1228,7 +1298,7 @@ const ExecutiveMBA = () => {
                       href={university.website} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className={`inline-block bg-[#E94848] text-white py-3 px-6 rounded-full font-medium hover:bg-[#D13A3A] transition-all duration-500 ${
+                      className={`inline-block bg-[#E94848] text-white py-2 sm:py-3 px-4 sm:px-6 rounded-full font-medium hover:bg-[#D13A3A] transition-all duration-500 text-sm sm:text-base ${
                         isTransitioning 
                           ? 'opacity-0 transform translate-y-4 scale-95' 
                           : 'opacity-100 transform translate-y-0 scale-100'
@@ -1271,31 +1341,31 @@ const ExecutiveMBA = () => {
               </div>
             </div>
 
-      {/* Международное признание диплома Section */}
-      <div className="py-12 px-8 bg-white">
+      {/* Международное признание диплома Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Заголовок */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-normal">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal">
               <span className="text-[#E94848]">{t('programs.executiveMbaPage.diplomaRecognition.title')}</span>
               <span className="text-[#991E1E]">{t('programs.executiveMbaPage.diplomaRecognition.titleHighlight')}</span>
             </h2>
           </div>
 
           {/* Сетка карточек - 3 колонки */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
             {/* Карточка 1 - Глобальное признание */}
             <div className="bg-[#F2F2F2] rounded-2xl overflow-hidden">
-              <div className="h-80 overflow-hidden p-5">
+              <div className="h-64 sm:h-72 md:h-80 overflow-hidden p-3 sm:p-4 md:p-5">
                 <img 
                   src="/images/globalpo.jpg" 
                   alt="Глобальное признание" 
                   className="w-full h-full object-cover rounded-xl"
               />
             </div>
-              <div className="p-6">
-                <h3 className="text-xl font-normal text-[#991E1E] mb-4">{t('programs.executiveMbaPage.diplomaRecognition.cards.globalRecognition.title')}</h3>
-                <p className="text-[#6E767D] text-sm leading-relaxed">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-normal text-[#991E1E] mb-3 sm:mb-4">{t('programs.executiveMbaPage.diplomaRecognition.cards.globalRecognition.title')}</h3>
+                <p className="text-[#6E767D] text-xs sm:text-sm leading-relaxed">
                   {t('programs.executiveMbaPage.diplomaRecognition.cards.globalRecognition.description')}
               </p>
             </div>
@@ -1303,16 +1373,16 @@ const ExecutiveMBA = () => {
 
             {/* Карточка 2 - Надёжный диплом */}
             <div className="bg-[#991E1E] rounded-2xl overflow-hidden">
-              <div className="h-80 overflow-hidden p-5">
+              <div className="h-64 sm:h-72 md:h-80 overflow-hidden p-3 sm:p-4 md:p-5">
                 <img 
                   src="/images/Krasnays.png" 
                   alt="Надёжный диплом" 
                   className="w-full h-full object-cover rounded-xl"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-normal text-white mb-4">{t('programs.executiveMbaPage.diplomaRecognition.cards.reliableDiploma.title')}</h3>
-                <p className="text-white text-sm leading-relaxed">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-normal text-white mb-3 sm:mb-4">{t('programs.executiveMbaPage.diplomaRecognition.cards.reliableDiploma.title')}</h3>
+                <p className="text-white text-xs sm:text-sm leading-relaxed">
                   {t('programs.executiveMbaPage.diplomaRecognition.cards.reliableDiploma.description')}
                 </p>
         </div>
@@ -1320,16 +1390,16 @@ const ExecutiveMBA = () => {
 
             {/* Карточка 3 - Аккредитации Narxoz */}
             <div className="bg-[#F2F2F2] rounded-2xl overflow-hidden">
-              <div className="h-80 overflow-hidden p-5">
+              <div className="h-64 sm:h-72 md:h-80 overflow-hidden p-3 sm:p-4 md:p-5">
                 <img 
                   src="/images/accreblock.jpg" 
                   alt="Аккредитации Narxoz" 
                   className="w-full h-full object-cover rounded-xl"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-normal text-[#991E1E] mb-4">{t('programs.executiveMbaPage.diplomaRecognition.cards.narxozAccreditations.title')}</h3>
-                <p className="text-[#6E767D] text-sm leading-relaxed" 
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-normal text-[#991E1E] mb-3 sm:mb-4">{t('programs.executiveMbaPage.diplomaRecognition.cards.narxozAccreditations.title')}</h3>
+                <p className="text-[#6E767D] text-xs sm:text-sm leading-relaxed" 
                    dangerouslySetInnerHTML={{ 
                      __html: t('programs.executiveMbaPage.diplomaRecognition.cards.narxozAccreditations.description') 
                    }}>
@@ -1424,25 +1494,26 @@ const ExecutiveMBA = () => {
       </div>
 
       {/* Контактная секция */}
-      <div className="py-24 px-8" style={{ backgroundColor: '#F9FAFB' }}>
+      {/* Contact Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-7xl mx-auto">
           {/* Заголовок */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#991E1E] mb-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#991E1E] mb-4 sm:mb-6">
               {t('programs.executiveMbaPage.contactSection.title')}
             </h2>
-            <p className="text-[#6E767D] text-lg max-w-3xl mx-auto">
+            <p className="text-[#6E767D] text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
               {t('programs.executiveMbaPage.contactSection.subtitle')}
             </p>
           </div>
 
           {/* Форма заявки */}
           <div className="max-w-2xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <form className="space-y-6" onSubmit={handleContactSubmit}>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg">
+              <form className="space-y-4 sm:space-y-6" onSubmit={handleContactSubmit}>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('programs.executiveMbaPage.contactSection.form.firstName.label')}
                     </label>
                     <input
@@ -1451,12 +1522,12 @@ const ExecutiveMBA = () => {
                       value={contactFormData.firstName}
                       onChange={(e) => handleContactInputChange('firstName', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('programs.executiveMbaPage.contactSection.form.firstName.placeholder')}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('programs.executiveMbaPage.contactSection.form.lastName.label')}
                     </label>
                     <input
@@ -1465,15 +1536,15 @@ const ExecutiveMBA = () => {
                       value={contactFormData.lastName}
                       onChange={(e) => handleContactInputChange('lastName', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('programs.executiveMbaPage.contactSection.form.lastName.placeholder')}
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('programs.executiveMbaPage.contactSection.form.email.label')}
                     </label>
                     <input
@@ -1482,12 +1553,12 @@ const ExecutiveMBA = () => {
                       value={contactFormData.email}
                       onChange={(e) => handleContactInputChange('email', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('programs.executiveMbaPage.contactSection.form.email.placeholder')}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('programs.executiveMbaPage.contactSection.form.phone.label')}
                     </label>
                     <input
@@ -1496,7 +1567,7 @@ const ExecutiveMBA = () => {
                       value={contactFormData.phone}
                       onChange={(e) => handleContactInputChange('phone', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('programs.executiveMbaPage.contactSection.form.phone.placeholder')}
                     />
                   </div>
@@ -1511,14 +1582,14 @@ const ExecutiveMBA = () => {
                     required
                     className="w-4 h-4 text-[#991E1E] border-gray-300 rounded focus:ring-[#991E1E]"
                   />
-                  <label className="ml-2 text-sm text-gray-600">
+                  <label className="ml-2 text-xs sm:text-sm text-gray-600">
                     {t('programs.executiveMbaPage.contactSection.form.privacyPolicy')}
                   </label>
             </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#991E1E] text-white py-4 px-6 rounded-xl font-medium hover:bg-[#7A1818] transition-colors text-lg"
+                  className="w-full bg-[#991E1E] text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-medium hover:bg-[#7A1818] transition-colors text-sm sm:text-base md:text-lg"
               >
                 {t('programs.executiveMbaPage.contactSection.form.submitButton')}
                 </button>
@@ -1526,38 +1597,38 @@ const ExecutiveMBA = () => {
       </div>
 
             {/* Контактная информация */}
-            <div className="mt-12 text-center">
-              <h3 className="text-2xl font-bold text-[#991E1E] mb-6">
+            <div className="mt-8 sm:mt-12 text-center">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#991E1E] mb-4 sm:mb-6">
                 {t('programs.executiveMbaPage.contactSection.contactInfo.title')}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div>
-                  <div className="w-12 h-12 bg-[#991E1E] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#991E1E] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{t('programs.executiveMbaPage.contactSection.contactInfo.phone.title')}</h4>
-                  <p className="text-[#6E767D]">{t('programs.executiveMbaPage.contactSection.contactInfo.phone.value')}</p>
+                  <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">{t('programs.executiveMbaPage.contactSection.contactInfo.phone.title')}</h4>
+                  <p className="text-[#6E767D] text-xs sm:text-sm">{t('programs.executiveMbaPage.contactSection.contactInfo.phone.value')}</p>
             </div>
             <div>
-                  <div className="w-12 h-12 bg-[#991E1E] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#991E1E] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{t('programs.executiveMbaPage.contactSection.contactInfo.email.title')}</h4>
-                  <p className="text-[#6E767D]">{t('programs.executiveMbaPage.contactSection.contactInfo.email.value')}</p>
+                  <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">{t('programs.executiveMbaPage.contactSection.contactInfo.email.title')}</h4>
+                  <p className="text-[#6E767D] text-xs sm:text-sm">{t('programs.executiveMbaPage.contactSection.contactInfo.email.value')}</p>
             </div>
             <div>
-                  <div className="w-12 h-12 bg-[#991E1E] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#991E1E] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{t('programs.executiveMbaPage.contactSection.contactInfo.address.title')}</h4>
-                  <p className="text-[#6E767D]">{t('programs.executiveMbaPage.contactSection.contactInfo.address.value')}</p>
+                  <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">{t('programs.executiveMbaPage.contactSection.contactInfo.address.title')}</h4>
+                  <p className="text-[#6E767D] text-xs sm:text-sm">{t('programs.executiveMbaPage.contactSection.contactInfo.address.value')}</p>
                 </div>
               </div>
             </div>

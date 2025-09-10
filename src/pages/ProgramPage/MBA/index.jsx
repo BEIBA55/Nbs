@@ -596,106 +596,106 @@ const MBA = () => {
       {/* Ranking Section */}
       <RankingSection />
 
-      {/* Обязательные дисциплины Section */}
-      <div className="py-24 px-8" style={{ backgroundColor: '#F9FAFB' }}>
+      {/* Обязательные дисциплины Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-7xl mx-auto">
           {/* Тег сверху */}
-          <div className="text-center mb-6">
-            <span className="inline-block bg-[#F9FAFB] border border-[#991E1E] text-[#991E1E] px-4 py-2 rounded-full text-sm font-medium">
+          <div className="text-center mb-4 sm:mb-6">
+            <span className="inline-block bg-[#F9FAFB] border border-[#991E1E] text-[#991E1E] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
               {t('mbaPage.requiredDisciplines.tag')}
             </span>
             </div>
 
           {/* Заголовок */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-normal">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal">
               <span className="text-[#E94848]">{t('mbaPage.requiredDisciplines.title').split(' ')[0]}</span>
               <span className="text-[#991E1E]"> {t('mbaPage.requiredDisciplines.title').split(' ').slice(1).join(' ')}</span>
             </h2>
             </div>
 
           {/* Сетка дисциплин - 2 колонки, 6 рядов */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {t('mbaPage.requiredDisciplines.disciplines', { returnObjects: true }).map((discipline, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8">
-                <div className="text-gray-400 text-sm mb-2">{(index + 1).toString().padStart(2, '0')}</div>
-                <h3 className="text-xl font-bold text-[#991E1E]">{discipline}</h3>
+              <div key={index} className="bg-white rounded-2xl p-4 sm:p-6 md:p-8">
+                <div className="text-gray-400 text-xs sm:text-sm mb-2">{(index + 1).toString().padStart(2, '0')}</div>
+                <h3 className="text-lg sm:text-xl font-bold text-[#991E1E]">{discipline}</h3>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Дисциплины по выбору Section */}
-      <div className="py-16 px-8" style={{ backgroundColor: '#F9FAFB' }}>
+      {/* Дисциплины по выбору Section - Enhanced Mobile Optimization */}
+      <div className="py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-7xl mx-auto">
           {/* Тег сверху */}
-          <div className="text-center mb-6">
-            <span className="inline-block bg-[#F9FAFB] border border-[#991E1E] text-[#991E1E] px-4 py-2 rounded-full text-sm font-medium">
+          <div className="text-center mb-4 sm:mb-6">
+            <span className="inline-block bg-[#F9FAFB] border border-[#991E1E] text-[#991E1E] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
               {t('mbaPage.electiveDisciplines.tag')}
             </span>
           </div>
 
           {/* Заголовок */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-normal">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal">
               <span className="text-[#991E1E]">{t('mbaPage.electiveDisciplines.title').split(' ')[0]}</span>
               <span className="text-[#E94848]"> {t('mbaPage.electiveDisciplines.title').split(' ').slice(1).join(' ')}</span>
             </h2>
           </div>
 
           {/* Сетка дисциплин - 2 колонки, 3 ряда */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {t('mbaPage.electiveDisciplines.disciplines', { returnObjects: true }).map((discipline, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8">
-                <div className="text-gray-400 text-sm mb-2">{(index + 1).toString().padStart(2, '0')}</div>
-                <h3 className="text-xl font-bold text-[#991E1E]">{discipline}</h3>
+              <div key={index} className="bg-white rounded-2xl p-4 sm:p-6 md:p-8">
+                <div className="text-gray-400 text-xs sm:text-sm mb-2">{(index + 1).toString().padStart(2, '0')}</div>
+                <h3 className="text-lg sm:text-xl font-bold text-[#991E1E]">{discipline}</h3>
               </div>
             ))}
           </div>
               </div>
             </div>
 
-      {/* Специализации на выбор Section */}
-      <div className="py-24 px-8" style={{ backgroundColor: '#F9FAFB' }}>
+      {/* Специализации на выбор Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-7xl mx-auto">
           {/* Тег сверху */}
-          <div className="text-center mb-6">
-            <span className="inline-block bg-[#F9FAFB] border border-[#991E1E] text-[#991E1E] px-4 py-2 rounded-full text-sm font-medium">
+          <div className="text-center mb-4 sm:mb-6">
+            <span className="inline-block bg-[#F9FAFB] border border-[#991E1E] text-[#991E1E] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
               {t('mbaPage.specializations.tag')}
               </span>
       </div>
 
                     {/* Заголовок */}
-          <div className="text-center mb-6">
-            <h2 className="text-5xl font-normal mb-4">
+          <div className="text-center mb-6 sm:mb-8 md:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal mb-3 sm:mb-4">
               <span className="text-[#E94848]">{t('mbaPage.specializations.title').split(' ')[0]}</span>
               <span className="text-[#991E1E]"> {t('mbaPage.specializations.title').split(' ').slice(1).join(' ')}</span>
             </h2>
-            <p className="text-gray-600 text-lg max-w-4xl mx-auto">
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-4xl mx-auto">
               {t('mbaPage.specializations.subtitle')}
             </p>
             </div>
 
                       {/* Сетка специализаций - 2 колонки, 2 ряда */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-8 sm:mt-12 md:mt-16">
               {/* Специализация 1 */}
               <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: '#F9FAFB' }}>
-                <div className="h-64 overflow-hidden rounded-t-2xl">
+                <div className="h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
                   <img 
                     src="/images/BlockMbaF4.jpg" 
                     alt="Стратегическое управление" 
                     className="w-full h-full object-cover rounded-t-2xl rounded-b-2xl"
                   />
                   </div>
-                <div className="p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
-                  <div className="text-gray-500 text-sm mb-2">{t('mbaPage.specializations.tag')}</div>
-                  <h3 className="text-2xl font-bold text-[#E94848] mb-6">{t('mbaPage.specializations.strategicManagement.title')}</h3>
-                  <ul className="space-y-3">
+                <div className="p-4 sm:p-6 md:p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
+                  <div className="text-gray-500 text-xs sm:text-sm mb-2">{t('mbaPage.specializations.tag')}</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#E94848] mb-4 sm:mb-6">{t('mbaPage.specializations.strategicManagement.title')}</h3>
+                  <ul className="space-y-2 sm:space-y-3">
                     {t('mbaPage.specializations.strategicManagement.points', { returnObjects: true }).map((point, index) => (
                       <li key={index} className="flex items-start">
-                        <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-gray-700">{point}</span>
+                        <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                        <span className="text-gray-700 text-sm sm:text-base">{point}</span>
                       </li>
                     ))}
                 </ul>
@@ -704,21 +704,21 @@ const MBA = () => {
 
                           {/* Специализация 2 */}
               <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: '#F9FAFB' }}>
-                <div className="h-64 overflow-hidden rounded-t-2xl">
+                <div className="h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
                   <img 
                     src="/images/BMba2.png" 
                     alt="Цифровое управление" 
                     className="w-full h-full object-cover rounded-t-2xl rounded-b-2xl"
                   />
         </div>
-                <div className="p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
-                  <div className="text-gray-500 text-sm mb-2">{t('mbaPage.specializations.tag')}</div>
-                  <h3 className="text-2xl font-bold text-[#E94848] mb-6">{t('mbaPage.specializations.digitalManagement.title')}</h3>
-                  <ul className="space-y-3">
+                <div className="p-4 sm:p-6 md:p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
+                  <div className="text-gray-500 text-xs sm:text-sm mb-2">{t('mbaPage.specializations.tag')}</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#E94848] mb-4 sm:mb-6">{t('mbaPage.specializations.digitalManagement.title')}</h3>
+                  <ul className="space-y-2 sm:space-y-3">
                     {t('mbaPage.specializations.digitalManagement.points', { returnObjects: true }).map((point, index) => (
                       <li key={index} className="flex items-start">
-                        <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-gray-700">{point}</span>
+                        <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                        <span className="text-gray-700 text-sm sm:text-base">{point}</span>
                       </li>
                     ))}
                 </ul>
@@ -727,21 +727,21 @@ const MBA = () => {
 
                                                       {/* Специализация 3 */}
               <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: '#F9FAFB' }}>
-                <div className="h-64 overflow-hidden rounded-t-2xl">
+                <div className="h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
                   <img 
                     src="/images/BMba3.jpg" 
                     alt="Финансовые технологии" 
                     className="w-full h-full object-cover rounded-t-2xl rounded-b-2xl"
                   />
                 </div>
-                <div className="p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
-                  <div className="text-gray-500 text-sm mb-2">{t('mbaPage.specializations.tag')}</div>
-                  <h3 className="text-2xl font-bold text-[#E94848] mb-6">{t('mbaPage.specializations.finTech.title')}</h3>
-                  <ul className="space-y-3">
+                <div className="p-4 sm:p-6 md:p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
+                  <div className="text-gray-500 text-xs sm:text-sm mb-2">{t('mbaPage.specializations.tag')}</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#E94848] mb-4 sm:mb-6">{t('mbaPage.specializations.finTech.title')}</h3>
+                  <ul className="space-y-2 sm:space-y-3">
                     {t('mbaPage.specializations.finTech.points', { returnObjects: true }).map((point, index) => (
                       <li key={index} className="flex items-start">
-                        <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-gray-700">{point}</span>
+                        <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                        <span className="text-gray-700 text-sm sm:text-base">{point}</span>
                       </li>
                     ))}
                 </ul>
@@ -750,7 +750,7 @@ const MBA = () => {
 
                                                       {/* Специализация 4 */}
               <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: '#F9FAFB' }}>
-                <div className="h-64 overflow-hidden rounded-t-2xl">
+                <div className="h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
                   <img 
                     src="/images/BMba4.jpg" 
                     alt="Предпринимательство" 
@@ -758,14 +758,14 @@ const MBA = () => {
                     style={{ objectPosition: 'center 25%' }}
                   />
                 </div>
-                <div className="p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
-                  <div className="text-gray-500 text-sm mb-2">{t('mbaPage.specializations.tag')}</div>
-                  <h3 className="text-2xl font-bold text-[#E94848] mb-6">{t('mbaPage.specializations.entrepreneurship.title')}</h3>
-                  <ul className="space-y-3">
+                <div className="p-4 sm:p-6 md:p-8 rounded-t-2xl rounded-b-2xl" style={{ backgroundColor: '#F9FAFB' }}>
+                  <div className="text-gray-500 text-xs sm:text-sm mb-2">{t('mbaPage.specializations.tag')}</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#E94848] mb-4 sm:mb-6">{t('mbaPage.specializations.entrepreneurship.title')}</h3>
+                  <ul className="space-y-2 sm:space-y-3">
                     {t('mbaPage.specializations.entrepreneurship.points', { returnObjects: true }).map((point, index) => (
                       <li key={index} className="flex items-start">
-                        <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-gray-700">{point}</span>
+                        <div className="w-2 h-2 bg-[#E94848] rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                        <span className="text-gray-700 text-sm sm:text-base">{point}</span>
                       </li>
                     ))}
                 </ul>
@@ -775,38 +775,38 @@ const MBA = () => {
           </div>
         </div>
 
-      {/* Возможные выездные модули Section */}
-      <div className="py-24 px-8 bg-white">
+      {/* Возможные выездные модули Section - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Заголовок */}
-          <div className="text-left mb-16">
-            <h2 className="text-5xl font-bold">
+          <div className="text-left mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
               <span className="text-[#991E1E]">{t('mbaPage.studyAbroad.title').split(' ')[0]}</span>
               <span className="text-[#E94848]"> {t('mbaPage.studyAbroad.title').split(' ').slice(1).join(' ')}</span>
             </h2>
       </div>
 
           {/* Сетка университетов - 3 колонки */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Algebra Bernays */}
             <div className="bg-white rounded-2xl overflow-hidden">
-              <div className="h-64 overflow-hidden rounded-t-2xl">
+              <div className="h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
                 <img 
                   src="/images/ALGEBRA.jpg" 
                   alt="Algebra Bernays" 
                   className="w-full h-full object-cover rounded-t-2xl rounded-b-2xl"
                 />
               </div>
-              <div className="p-6 rounded-t-2xl rounded-b-2xl">
-                <h3 className="text-xl font-bold text-[#991E1E] mb-4">{t('mbaPage.studyAbroad.algebraBernays.title')}</h3>
-                <p className="text-[#6E767D] text-sm mb-6 leading-relaxed">
+              <div className="p-4 sm:p-6 rounded-t-2xl rounded-b-2xl">
+                <h3 className="text-lg sm:text-xl font-bold text-[#991E1E] mb-3 sm:mb-4">{t('mbaPage.studyAbroad.algebraBernays.title')}</h3>
+                <p className="text-[#6E767D] text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed">
                   {t('mbaPage.studyAbroad.algebraBernays.description')}
                 </p>
                 <a 
                   href="https://www.algebra.hr" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-block bg-[#E94848] text-white py-3 px-6 rounded-full font-medium hover:bg-[#D13A3A] transition-colors"
+                  className="inline-block bg-[#E94848] text-white py-2 sm:py-3 px-4 sm:px-6 rounded-full font-medium hover:bg-[#D13A3A] transition-colors text-sm sm:text-base"
                 >
                   {t('mbaPage.studyAbroad.algebraBernays.website')}
                 </a>
@@ -815,23 +815,23 @@ const MBA = () => {
 
             {/* University of New York in Prague */}
             <div className="bg-white rounded-2xl overflow-hidden">
-              <div className="h-64 overflow-hidden rounded-t-2xl">
+              <div className="h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
                 <img 
                   src="/images/UNYP.jpg" 
                   alt="University of New York in Prague" 
                   className="w-full h-full object-cover rounded-t-2xl rounded-b-2xl"
                 />
               </div>
-              <div className="p-6 rounded-t-2xl rounded-b-2xl">
-                <h3 className="text-xl font-bold text-[#991E1E] mb-4">{t('mbaPage.studyAbroad.unyp.title')}</h3>
-                <p className="text-[#6E767D] text-sm mb-6 leading-relaxed">
+              <div className="p-4 sm:p-6 rounded-t-2xl rounded-b-2xl">
+                <h3 className="text-lg sm:text-xl font-bold text-[#991E1E] mb-3 sm:mb-4">{t('mbaPage.studyAbroad.unyp.title')}</h3>
+                <p className="text-[#6E767D] text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed">
                   {t('mbaPage.studyAbroad.unyp.description')}
                 </p>
                 <a 
                   href="https://www.unyp.cz" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-block bg-[#E94848] text-white py-3 px-6 rounded-full font-medium hover:bg-[#D13A3A] transition-colors"
+                  className="inline-block bg-[#E94848] text-white py-2 sm:py-3 px-4 sm:px-6 rounded-full font-medium hover:bg-[#D13A3A] transition-colors text-sm sm:text-base"
                 >
                   {t('mbaPage.studyAbroad.unyp.website')}
                 </a>
@@ -840,23 +840,23 @@ const MBA = () => {
 
             {/* ZTE University */}
             <div className="bg-white rounded-2xl overflow-hidden">
-              <div className="h-64 overflow-hidden rounded-t-2xl">
+              <div className="h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
                 <img 
                   src="/images/ZTE.jpg" 
                   alt="ZTE University" 
                   className="w-full h-full object-cover rounded-t-2xl rounded-b-2xl"
                 />
               </div>
-              <div className="p-6 rounded-t-2xl rounded-b-2xl">
-                <h3 className="text-xl font-bold text-[#991E1E] mb-4">{t('mbaPage.studyAbroad.zte.title')}</h3>
-                <p className="text-[#6E767D] text-sm mb-6 leading-relaxed">
+              <div className="p-4 sm:p-6 rounded-t-2xl rounded-b-2xl">
+                <h3 className="text-lg sm:text-xl font-bold text-[#991E1E] mb-3 sm:mb-4">{t('mbaPage.studyAbroad.zte.title')}</h3>
+                <p className="text-[#6E767D] text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed">
                   {t('mbaPage.studyAbroad.zte.description')}
                 </p>
                 <a 
                   href="https://www.zte.com.cn/global/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-block bg-[#E94848] text-white py-3 px-6 rounded-full font-medium hover:bg-[#D13A3A] transition-colors"
+                  className="inline-block bg-[#E94848] text-white py-2 sm:py-3 px-4 sm:px-6 rounded-full font-medium hover:bg-[#D13A3A] transition-colors text-sm sm:text-base"
                 >
                   {t('mbaPage.studyAbroad.zte.website')}
                 </a>
@@ -866,26 +866,26 @@ const MBA = () => {
         </div>
       </div>
 
-      {/* Контактная секция */}
-      <div className="py-24 px-8" style={{ backgroundColor: '#F9FAFB' }}>
+      {/* Контактная секция - Enhanced Mobile Optimization */}
+      <div className="py-12 sm:py-16 md:py-24 px-3 sm:px-4 md:px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-7xl mx-auto">
           {/* Заголовок */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#991E1E] mb-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#991E1E] mb-4 sm:mb-6">
               {t('mbaPage.contact.title')}
             </h2>
-            <p className="text-[#6E767D] text-lg max-w-3xl mx-auto">
+            <p className="text-[#6E767D] text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
               {t('mbaPage.contact.subtitle')}
             </p>
           </div>
 
           {/* Форма заявки */}
           <div className="max-w-2xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <form className="space-y-6" onSubmit={handleContactSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg">
+              <form className="space-y-4 sm:space-y-6" onSubmit={handleContactSubmit}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('forms.name')} *
                     </label>
                     <input
@@ -894,12 +894,12 @@ const MBA = () => {
                       value={contactFormData.firstName}
                       onChange={(e) => handleContactInputChange('firstName', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('forms.namePlaceholderFull')}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('forms.lastName')} *
                     </label>
                     <input
@@ -908,15 +908,15 @@ const MBA = () => {
                       value={contactFormData.lastName}
                       onChange={(e) => handleContactInputChange('lastName', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('forms.lastNamePlaceholder')}
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('forms.email')} *
                     </label>
                     <input
@@ -925,12 +925,12 @@ const MBA = () => {
                       value={contactFormData.email}
                       onChange={(e) => handleContactInputChange('email', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('forms.emailPlaceholder')}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       {t('forms.phone')} *
                     </label>
                     <input
@@ -939,7 +939,7 @@ const MBA = () => {
                       value={contactFormData.phone}
                       onChange={(e) => handleContactInputChange('phone', e.target.value)}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#991E1E] focus:border-transparent outline-none transition-all text-sm sm:text-base"
                       placeholder={t('forms.phonePlaceholderForm')}
                     />
                   </div>
@@ -954,14 +954,14 @@ const MBA = () => {
                     required
                     className="w-4 h-4 text-[#991E1E] border-gray-300 rounded focus:ring-[#991E1E]"
                   />
-                  <label className="ml-2 text-sm text-gray-600">
+                  <label className="ml-2 text-xs sm:text-sm text-gray-600">
                     {t('forms.privacyAgreement')}
                   </label>
         </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#991E1E] text-white py-4 px-6 rounded-xl font-medium hover:bg-[#7A1818] transition-colors text-lg"
+                  className="w-full bg-[#991E1E] text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-medium hover:bg-[#7A1818] transition-colors text-sm sm:text-base md:text-lg"
                 >
                   {t('forms.submitApplication')}
                 </button>
@@ -969,38 +969,38 @@ const MBA = () => {
       </div>
 
             {/* Контактная информация */}
-            <div className="mt-12 text-center">
-              <h3 className="text-2xl font-bold text-[#991E1E] mb-6">
+            <div className="mt-8 sm:mt-12 text-center">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#991E1E] mb-4 sm:mb-6">
                 {t('mbaPage.contact.orContact')}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                 <div>
-                  <div className="w-12 h-12 bg-[#991E1E] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#991E1E] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{t('mbaPage.contact.phone')}</h4>
-                  <p className="text-[#6E767D]">{t('mbaPage.contact.phoneNumber')}</p>
+                  <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">{t('mbaPage.contact.phone')}</h4>
+                  <p className="text-[#6E767D] text-xs sm:text-sm">{t('mbaPage.contact.phoneNumber')}</p>
             </div>
                 <div>
-                  <div className="w-12 h-12 bg-[#991E1E] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#991E1E] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{t('mbaPage.contact.email')}</h4>
-                  <p className="text-[#6E767D]">{t('mbaPage.contact.emailAddress')}</p>
+                  <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">{t('mbaPage.contact.email')}</h4>
+                  <p className="text-[#6E767D] text-xs sm:text-sm">{t('mbaPage.contact.emailAddress')}</p>
             </div>
                 <div>
-                  <div className="w-12 h-12 bg-[#991E1E] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#991E1E] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{t('mbaPage.contact.address')}</h4>
-                  <p className="text-[#6E767D]">{t('mbaPage.contact.addressText')}</p>
+                  <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">{t('mbaPage.contact.address')}</h4>
+                  <p className="text-[#6E767D] text-xs sm:text-sm">{t('mbaPage.contact.addressText')}</p>
                 </div>
               </div>
             </div>

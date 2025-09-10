@@ -82,7 +82,7 @@ const ExecutiveMBACIO = () => {
       <Header />
 
       {/* Hero Section */}
-      <div className="relative h-screen flex items-end justify-center overflow-hidden pb-20">
+      <div className="relative h-screen flex items-end justify-center overflow-hidden pb-20 pt-24 sm:pt-28 md:pt-32">
         {/* Background Image */}
         <img 
           src="/images/ExecutiveCIO/hiro.png" 
@@ -94,25 +94,25 @@ const ExecutiveMBACIO = () => {
         <div className="absolute inset-0 bg-black/40"></div>
         
         {/* Content */}
-        <div className="relative z-10 text-center text-white px-8 max-w-4xl mx-auto">
-          <h1 className="text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+        <div className="relative z-10 text-center text-white px-3 sm:px-4 md:px-8 max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
             {t('executiveMbaCio.hero.title')}
           </h1>
-          <p className="text-2xl lg:text-2xl font-medium mb-8 opacity-90">
+          <p className="text-lg sm:text-xl md:text-2xl font-medium mb-6 sm:mb-8 opacity-90">
             {t('executiveMbaCio.hero.subtitle')}
           </p>
           
           {/* Download Button */}
           <button
             onClick={() => setShowPresentationModal(true)}
-            className="bg-[#991E1E] hover:bg-[#B91C1C] text-white px-8 py-4 rounded-full transition-all duration-300 flex items-center justify-center mx-auto space-x-3 shadow-lg"
+            className="bg-[#991E1E] hover:bg-[#B91C1C] text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 flex items-center justify-center mx-auto space-x-2 sm:space-x-3 shadow-lg"
           >
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
             </svg>
             <div className="text-left">
-              <div className="font-semibold text-lg">{t('executiveMbaCio.hero.downloadButton')}</div>
-              <div className="text-sm opacity-90 uppercase">
+              <div className="font-semibold text-sm sm:text-base md:text-lg">{t('executiveMbaCio.hero.downloadButton')}</div>
+              <div className="text-xs sm:text-sm opacity-90 uppercase">
                 {t('executiveMbaCio.hero.catalogInfo')}
               </div>
             </div>
